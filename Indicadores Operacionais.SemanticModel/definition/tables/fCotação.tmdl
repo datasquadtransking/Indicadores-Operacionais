@@ -1,0 +1,450 @@
+table fCotação
+	lineageTag: 2a9f6b4b-0809-44c4-b25e-d2a3405d4575
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: de929839-803a-4c21-ae3a-84c2805473e8
+		summarizeBy: none
+		sourceColumn: COTACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UNIDADE INCLUSAO'
+		dataType: string
+		lineageTag: d55011d0-6c17-45e2-8595-ee781ff49dd7
+		summarizeBy: none
+		sourceColumn: UNIDADE INCLUSAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USUARIO INCLUSAO'
+		dataType: string
+		lineageTag: d73c28c7-947d-4258-879e-3dd6fe51a1f4
+		summarizeBy: none
+		sourceColumn: USUARIO INCLUSAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ PAGADOR'
+		dataType: int64
+		formatString: 0
+		lineageTag: f6e11e62-a5b9-4a6a-a435-9879ac191656
+		summarizeBy: sum
+		sourceColumn: CNPJ PAGADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME PAGADOR'
+		dataType: string
+		lineageTag: 0ea6850c-1106-4b0a-9929-86ff116b54fd
+		summarizeBy: none
+		sourceColumn: NOME PAGADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ABC
+		dataType: string
+		lineageTag: f11eb88d-7093-4a09-8ed6-3529efbf3bee
+		summarizeBy: none
+		sourceColumn: ABC
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR
+		dataType: string
+		lineageTag: b44322f0-fa18-4548-bbd7-7790854a49f9
+		summarizeBy: none
+		sourceColumn: VENDEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORIGEM
+		dataType: string
+		lineageTag: 9c1ecb04-12cd-4564-90e5-600eb5af406e
+		summarizeBy: none
+		sourceColumn: ORIGEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PRACA COLETA'
+		dataType: string
+		lineageTag: c96a7612-582f-42ed-9a3c-c21feecb023f
+		summarizeBy: none
+		sourceColumn: PRACA COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PRACA COMERCIAL'
+		dataType: string
+		lineageTag: 9fb317e2-9911-444c-8d55-c298c4bad0f7
+		summarizeBy: none
+		sourceColumn: PRACA COMERCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESTINO
+		dataType: string
+		lineageTag: 8dd0f305-8140-4960-860a-76ad50a7fa3b
+		summarizeBy: none
+		sourceColumn: DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ DESTINATARIO'
+		dataType: string
+		lineageTag: a7f3dce9-6fb6-4b39-8b05-903404ad7de9
+		summarizeBy: none
+		sourceColumn: CNPJ DESTINATARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME DESTINATARIO'
+		dataType: string
+		lineageTag: fc662f6b-0188-43af-8b18-6b884b30f2f0
+		summarizeBy: none
+		sourceColumn: NOME DESTINATARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ED
+		dataType: string
+		lineageTag: 17c49310-4486-441e-9a94-529480166758
+		summarizeBy: none
+		sourceColumn: ED
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPO FRETE'
+		dataType: string
+		lineageTag: 8ff804c5-1dec-4ffc-8a00-86575ce3398a
+		summarizeBy: none
+		sourceColumn: TIPO FRETE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MERCADORIA
+		dataType: int64
+		formatString: 0
+		lineageTag: 5efea264-a354-48f9-a3be-cdf4a012d43b
+		summarizeBy: sum
+		sourceColumn: MERCADORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALOR NF'
+		dataType: int64
+		formatString: 0
+		lineageTag: c86a77a6-d6c6-4d02-9e78-a3e7d480e99b
+		summarizeBy: sum
+		sourceColumn: VALOR NF
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTD VOLUMES'
+		dataType: int64
+		formatString: 0
+		lineageTag: fa9ae436-8b59-4f1f-9eae-f3dcdcc50096
+		summarizeBy: sum
+		sourceColumn: QTD VOLUMES
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTD PARES'
+		dataType: int64
+		formatString: 0
+		lineageTag: 96da7580-3ce1-499f-ac8d-f545d7e76f45
+		summarizeBy: sum
+		sourceColumn: QTD PARES
+
+		annotation SummarizationSetBy = Automatic
+
+	column PESO
+		dataType: int64
+		formatString: 0
+		lineageTag: c9b401eb-7483-41a8-92a1-97c6e8c49fbe
+		summarizeBy: sum
+		sourceColumn: PESO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUBAGEM
+		dataType: double
+		lineageTag: d91a2a92-7c48-4696-aed6-82f84f3f45ce
+		summarizeBy: sum
+		sourceColumn: CUBAGEM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PESO CALCULO'
+		dataType: int64
+		formatString: 0
+		lineageTag: d01dd31d-928a-4a7b-90e0-9778a624b1f7
+		summarizeBy: sum
+		sourceColumn: PESO CALCULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FRETE NTC'
+		dataType: double
+		lineageTag: a78adadc-480c-48b5-b5ed-dcc4d18f7fba
+		summarizeBy: sum
+		sourceColumn: FRETE NTC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PROPOSTA INICIAL'
+		dataType: double
+		lineageTag: 0847e1ed-8cbc-428e-97b7-b3e2b06da170
+		summarizeBy: sum
+		sourceColumn: PROPOSTA INICIAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PROPOSTA ATUAL'
+		dataType: double
+		lineageTag: 2e6cf5d1-3247-47c7-b2b4-b03a5b99d5a5
+		summarizeBy: sum
+		sourceColumn: PROPOSTA ATUAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DESC NTC '
+		dataType: double
+		lineageTag: 12deffa9-7ac9-4e3c-929d-b92c0bd1c90a
+		summarizeBy: sum
+		sourceColumn: "DESC NTC "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'RC '
+		dataType: double
+		lineageTag: 5b76dca7-0892-4610-8000-4e66a377fb62
+		summarizeBy: sum
+		sourceColumn: "RC "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DESC INICIAL '
+		dataType: double
+		lineageTag: d87fd03f-6e8d-44ed-aac2-be0c6a8273df
+		summarizeBy: sum
+		sourceColumn: "DESC INICIAL "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'TABELA DE CALCULO '
+		dataType: string
+		lineageTag: 2fdb4c61-66e6-497f-a002-a31f6437b66c
+		summarizeBy: none
+		sourceColumn: "TABELA DE CALCULO "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATA HORA INCLUSAO'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4669bdcd-7412-4a8e-86ef-a5749a875937
+		summarizeBy: none
+		sourceColumn: DATA HORA INCLUSAO
+
+		variation Variation
+			isDefault
+			relationship: 4679cde1-8103-42d4-9212-e87b747d35bf
+			defaultHierarchy: LocalDateTable_c0a457d5-c820-4f0a-8d51-5aa0bf96afd6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALIDADE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 648afd24-0055-4371-b591-0c0b84c3779e
+		summarizeBy: none
+		sourceColumn: VALIDADE
+
+		variation Variation
+			isDefault
+			relationship: 7e708ab3-19dc-4d8b-afc8-95537951ee7f
+			defaultHierarchy: LocalDateTable_66d1e3c3-1331-4734-afa7-d9a058a08a1b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SITUACAO
+		dataType: string
+		lineageTag: 24a5f3bb-34a7-4a7c-b1b0-e403d4173afa
+		summarizeBy: none
+		sourceColumn: SITUACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTRC
+		dataType: string
+		lineageTag: 876e6017-ce61-44ab-bc72-ba54c981f599
+		summarizeBy: none
+		sourceColumn: CTRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATA EMISSAO CTRC'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e8872a27-8b6d-42d2-a223-2cee9517aff5
+		summarizeBy: none
+		sourceColumn: DATA EMISSAO CTRC
+
+		variation Variation
+			isDefault
+			relationship: 97245eac-3693-4792-b141-ff360c8a1fe7
+			defaultHierarchy: LocalDateTable_f15df0ed-9ee7-47e9-bbdd-fe55c9a67ad6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'FRETE CTRC'
+		dataType: double
+		lineageTag: 3673a1d2-f021-499f-9924-687019de134d
+		summarizeBy: sum
+		sourceColumn: FRETE CTRC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'RELATORIO COMISSAO'
+		dataType: string
+		lineageTag: 65e18a05-1096-4e80-acf7-6a4690ab6f21
+		summarizeBy: none
+		sourceColumn: RELATORIO COMISSAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UNIDADE RESPONSAVEL'
+		dataType: string
+		lineageTag: 9acf07d3-e041-4f40-accb-8dae5deabde8
+		summarizeBy: none
+		sourceColumn: UNIDADE RESPONSAVEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USUARIO ALTERACAO'
+		dataType: string
+		lineageTag: b11fe8b5-8568-4a56-a0bf-b772bf80d3ec
+		summarizeBy: none
+		sourceColumn: USUARIO ALTERACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OBSERVACAO.1'
+		dataType: string
+		lineageTag: 92e5f46d-ffd9-462b-9aa1-e9369b399ab9
+		summarizeBy: none
+		sourceColumn: OBSERVACAO.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OBSERVACAO.2'
+		dataType: string
+		lineageTag: 65a885e9-c4fd-4c83-9cce-901efbd67738
+		summarizeBy: none
+		sourceColumn: OBSERVACAO.2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OBSERVACAO.3'
+		dataType: string
+		lineageTag: ab6d1412-f37b-4dad-bb5a-627210994d09
+		summarizeBy: none
+		sourceColumn: OBSERVACAO.3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OBSERVACAO.4'
+		dataType: string
+		lineageTag: 2620fd87-7c12-4344-a73c-09fef3bf1c2e
+		summarizeBy: none
+		sourceColumn: OBSERVACAO.4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OBSERVACAO.5'
+		dataType: string
+		lineageTag: 0de39ab5-230a-4518-86b7-711dfa8816e2
+		summarizeBy: none
+		sourceColumn: OBSERVACAO.5
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OBSERVACAO.6'
+		dataType: string
+		lineageTag: 9a6265bb-e935-4dda-80ec-ddfce1df9645
+		summarizeBy: none
+		sourceColumn: OBSERVACAO.6
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OBSERVACAO.7'
+		dataType: string
+		lineageTag: b9b905d6-73d1-40a5-9ddc-67950dcc3cf9
+		summarizeBy: none
+		sourceColumn: OBSERVACAO.7
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		lineageTag: a5fad9d9-5298-4f7d-b7df-421798867709
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTATO
+		dataType: string
+		lineageTag: 6e9fc0bb-a6a9-4d9b-8fca-7a26f79ad55f
+		summarizeBy: none
+		sourceColumn: CONTATO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fCotação = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Cotação"),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (3)", each #"Transformar Arquivo (3)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo (3)"}),
+				    #"Transformar Arquivo (3) Expandido1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (3)", {"COTACAO", "UNIDADE INCLUSAO", "USUARIO INCLUSAO", "CNPJ PAGADOR", "NOME PAGADOR", "ABC", "VENDEDOR", "ORIGEM", "PRACA COLETA", "PRACA COMERCIAL", "DESTINO", "CNPJ DESTINATARIO", "NOME DESTINATARIO", "ED", "TIPO FRETE", "MERCADORIA", "VALOR NF", "QTD VOLUMES", "QTD PARES", "PESO", "CUBAGEM", "PESO CALCULO", "FRETE NTC", "PROPOSTA INICIAL", "PROPOSTA ATUAL", "DESC NTC ", "RC ", "DESC INICIAL ", "TABELA DE CALCULO ", "OBSERVACAO", "DATA HORA INCLUSAO", "VALIDADE", "SITUACAO", "CTRC", "DATA EMISSAO CTRC", "FRETE CTRC", "RELATORIO COMISSAO", "UNIDADE RESPONSAVEL", "USUARIO ALTERACAO", "CONTATO"}, {"COTACAO", "UNIDADE INCLUSAO", "USUARIO INCLUSAO", "CNPJ PAGADOR", "NOME PAGADOR", "ABC", "VENDEDOR", "ORIGEM", "PRACA COLETA", "PRACA COMERCIAL", "DESTINO", "CNPJ DESTINATARIO", "NOME DESTINATARIO", "ED", "TIPO FRETE", "MERCADORIA", "VALOR NF", "QTD VOLUMES", "QTD PARES", "PESO", "CUBAGEM", "PESO CALCULO", "FRETE NTC", "PROPOSTA INICIAL", "PROPOSTA ATUAL", "DESC NTC ", "RC ", "DESC INICIAL ", "TABELA DE CALCULO ", "OBSERVACAO", "DATA HORA INCLUSAO", "VALIDADE", "SITUACAO", "CTRC", "DATA EMISSAO CTRC", "FRETE CTRC", "RELATORIO COMISSAO", "UNIDADE RESPONSAVEL", "USUARIO ALTERACAO", "CONTATO"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Transformar Arquivo (3) Expandido1",{{"Nome da Origem", type text}, {"COTACAO", Int64.Type}, {"UNIDADE INCLUSAO", type text}, {"USUARIO INCLUSAO", type text}, {"CNPJ PAGADOR", Int64.Type}, {"NOME PAGADOR", type text}, {"ABC", type text}, {"VENDEDOR", type text}, {"ORIGEM", type text}, {"PRACA COLETA", type text}, {"PRACA COMERCIAL", type text}, {"DESTINO", type text}, {"CNPJ DESTINATARIO", type any}, {"NOME DESTINATARIO", type any}, {"ED", type any}, {"TIPO FRETE", type text}, {"MERCADORIA", Int64.Type}, {"VALOR NF", Int64.Type}, {"QTD VOLUMES", Int64.Type}, {"QTD PARES", Int64.Type}, {"PESO", Int64.Type}, {"CUBAGEM", type number}, {"PESO CALCULO", Int64.Type}, {"FRETE NTC", type number}, {"PROPOSTA INICIAL", type number}, {"PROPOSTA ATUAL", type number}, {"DESC NTC ", type number}, {"RC ", type number}, {"DESC INICIAL ", type number}, {"TABELA DE CALCULO ", type text}, {"OBSERVACAO", type text}, {"DATA HORA INCLUSAO", type datetime}, {"VALIDADE", type date}, {"SITUACAO", type text}, {"CTRC", type text}, {"DATA EMISSAO CTRC", type date}, {"FRETE CTRC", type number}, {"RELATORIO COMISSAO", type any}, {"UNIDADE RESPONSAVEL", type text}, {"USUARIO ALTERACAO", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Nome da Origem"}),
+				    #"Linhas Classificadas" = Table.Sort(#"Colunas Removidas",{{"DATA HORA INCLUSAO", Order.Descending}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Linhas Classificadas", {"COTACAO"}),
+				    #"Dividir Coluna por Delimitador" = Table.SplitColumn(#"Duplicatas Removidas", "OBSERVACAO", Splitter.SplitTextByDelimiter("-", QuoteStyle.Csv), {"OBSERVACAO.1", "OBSERVACAO.2", "OBSERVACAO.3", "OBSERVACAO.4", "OBSERVACAO.5", "OBSERVACAO.6", "OBSERVACAO.7", "OBSERVACAO.8"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador",{{"OBSERVACAO.1", type text}, {"OBSERVACAO.2", type text}, {"OBSERVACAO.3", type text}, {"OBSERVACAO.4", type text}, {"OBSERVACAO.5", type text}, {"OBSERVACAO.6", type text}, {"OBSERVACAO.7", type text}, {"OBSERVACAO.8", type text}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado1",{{"OBSERVACAO.8", "ID"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

@@ -1,0 +1,1372 @@
+table dCTEs
+	lineageTag: 54be2a6d-f197-441f-9958-c3fc3f402060
+
+	column 'Serie/Numero CTRC'
+		dataType: string
+		lineageTag: 431e95de-1dff-4538-a42f-2c1754e8c079
+		summarizeBy: none
+		sourceColumn: Serie/Numero CTRC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Serie/Numero CT-e'
+		dataType: string
+		lineageTag: 2dd262df-8e20-48b0-b692-3367cf318441
+		summarizeBy: none
+		sourceColumn: Serie/Numero CT-e
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo do Documento'
+		dataType: string
+		lineageTag: b6b6bdb6-aa35-41ff-95ec-0caee9113dc9
+		summarizeBy: none
+		sourceColumn: Tipo do Documento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Praca Expedidora'
+		dataType: string
+		lineageTag: 82dd06f2-ce09-496c-9f3c-926e53ab3ff8
+		summarizeBy: none
+		sourceColumn: Praca Expedidora
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Emissora'
+		dataType: string
+		lineageTag: c26a1774-ced7-484c-bce9-a1d2d55fc2bb
+		summarizeBy: none
+		sourceColumn: Unidade Emissora
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data de Emissao'
+		dataType: string
+		lineageTag: 3079d14d-7350-4755-959a-d5564b630ab0
+		summarizeBy: none
+		sourceColumn: Data de Emissao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hora de Emissao'
+		dataType: string
+		lineageTag: dacf254e-4dba-4ca4-99f3-0bd803bb2471
+		summarizeBy: none
+		sourceColumn: Hora de Emissao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data de Autorizacao'
+		dataType: string
+		lineageTag: 68513cff-a18a-4a8c-b37e-222e6d92d685
+		summarizeBy: none
+		sourceColumn: Data de Autorizacao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hora de Autorizacao'
+		dataType: string
+		lineageTag: 7cda4c1a-2e09-4606-bfce-7ff0c7a8c761
+		summarizeBy: none
+		sourceColumn: Hora de Autorizacao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Login
+		dataType: string
+		lineageTag: f2eb4b0c-6b31-4dbd-ad49-43b61b53fc0c
+		summarizeBy: none
+		sourceColumn: Login
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero de Controle'
+		dataType: string
+		lineageTag: 500fd6d3-28ea-4282-b44f-f9f068edbb60
+		summarizeBy: none
+		sourceColumn: Numero de Controle
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa de Coleta'
+		dataType: string
+		lineageTag: f8e74098-984b-4fbb-a9d0-136ccc78f496
+		summarizeBy: none
+		sourceColumn: Placa de Coleta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chave CT-e'
+		dataType: string
+		lineageTag: e6baddf8-dc9d-4db6-8788-aa7ff22bbfaf
+		summarizeBy: none
+		sourceColumn: Chave CT-e
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Remetente'
+		dataType: string
+		lineageTag: 88b84956-c555-43ed-b9dc-d057d39dfe8c
+		summarizeBy: none
+		sourceColumn: CNPJ Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Remetente'
+		dataType: string
+		lineageTag: 5da4f879-b8c6-407e-aae8-4015e9f52e3d
+		summarizeBy: none
+		sourceColumn: Cliente Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endereco do Remetente'
+		dataType: string
+		lineageTag: 5dda7669-a549-4784-a145-118412fab98e
+		summarizeBy: none
+		sourceColumn: Endereco do Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bairro do Remetente'
+		dataType: string
+		lineageTag: df071959-2bd7-4512-9d3d-4a7779b871cb
+		summarizeBy: none
+		sourceColumn: Bairro do Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Setor de Coleta'
+		dataType: string
+		lineageTag: c35df8e3-487c-4221-8877-276fcf5af43f
+		summarizeBy: none
+		sourceColumn: Setor de Coleta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Remetente'
+		dataType: string
+		lineageTag: 820592d2-b9b1-4507-bb54-f5ae4af082a3
+		summarizeBy: none
+		sourceColumn: Cidade do Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Remetente'
+		dataType: string
+		lineageTag: 22029748-7ff3-44ba-8cbb-4b38c59c18b2
+		summarizeBy: none
+		sourceColumn: UF do Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP do Remetente'
+		dataType: string
+		lineageTag: 35fbd9a4-0c59-4f55-acd1-ebfacd7c2749
+		summarizeBy: none
+		sourceColumn: CEP do Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Expedidor'
+		dataType: string
+		lineageTag: 78ad28eb-ed97-4240-b4b6-50abac101036
+		summarizeBy: none
+		sourceColumn: CNPJ Expedidor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Expedidor'
+		dataType: string
+		lineageTag: c30ea4ce-667e-4281-8a94-0a5d8ffb37d3
+		summarizeBy: none
+		sourceColumn: Cliente Expedidor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Expedidor'
+		dataType: string
+		lineageTag: 48c3efc3-128f-4355-b1e7-e239fa5c4727
+		summarizeBy: none
+		sourceColumn: Cidade do Expedidor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Expedidor'
+		dataType: string
+		lineageTag: 97c1bb09-cacd-4394-adc6-6cc46c0278b3
+		summarizeBy: none
+		sourceColumn: UF do Expedidor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Pagador'
+		dataType: string
+		lineageTag: d53c5525-8ab0-4a12-a9e1-58c948c390ab
+		summarizeBy: none
+		sourceColumn: CNPJ Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Pagador'
+		dataType: string
+		lineageTag: af7c4160-ae5a-4d03-ac1e-54d1cd488dd6
+		summarizeBy: none
+		sourceColumn: Cliente Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endereco do Pagador'
+		dataType: string
+		lineageTag: 8ed403a6-f415-4600-b0bb-14854ba0de80
+		summarizeBy: none
+		sourceColumn: Endereco do Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bairro do Pagador'
+		dataType: string
+		lineageTag: ff2bd719-83e7-44d2-bb85-3fbed0425198
+		summarizeBy: none
+		sourceColumn: Bairro do Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Pagador'
+		dataType: string
+		lineageTag: 0738b5b6-d231-4960-9a95-44f712485c83
+		summarizeBy: none
+		sourceColumn: Cidade do Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Pagador'
+		dataType: string
+		lineageTag: a001a413-0817-4514-84a5-a2e56f143ba8
+		summarizeBy: none
+		sourceColumn: UF do Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fone do Pagador'
+		dataType: string
+		lineageTag: 626f8885-1f07-45cf-81ff-c98d53d078e9
+		summarizeBy: none
+		sourceColumn: Fone do Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segmento do Pagador'
+		dataType: string
+		lineageTag: f2c3ea98-ee35-441f-abab-7ddd751d45df
+		summarizeBy: none
+		sourceColumn: Segmento do Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Destinatario'
+		dataType: string
+		lineageTag: 2c61485b-ca6e-477e-ab6f-4394770d27cd
+		summarizeBy: none
+		sourceColumn: CNPJ Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Destinatario'
+		dataType: string
+		lineageTag: 4aaf9d41-bf0c-4dbf-a503-0703dd4e06a7
+		summarizeBy: none
+		sourceColumn: Cliente Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endereco do Destinatario'
+		dataType: string
+		lineageTag: 3ebfa3fe-d450-4c2d-ba35-9e6c919107f1
+		summarizeBy: none
+		sourceColumn: Endereco do Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bairro do Destinatario'
+		dataType: string
+		lineageTag: 27c3b95e-4b53-4b16-8f3c-24caea7449b6
+		summarizeBy: none
+		sourceColumn: Bairro do Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Setor de Destino'
+		dataType: string
+		lineageTag: 01d088c6-925c-4250-9cb5-38f7686b92c1
+		summarizeBy: none
+		sourceColumn: Setor de Destino
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Praca de Destino'
+		dataType: string
+		lineageTag: 6e7b8ed9-71aa-4ad3-abab-d8cfdb4cf5cd
+		summarizeBy: none
+		sourceColumn: Praca de Destino
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Destinatario'
+		dataType: string
+		lineageTag: ae6e086e-cc77-4b3f-b592-0cc8de8ceb96
+		summarizeBy: none
+		sourceColumn: Cidade do Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Destinatario'
+		dataType: string
+		lineageTag: 6ad8e7ab-49a8-4a21-9f4b-49acaa7f88d5
+		summarizeBy: none
+		sourceColumn: UF do Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP do Destinatario'
+		dataType: string
+		lineageTag: 0be56803-326a-41f8-adc6-4998a348b469
+		summarizeBy: none
+		sourceColumn: CEP do Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fone do Destinatario'
+		dataType: string
+		lineageTag: 8be45b16-445a-4102-a530-c92db3080ae7
+		summarizeBy: none
+		sourceColumn: Fone do Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Recebedor'
+		dataType: string
+		lineageTag: fce4e10c-5b50-492e-b996-7eeb18bb5a94
+		summarizeBy: none
+		sourceColumn: CNPJ Recebedor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Recebedor'
+		dataType: string
+		lineageTag: f7457113-4eba-4fb3-a788-752bc85cea26
+		summarizeBy: none
+		sourceColumn: Cliente Recebedor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local de Entrega'
+		dataType: string
+		lineageTag: da59e042-8171-4d8f-a2ec-243c2d064cc9
+		summarizeBy: none
+		sourceColumn: Local de Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Endereco
+		dataType: string
+		lineageTag: ad63ebbb-2c43-4429-b56c-3feadd7ea300
+		summarizeBy: none
+		sourceColumn: Endereco
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bairro
+		dataType: string
+		lineageTag: 39e0df13-9ce5-46e1-af97-d51c98e3d86b
+		summarizeBy: none
+		sourceColumn: Bairro
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade de Entrega'
+		dataType: string
+		lineageTag: 9354f845-c96d-4325-9fa9-a0881c8292d5
+		summarizeBy: none
+		sourceColumn: Cidade de Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF de Entrega'
+		dataType: string
+		lineageTag: e78d9ac0-3c44-47ac-b40f-6f7b6fbdd8ea
+		summarizeBy: none
+		sourceColumn: UF de Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP de Entrega'
+		dataType: string
+		lineageTag: 21f36e2a-5eec-45a0-ac41-3777504c8b1d
+		summarizeBy: none
+		sourceColumn: CEP de Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Receptora'
+		dataType: string
+		lineageTag: fe5f90c4-d7ce-4d62-ac6a-65e7876581bf
+		summarizeBy: none
+		sourceColumn: Unidade Receptora
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CFOP
+		dataType: string
+		lineageTag: 6ee10226-af71-4182-a473-b13a3a123ddc
+		summarizeBy: none
+		sourceColumn: CFOP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero da Nota Fiscal'
+		dataType: string
+		lineageTag: 35cb8661-91e5-4f91-904e-c1245df02218
+		summarizeBy: none
+		sourceColumn: Numero da Nota Fiscal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Peso Real em Kg'
+		dataType: string
+		lineageTag: 13ea14f6-5561-48b5-a356-77acea70b17d
+		summarizeBy: none
+		sourceColumn: Peso Real em Kg
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cubagem em m3'
+		dataType: string
+		lineageTag: f56607cc-ecc7-454c-ab2e-717cb2688d93
+		summarizeBy: none
+		sourceColumn: Cubagem em m3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantidade de Volumes'
+		dataType: string
+		lineageTag: 2db8b616-da8e-4365-8959-3c02182b0ad8
+		summarizeBy: none
+		sourceColumn: Quantidade de Volumes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantidade de Pares'
+		dataType: string
+		lineageTag: 1a446831-f88f-423d-8265-bf47366a1ae5
+		summarizeBy: none
+		sourceColumn: Quantidade de Pares
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo do Frete'
+		dataType: string
+		lineageTag: 8873137e-9eb8-46d9-a42b-6ebe444ae349
+		summarizeBy: none
+		sourceColumn: Tipo do Frete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de Baixa'
+		dataType: string
+		lineageTag: 015be783-844f-4a77-a26d-cf801ea85d49
+		summarizeBy: none
+		sourceColumn: Tipo de Baixa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data da Liquidacao'
+		dataType: string
+		lineageTag: bbf64b61-b8ba-4409-9959-c3ba1099b7e9
+		summarizeBy: none
+		sourceColumn: Data da Liquidacao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor Liquidado'
+		dataType: string
+		lineageTag: 1b2d7ce7-fb55-4c43-8969-fd5ea6850713
+		summarizeBy: none
+		sourceColumn: Valor Liquidado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mercadoria
+		dataType: string
+		lineageTag: 84c7a4e6-223b-45d0-b8a7-13455abbc7ff
+		summarizeBy: none
+		sourceColumn: Mercadoria
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Especie
+		dataType: string
+		lineageTag: 6c99acf2-a0a7-49fa-abe4-8e2f6c10289f
+		summarizeBy: none
+		sourceColumn: Especie
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor da Mercadoria'
+		dataType: string
+		lineageTag: af50a18c-d4c9-4304-962d-249690aee322
+		summarizeBy: none
+		sourceColumn: Valor da Mercadoria
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de Calculo'
+		dataType: string
+		lineageTag: 4ee4a3f5-1764-4034-a5ee-aca02098ff8f
+		summarizeBy: none
+		sourceColumn: Tipo de Calculo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tabela de Calculo'
+		dataType: string
+		lineageTag: 4b5a204a-c089-4525-a22c-43ba95de7238
+		summarizeBy: none
+		sourceColumn: Tabela de Calculo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor do Frete'
+		dataType: string
+		lineageTag: 15d459ab-aeca-4856-8d8f-034452d72538
+		summarizeBy: none
+		sourceColumn: Valor do Frete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor do Frete sem ICMS'
+		dataType: string
+		lineageTag: a390ba45-e715-4007-8be0-7351af35b7b8
+		summarizeBy: none
+		sourceColumn: Valor do Frete sem ICMS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base de Calculo'
+		dataType: string
+		lineageTag: 7d629829-ae5a-4f47-a082-8489250c4518
+		summarizeBy: none
+		sourceColumn: Base de Calculo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor do ICMS'
+		dataType: string
+		lineageTag: 3c447b39-26fd-4803-8612-6856ca890787
+		summarizeBy: none
+		sourceColumn: Valor do ICMS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aliquota
+		dataType: string
+		lineageTag: e6a1aadb-23fd-4269-9273-d05aaa929a10
+		summarizeBy: none
+		sourceColumn: Aliquota
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor do ISS'
+		dataType: string
+		lineageTag: 0f537b96-d92e-4436-ac09-928fcad576b8
+		summarizeBy: none
+		sourceColumn: Valor do ISS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Peso Calculado em Kg'
+		dataType: string
+		lineageTag: 9a140979-f7b8-47b3-9267-7192e6cf6f50
+		summarizeBy: none
+		sourceColumn: Peso Calculado em Kg
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Modalidade
+		dataType: string
+		lineageTag: f066096d-a088-4826-b3b6-27dbbe2feb7a
+		summarizeBy: none
+		sourceColumn: Modalidade
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Fiscal'
+		dataType: string
+		lineageTag: 1254b5ff-25c3-495b-bd3b-119d68ab0eba
+		summarizeBy: none
+		sourceColumn: Unidade Fiscal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inscricao Unidade Emissora'
+		dataType: string
+		lineageTag: 5e58155a-ab29-4efc-806e-0b5185036b57
+		summarizeBy: none
+		sourceColumn: Inscricao Unidade Emissora
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frete Peso'
+		dataType: string
+		lineageTag: c0b69bb7-7c44-4bfe-a42e-e2ece86b7b8e
+		summarizeBy: none
+		sourceColumn: Frete Peso
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frete Valor'
+		dataType: string
+		lineageTag: 32195153-a623-4009-9187-f801eaaee846
+		summarizeBy: none
+		sourceColumn: Frete Valor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Despacho
+		dataType: string
+		lineageTag: 56470420-a6e4-4f6a-a3da-45b4a90928c5
+		summarizeBy: none
+		sourceColumn: Despacho
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAT
+		dataType: string
+		lineageTag: 409c40f5-2547-4f64-838e-7f0cd2514bd7
+		summarizeBy: none
+		sourceColumn: CAT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITR
+		dataType: string
+		lineageTag: 258b34c8-c755-49be-ac52-dc87b893fd4d
+		summarizeBy: none
+		sourceColumn: ITR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRIS
+		dataType: string
+		lineageTag: 652f561a-8f0a-4a14-8b57-833067b1376a
+		summarizeBy: none
+		sourceColumn: GRIS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pedagio
+		dataType: string
+		lineageTag: 373cb0f1-16bf-41b1-8227-b56663773b3a
+		summarizeBy: none
+		sourceColumn: Pedagio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAS
+		dataType: string
+		lineageTag: 98b348de-df96-4da5-b521-531731647da6
+		summarizeBy: none
+		sourceColumn: TAS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TDA
+		dataType: string
+		lineageTag: 0eac75aa-38c5-4d48-85f7-b8c7fb194b27
+		summarizeBy: none
+		sourceColumn: TDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suframa
+		dataType: string
+		lineageTag: 306b70cf-daa8-4974-af85-b6a0f0873ae0
+		summarizeBy: none
+		sourceColumn: Suframa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dev Canhoto NF'
+		dataType: string
+		lineageTag: 0b32a09f-09cf-4c93-9be6-ad3dc9d9fa48
+		summarizeBy: none
+		sourceColumn: Dev Canhoto NF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reembolso
+		dataType: string
+		lineageTag: 75c4d10c-f539-4cf7-af2b-10a24b069004
+		summarizeBy: none
+		sourceColumn: Reembolso
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Outros
+		dataType: string
+		lineageTag: 96e214bc-5597-415a-af9d-9bf04c1dbcdf
+		summarizeBy: none
+		sourceColumn: Outros
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coleta
+		dataType: string
+		lineageTag: 0e9a58bb-a383-4bb0-aadd-983d5e0be556
+		summarizeBy: none
+		sourceColumn: Coleta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TDC
+		dataType: string
+		lineageTag: 96146b86-8649-44f5-974c-a2a7c82c6aff
+		summarizeBy: none
+		sourceColumn: TDC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TDE
+		dataType: string
+		lineageTag: 367b0072-3cf9-440f-b6f4-8a507ba3aad6
+		summarizeBy: none
+		sourceColumn: TDE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAR
+		dataType: string
+		lineageTag: 541e10da-2fd1-42dc-a217-e613b4b44e09
+		summarizeBy: none
+		sourceColumn: TAR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRT
+		dataType: string
+		lineageTag: d1f8e6b1-9089-41c9-8ba4-d2a963dc0d51
+		summarizeBy: none
+		sourceColumn: TRT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column POS
+		dataType: string
+		lineageTag: b47c9302-6c1d-4e7c-9a75-971a7c9b7009
+		summarizeBy: none
+		sourceColumn: POS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Adicional de Frete'
+		dataType: string
+		lineageTag: ae540ffa-0767-4c42-9d6d-14d41ff92ab2
+		summarizeBy: none
+		sourceColumn: Adicional de Frete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Celular do Destinatario'
+		dataType: string
+		lineageTag: 01536ed7-1212-406e-b4ff-00377538d721
+		summarizeBy: none
+		sourceColumn: Celular do Destinatario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC Pagador'
+		dataType: string
+		lineageTag: e05b5adf-dccf-4220-b76c-e23c22c0f074
+		summarizeBy: none
+		sourceColumn: ABC Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF origem da prestacao'
+		dataType: string
+		lineageTag: eb09380b-5983-418f-8734-b9569e9544a6
+		summarizeBy: none
+		sourceColumn: UF origem da prestacao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade origem da prestacao'
+		dataType: string
+		lineageTag: efecd931-e20a-4ad4-abb8-630f6fe51933
+		summarizeBy: none
+		sourceColumn: Cidade origem da prestacao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IE cliente remetente'
+		dataType: string
+		lineageTag: 17e86a8d-7588-4d6b-8cc7-e6c0a15fd395
+		summarizeBy: none
+		sourceColumn: IE cliente remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lote RPS'
+		dataType: string
+		lineageTag: ee1b3a78-9e80-4792-84f7-31738c70b374
+		summarizeBy: none
+		sourceColumn: Lote RPS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fone Remetente'
+		dataType: string
+		lineageTag: a2610a7f-8d6c-43e2-ada1-0ad9c5cc49c8
+		summarizeBy: none
+		sourceColumn: Fone Remetente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Agendamento
+		dataType: string
+		lineageTag: 3d4b5ee2-c524-4767-96b9-6a522f2e2fe2
+		summarizeBy: none
+		sourceColumn: Agendamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Responsavel Pagador'
+		dataType: string
+		lineageTag: 724e1901-57d3-44f8-95b0-5afee4f07ddf
+		summarizeBy: none
+		sourceColumn: Unidade Responsavel Pagador
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Imposto Repassado'
+		dataType: string
+		lineageTag: 37e1c6d1-68fb-4e94-bc94-9f5d340658fa
+		summarizeBy: none
+		sourceColumn: Imposto Repassado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Praca Comercial Origem'
+		dataType: string
+		lineageTag: 497ac9eb-585a-4bdf-ad97-e34ec1d8a83c
+		summarizeBy: none
+		sourceColumn: Praca Comercial Origem
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Praca Comercial Destino'
+		dataType: string
+		lineageTag: c6f7758e-6847-484c-a59b-9104ee414e7d
+		summarizeBy: none
+		sourceColumn: Praca Comercial Destino
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frete NTC'
+		dataType: string
+		lineageTag: 50d8b391-0af4-42bc-9992-20e0226d64f2
+		summarizeBy: none
+		sourceColumn: Frete NTC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frete Entrega'
+		dataType: string
+		lineageTag: a27eb0e4-9a79-4420-ba7e-e247cd8fedeb
+		summarizeBy: none
+		sourceColumn: Frete Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Separacao
+		dataType: string
+		lineageTag: 5defdfd5-1a25-4d3c-bde5-654b91fa953a
+		summarizeBy: none
+		sourceColumn: Separacao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Capatazia
+		dataType: string
+		lineageTag: 4217b8a7-cbd6-457c-8667-7a119fc48316
+		summarizeBy: none
+		sourceColumn: Capatazia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Veiculo Dedicado'
+		dataType: string
+		lineageTag: 7ecfefbc-9739-49ff-bd60-65334f0c7510
+		summarizeBy: none
+		sourceColumn: Veiculo Dedicado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Paletizacao
+		dataType: string
+		lineageTag: 4db32347-15c8-42d1-ba44-ddb1a4a45b22
+		summarizeBy: none
+		sourceColumn: Paletizacao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CO2
+		dataType: string
+		lineageTag: fdfec10a-80d1-4139-9a71-a9f7badce028
+		summarizeBy: none
+		sourceColumn: CO2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RDC
+		dataType: string
+		lineageTag: abb2ce54-caf2-4f45-9e10-dcb15d0ec706
+		summarizeBy: none
+		sourceColumn: RDC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primeiro Manifesto'
+		dataType: string
+		lineageTag: 6bf58910-e903-421f-937b-0162c74510a2
+		summarizeBy: none
+		sourceColumn: Primeiro Manifesto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data do Primeiro Manifesto'
+		dataType: string
+		lineageTag: 55339f2e-5524-4e7a-88a3-41dea54dfdb1
+		summarizeBy: none
+		sourceColumn: Data do Primeiro Manifesto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Origem do Primeiro Manifesto'
+		dataType: string
+		lineageTag: b2c3b33e-ef35-4820-9346-b2641f23443b
+		summarizeBy: none
+		sourceColumn: Unidade Origem do Primeiro Manifesto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa do Cavalo'
+		dataType: string
+		lineageTag: 650611dd-a34c-414b-8f27-4af6f9d9b410
+		summarizeBy: none
+		sourceColumn: Placa do Cavalo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa da Carreta'
+		dataType: string
+		lineageTag: d11e467d-18ff-49b0-a713-72dd101e957a
+		summarizeBy: none
+		sourceColumn: Placa da Carreta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Conferente de Carga'
+		dataType: string
+		lineageTag: f2e48c8b-5ae7-40a1-9a72-8d3eea587b04
+		summarizeBy: none
+		sourceColumn: Conferente de Carga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Conferente de Descarga'
+		dataType: string
+		lineageTag: bd93af57-d4dd-497d-bdf1-34150a40d22d
+		summarizeBy: none
+		sourceColumn: Conferente de Descarga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ultimo Manifesto'
+		dataType: string
+		lineageTag: 776a034d-68f8-4bda-822b-18a0b84f8e69
+		summarizeBy: none
+		sourceColumn: Ultimo Manifesto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data do Ultimo Manifesto'
+		dataType: string
+		lineageTag: f7a381a4-eea5-457f-95d9-70202abca754
+		summarizeBy: none
+		sourceColumn: Data do Ultimo Manifesto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Destino do Ultimo Manifesto'
+		dataType: string
+		lineageTag: 87fa7c7e-7a8e-4add-9dce-d243638b8538
+		summarizeBy: none
+		sourceColumn: Unidade Destino do Ultimo Manifesto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ultimo Romaneio'
+		dataType: string
+		lineageTag: 99a407ea-8be5-46b5-9cde-ace59866abcf
+		summarizeBy: none
+		sourceColumn: Ultimo Romaneio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data do Ultimo Romaneio'
+		dataType: string
+		lineageTag: c2440432-4698-4cc5-82f9-e1738d203571
+		summarizeBy: none
+		sourceColumn: Data do Ultimo Romaneio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa de Entrega'
+		dataType: string
+		lineageTag: 06643c83-3e57-4e00-8f20-26611581874e
+		summarizeBy: none
+		sourceColumn: Placa de Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RELACIONAMENTO
+		dataType: string
+		lineageTag: 50018919-c12e-4431-adcd-54b896e6b327
+		summarizeBy: none
+		sourceColumn: RELACIONAMENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Codigo da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: 583f92b4-c608-495a-956b-c30005afc54b
+		summarizeBy: none
+		sourceColumn: Codigo da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data de inclusao da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: 2c29b49f-ced4-4105-8bb7-d3e9ab4ebcf9
+		summarizeBy: none
+		sourceColumn: Data de inclusao da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: f8810af6-03d1-4784-baf5-6ac952e43c96
+		summarizeBy: none
+		sourceColumn: Data da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Usuario da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: 631b7ad4-ec11-4865-9282-7f241aa25229
+		summarizeBy: none
+		sourceColumn: Usuario da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCTEs = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\002\03-CTRC"),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (9)", each #"Transformar Arquivo (9)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo (9)"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (9)", Table.ColumnNames(#"Transformar Arquivo (9)"(#"Arquivo de Amostra (10)"))),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Coluna de Tabela Expandida1",{{"Nome da Origem", type text}, {"Column1", Int64.Type}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}, {"Column25", type text}, {"Column26", type text}, {"Column27", type text}, {"Column28", type text}, {"Column29", type text}, {"Column30", type text}, {"Column31", type text}, {"Column32", type text}, {"Column33", type text}, {"Column34", type text}, {"Column35", type text}, {"Column36", type text}, {"Column37", type text}, {"Column38", type text}, {"Column39", type text}, {"Column40", type text}, {"Column41", type text}, {"Column42", type text}, {"Column43", type text}, {"Column44", type text}, {"Column45", type text}, {"Column46", type text}, {"Column47", type text}, {"Column48", type text}, {"Column49", type text}, {"Column50", type text}, {"Column51", type text}, {"Column52", type text}, {"Column53", type text}, {"Column54", type text}, {"Column55", type text}, {"Column56", type text}, {"Column57", type text}, {"Column58", type text}, {"Column59", type text}, {"Column60", type text}, {"Column61", type text}, {"Column62", type text}, {"Column63", type text}, {"Column64", type text}, {"Column65", type text}, {"Column66", type text}, {"Column67", type text}, {"Column68", type text}, {"Column69", type text}, {"Column70", type text}, {"Column71", type text}, {"Column72", type text}, {"Column73", type text}, {"Column74", type text}, {"Column75", type text}, {"Column76", type text}, {"Column77", type text}, {"Column78", type text}, {"Column79", type text}, {"Column80", type text}, {"Column81", type text}, {"Column82", type text}, {"Column83", type text}, {"Column84", type text}, {"Column85", type text}, {"Column86", type text}, {"Column87", type text}, {"Column88", type text}, {"Column89", type text}, {"Column90", type text}, {"Column91", type text}, {"Column92", type text}, {"Column93", type text}, {"Column94", type text}, {"Column95", type text}, {"Column96", type text}, {"Column97", type text}, {"Column98", type text}, {"Column99", type text}, {"Column100", type text}, {"Column101", type text}, {"Column102", type text}, {"Column103", type text}, {"Column104", type text}, {"Column105", type text}, {"Column106", type text}, {"Column107", type text}, {"Column108", type text}, {"Column109", type text}, {"Column110", type text}, {"Column111", type text}, {"Column112", type text}, {"Column113", type text}, {"Column114", type text}, {"Column115", type text}, {"Column116", type text}, {"Column117", type text}, {"Column118", type text}, {"Column119", type text}, {"Column120", type text}, {"Column121", type text}, {"Column122", type text}, {"Column123", type text}, {"Column124", type text}, {"Column125", type text}, {"Column126", type text}, {"Column127", type text}, {"Column128", type text}, {"Column129", type text}, {"Column130", type text}, {"Column131", type text}, {"Column132", type text}, {"Column133", type text}, {"Column134", type text}, {"Column135", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Nome da Origem", "Column1"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Removidas", each ([Column2] <> "TRANSKING TRANSPORTES LTDA    ")),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Filtradas", [PromoteAllScalars=true]),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Cabeçalhos Promovidos", {"Placa do Cavalo"}, dVinculo, {"PLACA"}, "dVeículos", JoinKind.LeftOuter),
+				    #"dVeículos Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "dVeículos", {"RELACIONAMENTO"}, {"RELACIONAMENTO"}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"dVeículos Expandido",null,"TERCEIRO",Replacer.ReplaceValue,{"RELACIONAMENTO"})
+				in
+				    #"Valor Substituído"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

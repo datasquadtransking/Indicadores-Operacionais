@@ -1,0 +1,60 @@
+table dVinculo
+	lineageTag: 2c2d3772-e97e-4cd5-8888-ea083b16570f
+
+	column PLACA
+		dataType: string
+		lineageTag: 8f49fa9d-756a-4517-b8ce-7eb385a79066
+		summarizeBy: none
+		sourceColumn: PLACA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO
+		dataType: string
+		lineageTag: a367f7f4-1742-4c65-ba84-37245b81334d
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RELACIONAMENTO
+		dataType: string
+		lineageTag: ece48dfc-155d-4677-b6e8-4df7d3dd908c
+		summarizeBy: none
+		sourceColumn: RELACIONAMENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dVinculo = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Bases BI"),
+				    #"Linhas Filtradas1" = Table.SelectRows(Fonte, each ([Name] = "dVeiculos Frota.csv")),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(#"Linhas Filtradas1", each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (8)", each #"Transformar Arquivo (8)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo (8)"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (8)", Table.ColumnNames(#"Transformar Arquivo (8)"(#"Arquivo de Amostra (9)"))),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Coluna de Tabela Expandida1",{{"Nome da Origem", type text}, {"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Nome da Origem", "Column1"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Colunas Removidas", [PromoteAllScalars=true]),
+				    #"Cabeçalhos Promovidos1" = Table.PromoteHeaders(#"Cabeçalhos Promovidos", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos1",{{"PLACA", type text}, {"TIPO", type text}, {"RELACIONAMENTO", type text}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each ([TIPO] <> "03/abr") and ([PLACA] <> "ARMAZEM"))
+				in
+				    #"Linhas Filtradas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

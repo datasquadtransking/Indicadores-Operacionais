@@ -1,0 +1,71 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Medidas
+
+	annotation PBI_QueryGroupOrder = 8
+
+queryGroup TABELAS
+
+	annotation PBI_QueryGroupOrder = 3
+
+annotation PBI_QueryOrder = ["Medidas","fColetas","dCTEs","dClientes","dVeiculos","fCotação","Transformar Arquivo (3)","dCurva","Arquivo de Amostra (5)","Transformar Arquivo (4)","Arquivo de Amostra (6)","Transformar Arquivo (5)","dVinculo","Justificativas de Entrega","Arquivo de Amostra (9)","Transformar Arquivo (8)","Arquivo de Amostra (10)","Transformar Arquivo (9)","fOcorrencias_AgDescarga","dMotoristas","Arquivo de Amostra","Transformar Arquivo","Justificativas Coleta","Atalizado Em:","fOcorrencias_ChegNaColeta"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table DateTableTemplate_389cc35c-2d01-466c-a874-3fac193dabfa
+ref table fColetas
+ref table Medidas
+ref table 'dCalendário Coletas'
+ref table dClientes
+ref table fCotação
+ref table LocalDateTable_66d1e3c3-1331-4734-afa7-d9a058a08a1b
+ref table LocalDateTable_f15df0ed-9ee7-47e9-bbdd-fe55c9a67ad6
+ref table dVeiculos
+ref table LocalDateTable_c0a457d5-c820-4f0a-8d51-5aa0bf96afd6
+ref table dCurva
+ref table dCTEs
+ref table dVinculo
+ref table 'dCalendário Entregas'
+ref table fOcorrencias_AgDescarga
+ref table LocalDateTable_b6e76ef4-2b58-4185-b111-31a31b4153de
+ref table LocalDateTable_8142e128-1d75-41a7-866b-fef53315adba
+ref table 'Justificativas de Entrega'
+ref table LocalDateTable_c787c1bf-e4e6-4db7-bc6c-c7998f2ffe8c
+ref table LocalDateTable_51679197-ff8d-4b53-bf7f-5333f891d441
+ref table LocalDateTable_0173a924-1a25-40a0-a910-6969ab4c88cc
+ref table LocalDateTable_d63f89d4-6f44-4f72-a660-71574eba691c
+ref table LocalDateTable_039e8c08-00cb-4006-901c-26e4b6acf03b
+ref table LocalDateTable_ea13d445-7f3d-4b2e-a699-ac3e56debbbd
+ref table LocalDateTable_21c2051f-cd5f-42ca-8eb6-5bd596d45d08
+ref table dMotoristas
+ref table LocalDateTable_053c9e2c-642f-42fe-ae28-ae03e01ef44a
+ref table LocalDateTable_6dabcec8-5d39-45f0-b7ca-09013a2a29e6
+ref table LocalDateTable_98f8f614-3b81-47dd-9de1-68f00980c944
+ref table LocalDateTable_f7cd41c4-48df-42bf-84a7-eaa404a33976
+ref table LocalDateTable_56703644-213d-4f53-885b-84fc725fc90c
+ref table LocalDateTable_9892d34b-1c3a-4625-9b3c-07e6a79a3569
+ref table LocalDateTable_bb047262-a15a-4fe8-aaf0-333213662ed6
+ref table LocalDateTable_bfe1a7b7-bfa0-4b08-a292-b89bfa6a6ae7
+ref table LocalDateTable_b9ce46ee-6b2b-4db3-a37b-227d2b0c256b
+ref table LocalDateTable_1bf702eb-0a17-418e-8975-c9a8989069cb
+ref table LocalDateTable_47c35e16-33b3-48e8-b34e-8df704fc659b
+ref table 'Justificativas Coleta'
+ref table LocalDateTable_873214c8-1a9e-4341-bc40-9a8eea1581d2
+ref table 'Atalizado Em:'
+ref table LocalDateTable_40c1aa09-57e7-4e09-a092-5bae3d4febb6
+ref table fOcorrencias_ChegNaColeta
+ref table LocalDateTable_9b4f3efb-cd09-4e4d-a0f9-80a86bdc4158
+ref table LocalDateTable_4dc428dc-cd80-4e26-b9af-1fc42e9dec7a
+
+ref cultureInfo pt-BR
+

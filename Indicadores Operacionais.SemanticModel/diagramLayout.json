@@ -1,0 +1,222 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 579.43987165686542,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1278.4620078231624,
+            "y": 436.54565614217927
+          },
+          "nodeIndex": "dCurva",
+          "nodeLineageTag": "a2cc4313-ac9d-4499-9076-46a6e40e617f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 579.04712914585548,
+            "y": 353.81953710734126
+          },
+          "nodeIndex": "fColetas",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 349.38944991996772
+          },
+          "nodeIndex": "dClientes",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 459.38780570646071,
+            "y": 715.09131228435842
+          },
+          "nodeIndex": "fCotação",
+          "nodeLineageTag": "2a9f6b4b-0809-44c4-b25e-d2a3405d4575",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1562.4620078231624,
+            "y": 362.54565614217927
+          },
+          "nodeIndex": "Medidas",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1004.4620078231624,
+            "y": 353.89204903624426
+          },
+          "nodeIndex": "dCalendário Coletas",
+          "nodeLineageTag": "67b04347-ac4e-411b-8875-d269cac0e9a7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 173.69706756567143,
+            "y": 704.29571741091752
+          },
+          "nodeIndex": "dCalendário Entregas",
+          "nodeLineageTag": "038173a1-4ba7-4c26-a14a-76da7bbdb2c3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 171.09582867980009,
+            "y": 0
+          },
+          "nodeIndex": "Justificativas de Entrega",
+          "nodeLineageTag": "8d33351f-b3f8-4898-8939-86903b4de832",
+          "size": {
+            "height": 300,
+            "width": 424.50995139314978
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1846.4620078231624,
+            "y": 362.54565614217927
+          },
+          "nodeIndex": "dCTEs",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 748.8868837015234,
+            "y": 710.08816760852221
+          },
+          "nodeIndex": "fOcorrencias_AgDescarga",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 2130.4620078231624,
+            "y": 362.54565614217927
+          },
+          "nodeIndex": "dMotoristas",
+          "nodeLineageTag": "72908ca0-41cc-425a-b01c-2592f632aaec",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2414.4620078231624,
+            "y": 436.54565614217927
+          },
+          "nodeIndex": "dVinculo",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 957.68894880928292,
+            "y": 171.73730809067047
+          },
+          "nodeIndex": "dVeiculos",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 681.79534115649585,
+            "y": 0
+          },
+          "nodeIndex": "Justificativas Coleta",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 2688.4620078231624,
+            "y": 455.54565614217921
+          },
+          "nodeIndex": "Atalizado Em:",
+          "nodeLineageTag": "c301a6d3-ef1c-492c-94f6-5c2e54ec1194",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 2962.4620078231624,
+            "y": 383.54565614217921
+          },
+          "nodeIndex": "fOcorrencias_ChegNaColeta",
+          "nodeLineageTag": "d0236f78-0830-4204-b557-27e3293f8ced",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 16
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 74.002499442581836,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": true,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

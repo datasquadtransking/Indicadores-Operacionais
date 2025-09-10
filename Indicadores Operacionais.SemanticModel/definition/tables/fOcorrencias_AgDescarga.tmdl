@@ -1,0 +1,83 @@
+table fOcorrencias_AgDescarga
+	lineageTag: f5ebd6e4-c70d-447b-badd-1ffca9b40d45
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: ab707d6a-ac5d-43be-8549-f1d97ec4b05c
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: ddf2640c-f23f-4c97-b8a1-c71eb50a4543
+		summarizeBy: sum
+		sourceColumn: COTACAO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data e hora de entrega'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a8ea835b-db8f-4270-beb9-c16a7dd230d9
+		summarizeBy: none
+		sourceColumn: Data e hora de entrega
+
+		variation Variation
+			isDefault
+			relationship: a9feed70-84d6-4883-9614-b2292152d31f
+			defaultHierarchy: LocalDateTable_b6e76ef4-2b58-4185-b111-31a31b4153de.'Hierarquia de datas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 809dde23-0b6e-41d7-8332-8773ba37b4ee
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: e043da28-3b7f-48d8-9df3-8800180e7645
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fOcorrencias_AgDescarga = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Ocorrencias\Ocorrencias - AGUARDANDO DESCARGA.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUMERO_COLETA", Int64.Type}, {"COTACAO", Int64.Type}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"CHAVE", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"CHAVE"}),
+				    #"Colunas Mescladas" = Table.CombineColumns(Table.TransformColumnTypes(#"Colunas Removidas", {{"DATA_ULTIMA_OCORRENCIA", type text}, {"HORA_ULTIMA_OCORRENCIA", type text}}, "pt-BR"),{"DATA_ULTIMA_OCORRENCIA", "HORA_ULTIMA_OCORRENCIA"},Combiner.CombineTextByDelimiter(" ", QuoteStyle.None),"Data e hora de entrega"),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Mescladas",{{"Data e hora de entrega", type datetime}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado1", {"COTACAO"})
+				in
+				    #"Duplicatas Removidas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,48 @@
+table 'Atalizado Em:'
+	lineageTag: c301a6d3-ef1c-492c-94f6-5c2e54ec1194
+
+	measure SlaRodolfoD- = [QtdNoPrazoEmAndamento] / [TOTAL_COLETAS]
+		formatString: 0%;-0%;0%
+		lineageTag: 15d71c7b-f188-4485-8d86-ab2dbca7f50e
+
+	measure SlaEntregaD- = [NoPrazoEntregaPeriodo]/[QtdTotalD-]
+		formatString: 0%;-0%;0%
+		lineageTag: a5af8a53-1cf1-4a9b-a3ef-c953035ae2b2
+
+	measure %ComTempo = ```
+			[QtdComTempo] / ([QtdComTempo]+[QtdsEMTempo])
+			
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a37517c3-8111-4ee4-b485-8b8bc63ac227
+
+	column 'Atualizado em:'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d6a32c07-6781-4aac-9bdf-0c3cc1316205
+		summarizeBy: none
+		sourceColumn: Atualizado em:
+
+		variation Variation
+			isDefault
+			relationship: 9287d9f2-9cd0-4f21-b42f-08b82a8abaa6
+			defaultHierarchy: LocalDateTable_40c1aa09-57e7-4e09-a092-5bae3d4febb6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Atalizado Em:' = m
+		mode: import
+		source =
+				let
+				    Fonte = DateTimeZone.RemoveZone(DateTimeZone.ToLocal(DateTimeZone.FixedLocalNow())) - #duration(0,3,0,0),
+				    #"Convertido para Tabela" = #table(1, {{Fonte}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Convertido para Tabela",{{"Column1", type datetime}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"Column1", "Atualizado em:"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

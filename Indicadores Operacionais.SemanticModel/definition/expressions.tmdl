@@ -1,0 +1,151 @@
+expression 'Transformar Arquivo (3)' =
+		let
+		    Fonte = (Parâmetro3 as binary) => let
+		    Fonte = Csv.Document(Parâmetro3,[Delimiter=";", Columns=40, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: 56c0ee2f-f574-454c-8e65-8ae19e4c5d2c
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Arquivo de Amostra (5)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\BI"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 1431f058-6300-4017-9c33-f520f86c55ef
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo (4)' =
+		let
+		    Fonte = (Parâmetro4 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro4, null, true),
+		    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: 27f6db33-97d1-40ff-8162-4f634b23514d
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Arquivo de Amostra (6)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Bases BI"),
+		    #"Linhas Filtradas" = Table.SelectRows(Fonte, each ([Name] = "Clientes.csv")),
+		    Navegação1 = #"Linhas Filtradas"{0}[Content]
+		in
+		    Navegação1
+	lineageTag: c475c29a-6486-49c5-8765-8f2ecb3f4f79
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo (5)' =
+		let
+		    Fonte = (Parâmetro5 as binary) => let
+		    Fonte = Csv.Document(Parâmetro5,[Delimiter=";", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: a70877cf-873a-4fea-96bc-e3083190ef0e
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Arquivo de Amostra (9)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Bases BI"),
+		    #"Linhas Filtradas" = Table.SelectRows(Fonte, each ([Name] = "dVeiculos Frota.csv")),
+		    Navegação1 = #"Linhas Filtradas"{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 4cd4cac4-9edc-45d8-bac8-bb9ba9c66700
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo (8)' =
+		let
+		    Fonte = (Parâmetro8 as binary) => let
+		    Fonte = Csv.Document(Parâmetro8,[Delimiter=";", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 5bb052db-b938-4722-b623-dc26a830ceee
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Arquivo de Amostra (10)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\002\03-CTRC"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 1ff0a1f1-85c4-4198-9841-466a980b5edf
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo (9)' =
+		let
+		    Fonte = (Parâmetro9 as binary) => let
+		    Fonte = Csv.Document(Parâmetro9,[Delimiter=";", Columns=135, Encoding=1252, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 8eb1a282-10b1-49c8-a039-14df55da9ada
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Arquivo de Amostra' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Bases BI"),
+		    #"Linhas Filtradas" = Table.SelectRows(Fonte, each ([Name] = "motoristastki100132.csv")),
+		    Navegação1 = #"Linhas Filtradas"{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 7d85954d-a5d3-4dcd-9c2a-13459cfc7bfd
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo' =
+		let
+		    Fonte = (Parâmetro1 as binary) => let
+		    Fonte = Csv.Document(Parâmetro1,[Delimiter=";", Columns=71, Encoding=1252, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: efac4122-a195-4fd7-831d-45b50c9603ba
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navegação
+

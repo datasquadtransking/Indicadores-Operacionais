@@ -1,0 +1,945 @@
+table Medidas
+	excludeFromModelRefresh
+	lineageTag: de310a4c-2880-4fb8-967a-d3bf57d6434f
+
+	measure %NOPRAZO_ENTREGA = ```
+			
+			VAR TotalItens = COUNTROWS('fColetas')
+			VAR TotalOTD = CALCULATE(COUNTROWS('fColetas'), 'fColetas'[PERFORMANCE_DE_ENTREGA] = "ENTREGA NO PRAZO")
+			VAR TotalOTD2 = CALCULATE(COUNTROWS('fColetas'), 'fColetas'[PERFORMANCE_DE_ENTREGA] = "DENTRO DO PRAZO PARA ENTREGAR")
+			VAR SumOTD = TotalOTD + TotalOTD2
+			VAR PERCENTOTD = DIVIDE(SumOTD, TotalItens)
+			VAR TotalColetas = COUNTROWS('fColetas') -- Conta o número total de coletas
+			RETURN
+			IF(
+			    TotalColetas = 0,   -- Verifica se não existem valores na coluna 'fColetas[NÚMERO COLETA]'
+			    BLANK(),            -- Retorna BLANK() se não houver valores
+			    IF(
+			        ISBLANK(PERCENTOTD),  -- Verifica se PERCENTOTD é nulo
+			        0,                     -- Retorna zero se for nulo
+			        PERCENTOTD             -- Caso contrário, retorna o valor calculado de PERCENTOTD
+			    )
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 0. KPIs
+		lineageTag: 5ae087e9-56a5-4711-9fb7-3ec39ab210f3
+
+	measure NOPRAZO_ENTREGAS = ```
+			
+			IF(
+			    CALCULATE(
+			        COUNTA('fColetas'[PERFORMANCE_DE_ENTREGA]),
+			        'fColetas'[PERFORMANCE_DE_ENTREGA] IN { "ENTREGA NO PRAZO" }
+			    ) = 0,
+			    0,
+			    CALCULATE(
+			        COUNTA('fColetas'[PERFORMANCE_DE_ENTREGA]),
+			        'fColetas'[PERFORMANCE_DE_ENTREGA] IN { "ENTREGA NO PRAZO" }
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: 53e15b33-797c-4bbe-b7da-e888e3defd48
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure ATRASOS_ENTREGA = ```
+			
+			IF(
+			    CALCULATE(
+			        COUNT('fColetas'[PERFORMANCE_DE_ENTREGA]),
+			        'fColetas'[PERFORMANCE_DE_ENTREGA] IN { "ENTREGA COM ATRASO" }
+			    ) = 0,
+			    0,
+			    CALCULATE(
+			        COUNT('fColetas'[PERFORMANCE_DE_ENTREGA]),
+			        'fColetas'[PERFORMANCE_DE_ENTREGA] IN { "ENTREGA COM ATRASO" }
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: 7a4e62fc-5fca-4609-b356-bf9277cdd510
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure NOPRAZO_COLETAS = ```
+			
+			VAR ColetasNoPrazo = 
+			    CALCULATE(
+			        DISTINCTCOUNT('fColetas'[COTACAO]),
+			        'fColetas'[PERFORMANCE_DE_COLETA] = "COLETA NO PRAZO"
+			    )
+			
+			RETURN
+			IF(
+			    ISBLANK(ColetasNoPrazo),
+			    0,
+			    ColetasNoPrazo
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: d4014520-474c-45bc-8a1c-100cd24bd5bc
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure ATRASOS_COLETA = ```
+			
+			VAR ColetasComAtraso = 
+			    CALCULATE(
+			        DISTINCTCOUNT('fColetas'[COTACAO]),
+			        'fColetas'[PERFORMANCE_DE_COLETA] = "COLETA COM ATRASO" 
+			    )
+			
+			RETURN
+			IF(
+			    ISBLANK(ColetasComAtraso),
+			    0,
+			    ColetasComAtraso
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: ffbfa3ff-7a8c-463c-a2e5-c253d99f6d9e
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure %NOPRAZO_COLETA = ```
+			
+			VAR TotalItens = DISTINCTCOUNT('fColetas'[COTACAO])
+			VAR TotalOTC = CALCULATE(DISTINCTCOUNT('fColetas'[COTACAO]), 'fColetas'[PERFORMANCE_DE_COLETA] = "Coleta no Prazo")
+			VAR TotalOTC2 = CALCULATE(DISTINCTCOUNT('fColetas'[COTACAO]), 'fColetas'[PERFORMANCE_DE_COLETA] = "Dentro do Prazo para Coletar")
+			VAR SumOTC = TotalOTC + TotalOTC2
+			VAR PERCENTOTC = DIVIDE(SumOTC, TotalItens)
+			VAR TotalColetas = DISTINCTCOUNT('fColetas'[COTACAO]) -- Conta o número total de coletas (COTACAO)
+			RETURN
+			IF(
+			    TotalColetas = 0,   -- Verifica se não existem valores na coluna 'fColetas[COTACAO]'
+			    BLANK(),            -- Retorna BLANK() se não houver valores
+			    IF(
+			        ISBLANK(PERCENTOTC),  -- Verifica se PERCENTOTC é nulo
+			        0,                     -- Retorna zero se for nulo
+			        PERCENTOTC             -- Caso contrário, retorna o valor calculado de PERCENTOTC
+			    )
+			)
+			
+			```
+		formatString: 0%;-0%;0%
+		displayFolder: 0. KPIs
+		lineageTag: 45aaa2b6-65ad-4e36-834a-b270c733d2a0
+
+	measure NOPRAZO_NAOENTREGUES = ```
+			
+			CALCULATE(
+			    IF(
+			        COUNTROWS(
+			            FILTER(
+			                'fColetas',
+			                'fColetas'[PERFORMANCE_DE_ENTREGA] = "DENTRO DO PRAZO PARA ENTREGAR"
+			            )
+			        ) > 0,
+			        COUNTROWS(
+			            FILTER(
+			                'fColetas',
+			                'fColetas'[PERFORMANCE_DE_ENTREGA] = "DENTRO DO PRAZO PARA ENTREGAR"
+			            )
+			        ),
+			        0
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: ea219c64-7ab8-4cda-8f1e-43b327c9dd3e
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure ATRASO_NAOENTREGUES = ```
+			
+			CALCULATE(
+			    IF(
+			        COUNTROWS(
+			            FILTER(
+			                'fColetas',
+			                'fColetas'[PERFORMANCE_DE_ENTREGA] = "NAO ENTREGUE E EM ATRASO"
+			            )
+			        ) > 0,
+			        COUNTROWS(
+			            FILTER(
+			                'fColetas',
+			                'fColetas'[PERFORMANCE_DE_ENTREGA] = "NAO ENTREGUE E EM ATRASO"
+			            )
+			        ),
+			        0
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: dc7fc49c-6889-4978-a118-baecab867248
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure ATRASO_NAOCOLETADAS = ```
+			
+			VAR ColetasAtrasadas = 
+			    CALCULATE(
+			        DISTINCTCOUNT(fColetas[COTACAO]),
+			        'fColetas'[PERFORMANCE_DE_COLETA] = "NÃO COLETADA E EM ATRASO"
+			    )
+			
+			RETURN
+			IF(
+			    ColetasAtrasadas > 0,
+			    ColetasAtrasadas,
+			    0
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: ef4f2dd7-dcc6-42d3-9fe1-865bf8fe4631
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure NOPRAZO_NAOCOLETADAS = ```
+			
+			VAR ColetasDentroPrazo = 
+			    CALCULATE(
+			        DISTINCTCOUNT('fColetas'[COTACAO]),
+			        'fColetas'[PERFORMANCE_DE_COLETA] = "DENTRO DO PRAZO PARA COLETAR"
+			    )
+			
+			RETURN
+			IF(
+			    ISBLANK(ColetasDentroPrazo),
+			    0,
+			    ColetasDentroPrazo
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: a4481444-88e2-4150-84ff-0ec966961c73
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure TOTAL_COLETAS = DISTINCTCOUNT(fColetas[COTACAO])
+		formatString: 0
+		displayFolder: 3. Totais
+		lineageTag: 0d284499-dcff-4fe3-9035-57b8ad2b3cdb
+
+	measure TOTAL_ENTREGAS = [ATRASOS_ENTREGA]+[NOPRAZO_ENTREGAS]+[ATRASO_NAOENTREGUES]+[NOPRAZO_NAOENTREGUES]
+		formatString: 0
+		displayFolder: 3. Totais
+		lineageTag: 0984630a-371e-4e98-827e-97113972d12c
+
+	measure META_COLETA = 0.92
+		formatString: #,0%;-#,0%;#,0%
+		displayFolder: 2. Valores Fixos
+		lineageTag: 57aca198-0aa3-40f2-b16e-365685ca9bd9
+
+	measure MAX = 1
+		formatString: 0
+		displayFolder: 2. Valores Fixos
+		lineageTag: 4301b8f0-4634-4bde-86b4-798784647c3e
+
+	measure MIN = 0
+		formatString: 0
+		displayFolder: 2. Valores Fixos
+		lineageTag: 715a1cca-8571-412c-a025-577efa6ecd16
+
+	measure META_ENTREGA = 0.96
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 2. Valores Fixos
+		lineageTag: bab04190-1b6f-46ff-9c27-23d5b17af6fe
+
+	measure TOTAL_ATRASO_COLETA = [ATRASOS_COLETA]+[ATRASO_NAOCOLETADAS]
+		formatString: 0
+		displayFolder: 3. Totais
+		lineageTag: fd6e6849-c6e7-4ea6-822e-0fec011169e2
+
+	measure JUSTIFICADAS_COLETA =
+			
+			CALCULATE(
+			    COUNTROWS('Justificativas de Coleta'),
+			    'Justificativas de Coleta'[Justificada?] = "Sim"
+			)
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: 85e9b627-f1e9-47d3-9e32-0546bb5788cc
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure COLETAS_ABONADAS =
+			COUNTROWS(
+			    FILTER(
+			        'Justificativas de Coleta',
+			        'Justificativas de Coleta'[Abonar?] = "SIM"
+			    )
+			)
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: cb191ec7-5c48-475c-ab2f-c744383e6707
+
+	measure %JUSTIFICADOS_COLETA = ```
+			
+			VAR TOTAL = COUNTROWS('Justificativas de Coleta')
+			VAR JUSTIFICADAS = CALCULATE(COUNTROWS('Justificativas de Coleta'),'Justificativas de Coleta'[Justificada?]="Sim")
+			RETURN DIVIDE(JUSTIFICADAS, TOTAL)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 0. KPIs
+		lineageTag: 36dc6092-acf2-46b9-8f3f-9c82d947892e
+
+	measure %JUSTIFICADOS_ENTREGA = ```
+			
+			VAR TOTAL = COUNTROWS('Justificativas de Entrega')
+			VAR JUSTIFICADAS = CALCULATE(COUNTROWS('Justificativas de Entrega'),'Justificativas de Entrega'[Justificada?]="Sim")
+			RETURN DIVIDE(JUSTIFICADAS, TOTAL)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 0. KPIs
+		lineageTag: 3fc568d4-2846-428e-a15b-a56ae0c19e5b
+
+	measure ENTREGAS_ABONADAS = ```
+			
+			VAR TOTAL_ABONADOS = 
+			    CALCULATE(
+			        COUNTROWS(fColetas),
+			        fColetas[ABONAR_ENTREGA] = "Sim"
+			    )
+			RETURN 
+			    IF(TOTAL_ABONADOS = 0, 0, TOTAL_ABONADOS)
+			
+			```
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: 52443100-31e7-4c31-8ddc-5146d93560ba
+
+	measure NAOJUSTIFICADAS_COLETA =
+			
+			VAR TOTAL = CALCULATE(
+			    COUNTROWS('Justificativas de Coleta'),
+			    'Justificativas de Coleta'[Justificada?] = "Não"
+			)
+			
+			RETURN IF(TOTAL = 0, 0, TOTAL)
+		displayFolder: 1. Contagem
+		lineageTag: e42ed05f-c70e-4b30-ba71-0678a9c4e8e2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure NAOJUSTIFICADAS_ENTREGA =
+			
+			
+			VAR TOTAL = CALCULATE(
+			    COUNTROWS('Justificativas de Entrega'),
+			    'Justificativas de Entrega'[Justificada?] = "Não"
+			)
+			
+			RETURN IF(TOTAL=0, 0, TOTAL)
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: 66c9334e-b24f-4fa2-a909-1e0f86f94a29
+
+	measure JUSTIFICADAS_ENTREGA =
+			
+			CALCULATE(
+			    COUNTROWS('Justificativas de Entrega'),
+			    'Justificativas de Entrega'[Justificada?] = "Sim"
+			)
+		formatString: 0
+		displayFolder: 1. Contagem
+		lineageTag: 7dda920e-bd67-4c88-bb11-917e218677e9
+
+		extendedProperty MeasureTemplate =
+				{
+				  "daxTemplateName": "FilteredMeasure",
+				  "version": 0
+				}
+
+		changedProperty = FormatString
+
+	measure TOTAL_ATRASO_ENTREGA = [ATRASOS_ENTREGA]+[ATRASO_NAOENTREGUES]
+		formatString: 0
+		displayFolder: 3. Totais
+		lineageTag: ac1dc306-fd02-4607-b5c5-83fa4d62ff5b
+
+	measure %ATRASOS_COLETA = ```
+			
+			VAR ColetasComAtraso = [ATRASOS_COLETA] + [ATRASO_NAOCOLETADAS]
+			VAR TotalColetas = [TOTAL_COLETAS]
+			
+			RETURN 
+			IF(
+			    ISBLANK(TotalColetas) || TotalColetas = 0,
+			    0,
+			    DIVIDE(ColetasComAtraso, TotalColetas, 0)
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 0. KPIs
+		lineageTag: 9fc5ab06-b7e7-405d-8c4c-8ec06649d225
+
+	measure %DISTANCIA_META_COLETA = ```
+			
+			VAR Resultado = [META_COLETA] - [%NOPRAZO_COLETA]
+			RETURN IF(Resultado <= 0, "Na Meta", Resultado)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 0. KPIs
+		lineageTag: 135c9bf1-09b8-4743-95b3-0f1f8d98b0d1
+
+	measure QUARTIL_COLETA = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [%NOPRAZO_COLETA] < 0.6, "Q4 - Crítico",
+			    [%NOPRAZO_COLETA] >= 0.6 && [%NOPRAZO_COLETA] < 0.7, "Q3 - Abaixo do Esperado",
+			    [%NOPRAZO_COLETA] >= 0.7 && [%NOPRAZO_COLETA] < 0.8, "Q2 - Moderado",
+			    [%NOPRAZO_COLETA] >= 0.8, "Q1 - Excelente"
+			)
+			
+			```
+		displayFolder: 2. Valores Fixos
+		lineageTag: 001816ec-0c46-4345-93b5-7c9e2f9fcaf0
+
+	measure TOTAL_NOPRAZO_COLETAS = [NOPRAZO_COLETAS]+[NOPRAZO_NAOCOLETADAS]
+		formatString: 0
+		displayFolder: 3. Totais
+		lineageTag: 5a80f8e6-39d2-4c1e-86e7-06f557ad4938
+
+	measure %DISTANCIA_META_ENTREGA = ```
+			
+			VAR Resultado = [META_ENTREGA] - [%NOPRAZO_ENTREGA]
+			RETURN IF(Resultado < 0, "Na Meta", Resultado)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 0. KPIs
+		lineageTag: 024a1dff-c42f-467d-b88e-ecec5a8032ee
+
+	measure %ATRASOS_ENTREGA = ```
+			
+			VAR EntregasComAtraso = [ATRASOS_ENTREGA] + [ATRASO_NAOENTREGUES]
+			VAR TotalEntregas = [TOTAL_ENTREGAS]
+			
+			RETURN 
+			IF(
+			    ISBLANK(TotalEntregas) || TotalEntregas = 0,
+			    0,
+			    DIVIDE(EntregasComAtraso, TotalEntregas, 0)
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 0. KPIs
+		lineageTag: c3cc9496-fcec-40a2-9e6c-15a81586f261
+
+	measure QUARTIL_ENTREGA = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [%NOPRAZO_ENTREGA] < 0.7, "Q4 - Crítico",
+			    [%NOPRAZO_ENTREGA] >= 0.7 && [%NOPRAZO_COLETA] < 0.8, "Q3 - Abaixo do Esperado",
+			    [%NOPRAZO_ENTREGA] >= 0.8 && [%NOPRAZO_COLETA] < 0.9, "Q2 - Moderado",
+			    [%NOPRAZO_ENTREGA] >= 0.9, "Q1 - Excelente"
+			)
+			
+			```
+		displayFolder: 2. Valores Fixos
+		lineageTag: 6ca06366-e476-4144-8d9c-36f5e4ed95ef
+
+	measure %NOPRAZO_COLETA_D0 = ```
+			
+			VAR TotalItens = CALCULATE(
+			    DISTINCTCOUNT(fColetas[COTACAO]),
+			    MONTH('dCalendário Coletas'[Date]) = MONTH(TODAY()),
+			    YEAR('dCalendário Coletas'[Date]) = YEAR(TODAY())
+			)
+			VAR TotalOTC = CALCULATE(
+			    DISTINCTCOUNT(fColetas[COTACAO]),
+			    'fColetas'[PERFORMANCE_DE_COLETA] = "Coleta no Prazo",
+			    MONTH('dCalendário Coletas'[Date]) = MONTH(TODAY()),
+			    YEAR('dCalendário Coletas'[Date]) = YEAR(TODAY())
+			)
+			VAR TotalOTC2 = CALCULATE(
+			    DISTINCTCOUNT(fColetas[COTACAO]),
+			    'fColetas'[PERFORMANCE_DE_COLETA] = "Dentro do Prazo para Coletar",
+			    MONTH('dCalendário Coletas'[Date]) = MONTH(TODAY()),
+			    YEAR('dCalendário Coletas'[Date]) = YEAR(TODAY())
+			)
+			VAR SumOTC = TotalOTC + TotalOTC2
+			VAR PERCENTOTC = DIVIDE(SumOTC, TotalItens)
+			VAR TotalColetas = TotalItens  -- Já conta o número total de coletas do mês atual
+			RETURN
+			IF(
+			    TotalColetas = 0,   -- Verifica se não existem valores na coluna 'fColetas[NÚMERO COLETA]' no mês atual
+			    BLANK(),            -- Retorna BLANK() se não houver valores
+			    IF(
+			        ISBLANK(PERCENTOTC),  -- Verifica se PERCENTOTD é nulo
+			        0,                     -- Retorna zero se for nulo
+			        PERCENTOTC             -- Caso contrário, retorna o valor calculado de PERCENTOTD
+			    )
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 0. KPIs
+		lineageTag: abd0babc-104d-4e5c-84a2-66819d712bec
+
+	measure %NOPRAZO_ENTREGA_D0 = ```
+			
+			VAR TotalItens = CALCULATE(
+			    COUNTROWS('fColetas'),
+			    MONTH(fColetas[PREVISAO_DE_ENTREGA]) = MONTH(TODAY()),
+			    YEAR(fColetas[PREVISAO_DE_ENTREGA]) = YEAR(TODAY())
+			)
+			VAR TotalOTD = CALCULATE(
+			    COUNTROWS('fColetas'),
+			    'fColetas'[PERFORMANCE_DE_ENTREGA] = "ENTREGA NO PRAZO",
+			    MONTH(fColetas[PREVISAO_DE_ENTREGA]) = MONTH(TODAY()),
+			    YEAR(fColetas[PREVISAO_DE_ENTREGA]) = YEAR(TODAY())
+			)
+			VAR TotalOTD2 = CALCULATE(
+			    COUNTROWS('fColetas'),
+			    'fColetas'[PERFORMANCE_DE_ENTREGA] = "DENTRO DO PRAZO PARA ENTREGAR",
+			    MONTH(fColetas[PREVISAO_DE_ENTREGA]) = MONTH(TODAY()),
+			    YEAR(fColetas[PREVISAO_DE_ENTREGA]) = YEAR(TODAY())
+			)
+			VAR SumOTD = TotalOTD + TotalOTD2
+			VAR PERCENTOTD = DIVIDE(SumOTD, TotalItens)
+			VAR TotalColetas = TotalItens  -- Já conta o número total de coletas do mês atual
+			RETURN
+			IF(
+			    TotalColetas = 0,   -- Verifica se não existem valores na coluna 'fColetas[NÚMERO COLETA]' no mês atual
+			    BLANK(),            -- Retorna BLANK() se não houver valores
+			    IF(
+			        ISBLANK(PERCENTOTD),  -- Verifica se PERCENTOTD é nulo
+			        0,                     -- Retorna zero se for nulo
+			        PERCENTOTD             -- Caso contrário, retorna o valor calculado de PERCENTOTD
+			    )
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 0. KPIs
+		lineageTag: f024168d-f059-442b-aa4e-c257241c10dc
+
+	measure COTACAO1 = DISTINCTCOUNT(fColetas[COTACAO])
+		formatString: 0
+		lineageTag: b32e8b41-d5cf-47f1-ad6f-9c0d7c8b1b84
+
+	measure DataMinima = ```
+			MIN('dCalendário Coletas'[Date])
+			
+			```
+		formatString: General Date
+		lineageTag: 106dab9c-267d-4795-9167-3ecc0479454d
+
+	measure DataMaxima = ```
+			MAX('dCalendário Coletas'[Date])
+			
+			```
+		formatString: General Date
+		lineageTag: 8fa417fd-dd0f-402c-9492-badc8c8e0248
+
+	measure DataSelecionada = ```
+			
+			"Período: " & FORMAT([DataMinima], "dd/mm/yy") & " a " & 
+			"" & FORMAT([DataMaxima], "dd/mm/yy")
+			```
+		lineageTag: d9f18671-6852-4cea-9387-fed62b8e961c
+
+	measure 'Em Andamento Rodolfo Dentro do Prazo' = CALCULATE(COUNT(fColetas[PERFORMANCE_DE_COLETA]),fColetas[PERFORMANCE_DE_COLETA]="Dentro do prazo para coletar")
+		formatString: 0
+		lineageTag: acd80f6c-e31a-4243-81c6-f6d48341e99f
+
+	measure 'Em Andamento Rodolfo Fora do Prazo' = ```
+			
+			COALESCE(
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_COLETA]), 
+			        fColetas[PERFORMANCE_DE_COLETA] = "Não coletada e em atraso"
+			    ), 
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: cf7633c6-96d3-4636-9733-94935edb9cf4
+
+	measure 'Em Andamento Hoje %' = ```
+			
+			VAR TotalEmAndamentoHoje = 
+			    CALCULATE(
+			        [Em Andamento Rodolfo Dentro do Prazo total], 
+			        FILTER(ALL('fColetas'), 'fColetas'[DATA_DA_COLETA] = TODAY())
+			    )
+			
+			VAR TotalColetasHoje = 
+			    CALCULATE(
+			        [TOTAL_COLETAS], 
+			        FILTER(ALL('fColetas'), 'fColetas'[DATA_DA_COLETA].[Ano] = TODAY())
+			    )
+			
+			RETURN 
+			    DIVIDE(TotalEmAndamentoHoje, TotalColetasHoje)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9782a2cb-4dba-4c67-a354-dae44a2c50cc
+
+	measure 'Em Andamento Rodolfo Dentro do Prazo total' = ```
+			
+			COALESCE(
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_COLETA]), 
+			        fColetas[PERFORMANCE_DE_COLETA] = "Dentro do prazo para coletar"
+			    ), 
+			    0
+			)
+			```
+		formatString: 0
+		lineageTag: c3fd4545-d833-44bb-926c-435150f8a66f
+
+	measure QtdForadoPrazo = ```
+			
+			COALESCE([Em Andamento Rodolfo Fora do Prazo], 0)
+			
+			
+			```
+		formatString: 0
+		lineageTag: 0fd00277-7c5c-4cfc-ae91-6f5b2a97ab71
+
+	measure QtdEmAndamento = [TOTAL_COLETAS] - [QtdForadoPrazo] - [Coletado no prazo rodolfo]
+		formatString: 0
+		lineageTag: 2888a37d-86c8-46d2-bf3d-138da1392bb3
+
+	measure Sla%ColetaRodolfo = ([TOTAL_COLETAS]-[ATRASOS_COLETA])/[TOTAL_COLETAS]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 901e8e97-d832-4368-985f-8574fc7ca138
+
+	measure Diário = "DIÁRIO" //& "-" & UPPER(FORMAT(TODAY(),"MMMM"))
+		lineageTag: df0f512e-c396-4371-a329-13556edd4a34
+
+	measure Semanal = "SEMANAL" // & "-" & UPPER(FORMAT(TODAY(),"MMMM"))
+		lineageTag: a2a9fe01-bacf-4d65-adb0-4251639e200f
+
+	measure Mensal = "MENSAL" // & "-" & (YEAR(TODAY()))
+		lineageTag: 206fff98-c310-400f-b8bf-75445376e4e2
+
+	measure 'Fora do Prazo' = ```
+			
+			VAR ResultadoDiv = DIVIDE([Em Andamento Rodolfo Fora do Prazo], [TOTAL_COLETAS], 0)
+			RETURN IF(ISBLANK(ResultadoDiv), 0, ResultadoDiv)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: b7f8cc48-97d7-45b3-83c2-ce08b4e5a759
+
+	measure Medida
+		lineageTag: 4711e53e-024c-4822-9287-63d914ebf11c
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'SLA COLETA RODOLFO' = ```
+			
+			DIVIDE(
+			    COALESCE([Coletado no prazo rodolfo], 0), 
+			    COALESCE([TOTAL_COLETAS], 1), 
+			    0
+			)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: f4317160-6c0e-4bb4-a821-a02936743657
+
+	measure 'Coletado no prazo rodolfo' = ```
+			
+			COALESCE(
+			    CALCULATE(
+			        DISTINCTCOUNT('fColetas'[COTACAO]), 
+			        'fColetas'[PERFORMANCE_DE_COLETA] = "Coleta no Prazo"
+			    ), 
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: c29d2787-f3c3-42aa-9eba-ef616e19e52f
+
+	measure 'Coletado fora do prazo Rodolfo' = ```
+			
+			VAR Resultado = 
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_COLETA]), 
+			        fColetas[PERFORMANCE_DE_COLETA] = "Coleta com atraso"
+			    )
+			RETURN 
+			    IF(ISBLANK(Resultado), 0, Resultado)
+			
+			```
+		formatString: 0
+		lineageTag: 4d631d6e-4a79-4783-bc69-68840d9daefc
+
+	measure %Atraso = [ATRASOS_COLETA] / [TOTAL_COLETAS]
+		formatString: 0%;-0%;0%
+		lineageTag: 41e3e034-05ef-4f0f-8ff7-d9ddef7fae83
+
+	measure %EmAndamentoTotalRodolfo =
+			
+			VAR ResultadoDiv = DIVIDE([Em Andamento Rodolfo Dentro do Prazo total], [TOTAL_COLETAS], 0)
+			RETURN IF(ISBLANK(ResultadoDiv), 0, ResultadoDiv)
+		formatString: 0%;-0%;0%
+		lineageTag: 98cbf034-29db-4ec2-a3e4-762b892c39e2
+
+	measure DataHoje = ```
+			
+			"Período: " & FORMAT(TODAY(), "dd/mm/yy") & " a " & 
+			"" & FORMAT(TODAY(), "dd/mm/yy")
+			```
+		lineageTag: 05a821a7-ff6a-4e7d-92a9-5871d29bc4d8
+
+	measure '%Coletado fora do prazo rodolfo' = ```
+			
+			VAR ColetadoForaPrazo = 
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_COLETA]), 
+			        fColetas[PERFORMANCE_DE_COLETA] = "Coleta com atraso"
+			    )
+			
+			VAR TotalColetas = 
+			    CALCULATE(COUNT(fColetas[PERFORMANCE_DE_COLETA]))
+			
+			RETURN 
+			    COALESCE(DIVIDE(ColetadoForaPrazo, TotalColetas, 0), 0)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: bbce4f4d-2baf-489e-a2fe-a8264cba580c
+
+	measure QtdColetadoForadoPrazoRodolfo = CALCULATE(COUNT(fColetas[PERFORMANCE_DE_COLETA]),fColetas[PERFORMANCE_DE_COLETA]="Nao coletada e em atraso")
+		formatString: 0
+		lineageTag: 8c5e9343-3b73-4dfd-a4f1-80ca833c2a1d
+
+	measure top = TOPN(10,)
+		lineageTag: 33b9536f-d299-4085-b166-1070344a788b
+
+	measure AtrasoColetaNovo = [QtdForadoPrazo] + [Coletado fora do prazo Rodolfo]
+		formatString: 0
+		lineageTag: 27423d95-f7ee-458d-9940-502ffebeb1fb
+
+	measure TotalNovo = [Coletado no prazo rodolfo] + [Em Andamento Rodolfo Dentro do Prazo total] + [QtdForadoPrazo] + [Coletado fora do prazo Rodolfo]
+		formatString: 0
+		lineageTag: 45f4cfba-b165-4505-a52b-bc975da394cd
+
+	measure NoPrazoColetas = [Coletado no prazo rodolfo] + [Em Andamento Rodolfo Dentro do Prazo total]
+		formatString: 0
+		lineageTag: f54aa685-8305-44c2-91dc-d40559720900
+
+	measure 'Última Atualização' =
+			
+			FORMAT(
+			    NOW() - TIME(3, 0, 0),
+			    "dd/mm/yyyy HH:mm:ss"
+			)
+		lineageTag: 82db6cd8-1279-49d3-8ba5-d549ac6aec08
+
+	measure AtrasoEntregaPeriodo = [ATRASO_NAOENTREGUES]
+		formatString: 0
+		lineageTag: 2044ddd6-26dd-4c92-898d-07507d642cbc
+
+	measure NoPrazoEntregaPeriodo = [QtdNoPrazoEntrega]
+		formatString: 0
+		lineageTag: 4a956407-c707-4a04-93d3-aa553465011f
+
+	measure SLA%EntregaPeriodo = [NoPrazoEntregaPeriodo]  / [TOTAL_ENTREGAS]
+		formatString: 0%;-0%;0%
+		lineageTag: 924f5517-dff2-45e8-96de-21682675bc31
+
+	measure TotalPeriodo = [AtrasoEntregaPeriodo] + [NoPrazoEntregaPeriodo]
+		formatString: 0
+		lineageTag: 296051f1-3990-4784-9bb5-70f865bd9592
+
+	measure QtdEmAndamentoEntrega = ```
+			COALESCE(
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_ENTREGA]), 
+			        fColetas[PERFORMANCE_DE_ENTREGA] = "DENTRO DO PRAZO PARA ENTREGAR"
+			    ), 
+			    0
+			)
+			```
+		formatString: 0
+		lineageTag: 174d5812-5baa-425b-9727-df94b7584cac
+
+	measure SlaEmAndamentForaDoPrazoEntrega = [AtrasoEntregaPeriodo] / [TOTAL_ENTREGAS]
+		formatString: 0%;-0%;0%
+		lineageTag: f0d7d39a-64e2-4a9d-ab57-81230c19eba6
+
+	measure Sla%EmAndamentoEntrega = ```
+			COALESCE(
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_ENTREGA]), 
+			        fColetas[PERFORMANCE_DE_ENTREGA] = "DENTRO DO PRAZO PARA ENTREGAR"
+			    ), 
+			    0 
+			) / [TOTAL_COLETAS]
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 27689e23-3d9c-40fc-9c65-4f77d6033195
+
+	measure QtdNoPrazoEntrega = ```
+			COALESCE(
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_ENTREGA]), 
+			        fColetas[PERFORMANCE_DE_ENTREGA] = "ENTREGA NO PRAZO"
+			    ), 
+			    0
+			)
+			```
+		formatString: 0
+		lineageTag: 65ddf1ec-562f-4264-a4fc-5ed8d644fc85
+
+	measure QtdEntregaForaDoPrazo = ```
+			COALESCE(
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_ENTREGA]), 
+			        fColetas[PERFORMANCE_DE_ENTREGA] = "ENTREGA COM ATRASO"
+			    ), 
+			    0
+			)
+			```
+		formatString: 0
+		lineageTag: ab66fa89-8e7f-4e5c-83f4-3b21c176710a
+
+	measure QtdEmAndamentoEntregaForaPrazo = ```
+			COALESCE(
+			    CALCULATE(
+			        COUNT(fColetas[PERFORMANCE_DE_ENTREGA]), 
+			        fColetas[PERFORMANCE_DE_ENTREGA] = "NAO ENTREGUE E EM ATRASO"
+			    ), 
+			    0
+			)
+			```
+		formatString: 0
+		lineageTag: afbbf76e-00a1-4057-864d-64c9d2ac963e
+
+	measure Sla%EntregueForaDoPrazo = [QtdEntregaForaDoPrazo] / [TOTAL_ENTREGAS]
+		formatString: 0%;-0%;0%
+		lineageTag: 73819a2a-7603-492f-bd1c-3b1a9adb4ab5
+
+	measure EntregaAtrasoD- = CALCULATE(COUNT(fColetas[PERFORMANCE_DE_ENTREGA]),fColetas[PERFORMANCE_DE_ENTREGA] = "NAO ENTREGUE E EM ATRASO") + CALCULATE(COUNT(fColetas[PERFORMANCE_DE_ENTREGA]),fColetas[PERFORMANCE_DE_ENTREGA] = "ENTREGA COM ATRASO")
+		formatString: 0
+		lineageTag: 5d16b6d3-5d98-4b80-a559-b64c6f396044
+
+	measure QtdNoPrazoEmAndamento = [NOPRAZO_COLETAS] + CALCULATE(COUNT(fColetas[PERFORMANCE_DE_COLETA]),fColetas[PERFORMANCE_DE_COLETA] =  "DENTRO DO PRAZO PARA COLETAR")
+		formatString: 0
+		lineageTag: a2a112bd-07c9-47e9-84d7-a1ec207dd4d2
+
+	measure AtrasoD-Rodolfo = [ATRASOS_ENTREGA] + CALCULATE(COUNT(fColetas[PERFORMANCE_DE_ENTREGA]),fColetas[PERFORMANCE_DE_ENTREGA]="")
+		formatString: 0
+		lineageTag: c331ab10-949a-44db-84a0-08afdc7d7ae9
+
+	measure DataSelecionadaEntrega = ```
+			
+			"Período: " & FORMAT([DataMinima], "dd/mm/yy") & " a " & 
+			"" & FORMAT([DataMaxima], "dd/mm/yy")
+			```
+		lineageTag: 84ac3c3b-9559-4234-8198-923195963661
+
+	column Coluna
+		type: calculated
+		lineageTag: 62433ba4-5c7a-4c40-ae90-527f8ad93c9a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	partition Medidas = m
+		mode: import
+		queryGroup: Medidas
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

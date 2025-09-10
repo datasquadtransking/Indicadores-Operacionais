@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Indicadores Operacionais"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4a819857-f9ee-46ad-88d3-1f0428654856"
+  }
+}

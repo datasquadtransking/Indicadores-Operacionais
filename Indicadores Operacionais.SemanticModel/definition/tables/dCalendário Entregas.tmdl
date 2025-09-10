@@ -1,0 +1,132 @@
+table 'dCalendário Entregas'
+	lineageTag: 038173a1-4ba7-4c26-a14a-76da7bbdb2c3
+
+	column Date
+		formatString: Short Date
+		lineageTag: 0df2c210-543b-404e-84df-e985b6dbdc98
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: e07a0fac-8a71-49fc-be63-33d81e636a19
+			defaultHierarchy: LocalDateTable_ea13d445-7f3d-4b2e-a699-ac3e56debbbd.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ANO
+		formatString: 0
+		lineageTag: 6e4b10fc-cacf-41a1-83f6-b78c06eda728
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ANO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MÊS
+		formatString: 0
+		lineageTag: ad03f4c0-41fc-4251-bb8b-b04f35b920ba
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MÊS]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIA
+		formatString: 0
+		lineageTag: 05a3eac8-2ecd-43ce-9a26-218d42d824f4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [DIA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO-MÊS
+		lineageTag: 60deaaad-49da-4451-8e88-ee1241a1663b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ANO-MÊS]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ANO-NOME MÊS'
+		lineageTag: 791344ef-df34-47fa-ae4d-98afb544723e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ANO-NOME MÊS]
+		sortByColumn: MÊS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME DIA DA SEMANA'
+		lineageTag: d8f3de5b-7ae8-4ae3-be84-47eb59f8b2af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NOME DIA DA SEMANA]
+		sortByColumn: 'DIA DA SEMANA'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIA DA SEMANA'
+		formatString: 0
+		lineageTag: 9c9c55d9-f831-480d-9bb8-2b4530dd99ea
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [DIA DA SEMANA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME DO MÊS'
+		lineageTag: 9d1d0b2f-c884-4a9b-967e-7e3c07a2d924
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NOME DO MÊS]
+		sortByColumn: MÊS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRIMESTRE
+		lineageTag: e647e14b-525b-40c5-8608-a8a77ba8e599
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [TRIMESTRE]
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO
+		lineageTag: 2b9f3c45-d985-4c89-bdce-3460e6564075
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CICLO]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dCalendário Entregas' = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(
+				        MIN('fColetas'[PREVISAO_DE_ENTREGA]),
+				        EOMONTH(MAX('fColetas'[PREVISAO_DE_ENTREGA]), 0)),
+				        "ANO",YEAR([Date]),
+				        "MÊS", MONTH([Date]),
+				        "DIA", DAY([Date]),
+				        "ANO-MÊS", FORMAT([Date],"YYYY-MM"),
+				        "ANO-NOME MÊS", UPPER(FORMAT([Date],"MMM-YY")),
+				        "NOME DIA DA SEMANA", UPPER(FORMAT([Date],"DDDD")),
+				        "DIA DA SEMANA", WEEKDAY([Date]),
+				        "NOME DO MÊS", FORMAT([Date], "MMMM"),
+				        "TRIMESTRE", FORMAT([Date],"Q") & " TRIMESTRE",
+				        "CICLO", SWITCH(TRUE(),
+				            DAY([Date]) <= 7, "1 SEMANA",
+				            DAY([Date]) <= 14, "2 SEMANA",
+				            DAY([Date]) <= 21, "3 SEMANA",
+				            DAY([Date]) >= 22, "4 SEMANA")
+				)
+
+	annotation PBI_Id = 3a22f2ad30d540328a3d26342550b777
+

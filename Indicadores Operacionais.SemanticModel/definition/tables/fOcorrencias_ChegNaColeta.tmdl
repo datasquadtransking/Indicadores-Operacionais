@@ -1,0 +1,89 @@
+table fOcorrencias_ChegNaColeta
+	lineageTag: d0236f78-0830-4204-b557-27e3293f8ced
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: edc3f719-66a5-4680-90f3-fa1ab8dc3296
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 02f4a53c-4e10-4e71-bbaf-ea83d84050f2
+		summarizeBy: sum
+		sourceColumn: COTACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c3d594f9-5f25-4550-a416-01ad0a19d08f
+		summarizeBy: none
+		sourceColumn: DATA_ULTIMA_OCORRENCIA
+
+		variation Variation
+			isDefault
+			relationship: 57c54351-7eee-4e53-9936-a77220bba2c1
+			defaultHierarchy: LocalDateTable_9b4f3efb-cd09-4e4d-a0f9-80a86bdc4158.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: e763566d-9e7d-4d88-bd90-089bf953d91d
+		summarizeBy: none
+		sourceColumn: HORA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 01e51209-7d2b-4e9c-94e3-f35a335fa453
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 420e8e64-84b2-437a-bd3c-33064ce60166
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHAVE
+		dataType: string
+		lineageTag: 7b1cee61-dfbe-4e96-860f-8e71dacdc27b
+		summarizeBy: none
+		sourceColumn: CHAVE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fOcorrencias_ChegNaColeta = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Ocorrencias\Ocorrencias - CHEGADA NA COLETA.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUMERO_COLETA", Int64.Type}, {"COTACAO", Int64.Type}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"CHAVE", type text}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado", {"COTACAO"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,42 @@
+table dVeiculos
+	lineageTag: 62bb2d75-415b-404a-8d81-8e7a396fd103
+
+	column COD
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ecc3420-27a5-444d-9156-7fc967c324af
+		summarizeBy: none
+		sourceColumn: COD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRICAO
+		dataType: string
+		lineageTag: 45b284cf-ca46-4a4b-98b5-0bca69dc11d3
+		summarizeBy: none
+		sourceColumn: DESCRICAO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dVeiculos = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Bases BI\VEÍCULOS.xlsx.xls"), null, true),
+				    ssw0116atki1 = Fonte{[Name="ssw0116atki092335"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(ssw0116atki1, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"COD", Int64.Type}, {"DESCRICAO", type text}})
+				in
+				    #"Tipo Alterado"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

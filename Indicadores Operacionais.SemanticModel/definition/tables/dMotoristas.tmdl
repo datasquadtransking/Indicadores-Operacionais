@@ -1,0 +1,679 @@
+table dMotoristas
+	lineageTag: 72908ca0-41cc-425a-b01c-2592f632aaec
+
+	column CPF
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d0c5fc8-a856-4727-a350-40a4c81620d3
+		summarizeBy: sum
+		sourceColumn: CPF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome
+		dataType: string
+		lineageTag: 3bb79ca0-14ee-48ef-a79a-c94829a0e94e
+		summarizeBy: none
+		sourceColumn: Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Endereco
+		dataType: string
+		lineageTag: 32e62362-0108-4df6-81bb-737369706d35
+		summarizeBy: none
+		sourceColumn: Endereco
+
+		annotation SummarizationSetBy = Automatic
+
+	column Numero
+		dataType: string
+		lineageTag: 15d5114d-a432-4f37-b44e-2562fade4ddd
+		summarizeBy: none
+		sourceColumn: Numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column Complemento
+		dataType: string
+		lineageTag: cbf2472e-9c64-4046-b46d-c0ef91de6863
+		summarizeBy: none
+		sourceColumn: Complemento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bairro
+		dataType: string
+		lineageTag: 84c9b1cb-f583-414c-84e4-dad8e2ad233d
+		summarizeBy: none
+		sourceColumn: Bairro
+
+		annotation SummarizationSetBy = Automatic
+
+	column CEP
+		dataType: int64
+		formatString: 0
+		lineageTag: 43f181cf-939b-4abd-9867-6c55bc8a1eff
+		summarizeBy: sum
+		sourceColumn: CEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cidade
+		dataType: string
+		lineageTag: 4fb98227-caa0-4823-a8a4-ed57afb2390a
+		summarizeBy: none
+		sourceColumn: Cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 5e6f3238-8abb-44fd-926a-ee0886afb5a2
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD_Fone_Residencial
+		dataType: int64
+		formatString: 0
+		lineageTag: 53b27acc-751b-4ae4-bf6f-a6119a2eda47
+		summarizeBy: sum
+		sourceColumn: DDD_Fone_Residencial
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fone_Residencial
+		dataType: int64
+		formatString: 0
+		lineageTag: 26615d94-bbb0-4575-970b-92bc08c66274
+		summarizeBy: sum
+		sourceColumn: Fone_Residencial
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD_Celular
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bf59138-1516-4406-bfc2-f03bf69bdc51
+		summarizeBy: sum
+		sourceColumn: DDD_Celular
+
+		annotation SummarizationSetBy = Automatic
+
+	column Celular
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a81dcd2-39d0-4b6b-84e5-b3f5d1f6212c
+		summarizeBy: sum
+		sourceColumn: Celular
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD_Fone_Pessoal_1
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d632334-4320-4738-9f14-88175c7a02ec
+		summarizeBy: sum
+		sourceColumn: DDD_Fone_Pessoal_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fone_Pessoal_1
+		dataType: int64
+		formatString: 0
+		lineageTag: a384f72c-b612-4eb4-a25e-e466f538918e
+		summarizeBy: sum
+		sourceColumn: Fone_Pessoal_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column RG
+		dataType: string
+		lineageTag: 8f132d5e-d496-41e5-8c31-3d6fea022d92
+		summarizeBy: none
+		sourceColumn: RG
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orgao_Expedidor_Rg
+		dataType: string
+		lineageTag: c5bd7784-d1ca-4038-89a7-10efb8b1c714
+		summarizeBy: none
+		sourceColumn: Orgao_Expedidor_Rg
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data_Emissao_Rg
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 463c7f74-0e11-44b1-9cb3-3b2912c8b200
+		summarizeBy: none
+		sourceColumn: Data_Emissao_Rg
+
+		variation Variation
+			isDefault
+			relationship: feacf59f-42cb-43d2-82c6-cd4ad05e78b6
+			defaultHierarchy: LocalDateTable_053c9e2c-642f-42fe-ae28-ae03e01ef44a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Cidade_Expedidora_Rg
+		dataType: string
+		lineageTag: febc52cf-f48b-46c3-b875-1e4c3a2e19c1
+		summarizeBy: none
+		sourceColumn: Cidade_Expedidora_Rg
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF_Expedidora_Rg
+		dataType: string
+		lineageTag: de1698f7-f54d-40cb-9dcd-e83c83b3d960
+		summarizeBy: none
+		sourceColumn: UF_Expedidora_Rg
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data_Nascimento
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4189272c-97b0-4c4b-9ffb-81e6aa6a6f03
+		summarizeBy: none
+		sourceColumn: Data_Nascimento
+
+		variation Variation
+			isDefault
+			relationship: 40e55452-4774-4ad8-ad62-18637b065faa
+			defaultHierarchy: LocalDateTable_6dabcec8-5d39-45f0-b7ca-09013a2a29e6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Cidade_Nascimento
+		dataType: string
+		lineageTag: 3b8379ed-7576-4e0e-ae86-7a6fca06a3ed
+		summarizeBy: none
+		sourceColumn: Cidade_Nascimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF_Nascimento
+		dataType: string
+		lineageTag: 3cdc8bef-cbee-4768-987f-6e571a742ea9
+		summarizeBy: none
+		sourceColumn: UF_Nascimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome_Pai
+		dataType: string
+		lineageTag: 5c314f87-78c4-4956-bd1b-f308a3dda7a1
+		summarizeBy: none
+		sourceColumn: Nome_Pai
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome_Mae
+		dataType: string
+		lineageTag: 7589950d-5540-4a0f-ba7d-7880be1919f3
+		summarizeBy: none
+		sourceColumn: Nome_Mae
+
+		annotation SummarizationSetBy = Automatic
+
+	column Numero_CNH
+		dataType: int64
+		formatString: 0
+		lineageTag: b64e2a61-c5f8-4286-a8c0-999e3f4eae9f
+		summarizeBy: sum
+		sourceColumn: Numero_CNH
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: f2cb4915-9b6e-41c5-ad1e-06c1af602c3d
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Numero_Registro
+		dataType: int64
+		formatString: 0
+		lineageTag: 859868e1-e780-4c51-99dd-8647f6febc1a
+		summarizeBy: sum
+		sourceColumn: Numero_Registro
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade_CNH
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 18608c46-2fd0-47e7-b4d1-b060a645fb6e
+		summarizeBy: none
+		sourceColumn: Validade_CNH
+
+		variation Variation
+			isDefault
+			relationship: 806baeca-bf39-497d-a4f9-c95ceb2c3f63
+			defaultHierarchy: LocalDateTable_98f8f614-3b81-47dd-9de1-68f00980c944.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Cidade_Expedidora_CNH
+		dataType: string
+		lineageTag: 1f652fef-716a-4d15-995d-bd78b6134372
+		summarizeBy: none
+		sourceColumn: Cidade_Expedidora_CNH
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF_Expedidora_CNH
+		dataType: string
+		lineageTag: de1aac24-b593-4248-8074-f95a6efef631
+		summarizeBy: none
+		sourceColumn: UF_Expedidora_CNH
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data_Emissao_CNH
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a1803624-8a2f-49ea-891f-81a0f9dd75c6
+		summarizeBy: none
+		sourceColumn: Data_Emissao_CNH
+
+		variation Variation
+			isDefault
+			relationship: 3f84ad9c-fc82-4dbb-92d5-d802257e2ed1
+			defaultHierarchy: LocalDateTable_f7cd41c4-48df-42bf-84a7-eaa404a33976.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Data_1a_CNH
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ec90e652-6465-4de5-98ce-729f68f2a961
+		summarizeBy: none
+		sourceColumn: Data_1a_CNH
+
+		variation Variation
+			isDefault
+			relationship: 73389bcc-d809-4d55-8b45-fedef0737c57
+			defaultHierarchy: LocalDateTable_56703644-213d-4f53-885b-84fc725fc90c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Bloqueado
+		dataType: string
+		lineageTag: 8bf8d125-e326-4115-8d34-f19d644a4496
+		summarizeBy: none
+		sourceColumn: Bloqueado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Validade MOPP'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c1d7185a-4f9f-4b98-a08c-798fd1503861
+		summarizeBy: none
+		sourceColumn: Validade MOPP
+
+		variation Variation
+			isDefault
+			relationship: 2ba84168-9543-42dd-97f8-3a9444ee378a
+			defaultHierarchy: LocalDateTable_9892d34b-1c3a-4625-9b3c-07e6a79a3569.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Gerenciadora de Risco'
+		dataType: string
+		lineageTag: d5a1a90b-7442-4cb3-9562-55e6a33a539f
+		summarizeBy: none
+		sourceColumn: Gerenciadora de Risco
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2bb2b6e7-f204-4822-96fa-f19381ef7483
+		summarizeBy: none
+		sourceColumn: Validade
+
+		variation Variation
+			isDefault
+			relationship: 362e8c62-c865-4052-8a43-e94e8c18a97a
+			defaultHierarchy: LocalDateTable_bb047262-a15a-4fe8-aaf0-333213662ed6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Nro Autorizacao'
+		dataType: int64
+		formatString: 0
+		lineageTag: e933c4d1-0c32-4bb3-97b9-04dbee8f6bbe
+		summarizeBy: sum
+		sourceColumn: Nro Autorizacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column Observacao
+		dataType: string
+		lineageTag: 85e934db-c1d1-485e-b8c8-271095936ec5
+		summarizeBy: none
+		sourceColumn: Observacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ultimo movimento'
+		dataType: string
+		lineageTag: 6fdd620f-502e-4c37-a46a-762e6d56549b
+		summarizeBy: none
+		sourceColumn: Ultimo movimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Residencia
+		dataType: string
+		lineageTag: 6f9d5352-693b-45dc-8202-a8bc48dab628
+		summarizeBy: none
+		sourceColumn: Tipo_Residencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Imovel
+		dataType: string
+		lineageTag: 84e53603-65c2-4996-9100-d1ca2ad3b34f
+		summarizeBy: none
+		sourceColumn: Tipo_Imovel
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD_Fone_Comercial_1
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b52581c-6e95-4e93-ac84-6bffd3e68f56
+		summarizeBy: sum
+		sourceColumn: DDD_Fone_Comercial_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fone_Comercial_1
+		dataType: int64
+		formatString: 0
+		lineageTag: 49a1b77b-08ae-4091-bbfb-25cfda00d05f
+		summarizeBy: sum
+		sourceColumn: Fone_Comercial_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD_Fone_Comercial_2
+		dataType: int64
+		formatString: 0
+		lineageTag: f1829495-58a0-43aa-a23a-5783135cb8e5
+		summarizeBy: sum
+		sourceColumn: DDD_Fone_Comercial_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fone_Comercial_2
+		dataType: int64
+		formatString: 0
+		lineageTag: a0e0e7c7-5edf-476f-949e-2de62cef06a6
+		summarizeBy: sum
+		sourceColumn: Fone_Comercial_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD_Fone_Pessoal_2
+		dataType: int64
+		formatString: 0
+		lineageTag: d687aa7e-4a1e-419d-a793-690ecf555e99
+		summarizeBy: sum
+		sourceColumn: DDD_Fone_Pessoal_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fone_Pessoal_2
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e560d5c-6470-49bf-9b56-331da64814c2
+		summarizeBy: sum
+		sourceColumn: Fone_Pessoal_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD_Fone_Pessoal_3
+		dataType: int64
+		formatString: 0
+		lineageTag: b3af8f5b-c51e-4434-87e2-b4e13e127002
+		summarizeBy: sum
+		sourceColumn: DDD_Fone_Pessoal_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fone_Pessoal_3
+		dataType: int64
+		formatString: 0
+		lineageTag: a0caac15-5c6d-4760-8921-e9f38e4e4af7
+		summarizeBy: sum
+		sourceColumn: Fone_Pessoal_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sexo
+		dataType: string
+		lineageTag: 6e61a894-fccc-4bbd-a539-ec77e67c2c56
+		summarizeBy: none
+		sourceColumn: Sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado_Civil
+		dataType: string
+		lineageTag: 6498f096-8a5c-4e9f-93d5-aa90a687e8a5
+		summarizeBy: none
+		sourceColumn: Estado_Civil
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cod_Seguranca_CNH
+		dataType: string
+		lineageTag: 4e523e39-1ad5-43b6-9507-1ed28344239b
+		summarizeBy: none
+		sourceColumn: Cod_Seguranca_CNH
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data_Admissao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8f1dca5b-84a9-4c68-9151-da843f396824
+		summarizeBy: none
+		sourceColumn: Data_Admissao
+
+		variation Variation
+			isDefault
+			relationship: 78864fb5-6a9d-44cf-a7b5-839fb405bd66
+			defaultHierarchy: LocalDateTable_bfe1a7b7-bfa0-4b08-a292-b89bfa6a6ae7.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Relacao_com_Transportadora
+		dataType: string
+		lineageTag: 4b6a2300-42b5-4533-bc95-e5595cd320ce
+		summarizeBy: none
+		sourceColumn: Relacao_com_Transportadora
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gerenciadora_Cliente_1
+		dataType: int64
+		formatString: 0
+		lineageTag: cb52a2a3-d714-4569-8638-dd5999a6c64d
+		summarizeBy: sum
+		sourceColumn: Gerenciadora_Cliente_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade_1
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 57353be6-1851-400b-95b0-099eb30ef3f0
+		summarizeBy: none
+		sourceColumn: Validade_1
+
+		variation Variation
+			isDefault
+			relationship: b68bb7b3-3b33-40a1-80ad-311ca83a739d
+			defaultHierarchy: LocalDateTable_b9ce46ee-6b2b-4db3-a37b-227d2b0c256b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Nro_Autorizacao
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c62c862-35d6-4ec5-bb6f-a615f1a3c8cd
+		summarizeBy: sum
+		sourceColumn: Nro_Autorizacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gerenciadora_Cliente_2
+		dataType: string
+		lineageTag: dfeef01b-ac68-44cd-8fc8-e957370ba845
+		summarizeBy: none
+		sourceColumn: Gerenciadora_Cliente_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade_2
+		dataType: string
+		lineageTag: da7390db-43a2-499b-9b2c-90770a65258e
+		summarizeBy: none
+		sourceColumn: Validade_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nro_Autorizacao_3
+		dataType: string
+		lineageTag: 42dced07-d7da-45c2-bdd1-68ded0c5d422
+		summarizeBy: none
+		sourceColumn: Nro_Autorizacao_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gerenciadora_Cliente_3
+		dataType: string
+		lineageTag: bf3a792f-2ee9-412e-ae7c-7118ffa3aa6e
+		summarizeBy: none
+		sourceColumn: Gerenciadora_Cliente_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade_4
+		dataType: string
+		lineageTag: c8f7bcce-a724-4c0a-af6d-0d120ba2c00b
+		summarizeBy: none
+		sourceColumn: Validade_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nro_Autorizacao_5
+		dataType: string
+		lineageTag: 781b26fb-ccaf-424b-a080-6530718aca83
+		summarizeBy: none
+		sourceColumn: Nro_Autorizacao_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gerenciadora_Cliente_4
+		dataType: string
+		lineageTag: f6b6eb12-b60e-486b-9b33-646ef97adaa3
+		summarizeBy: none
+		sourceColumn: Gerenciadora_Cliente_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade_6
+		dataType: string
+		lineageTag: 700575dd-552a-4d50-b001-aaf4e5231ed9
+		summarizeBy: none
+		sourceColumn: Validade_6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nro_Autorizacao_7
+		dataType: string
+		lineageTag: 9b611ab0-ee02-40cc-b53d-fd480cdfbe4f
+		summarizeBy: none
+		sourceColumn: Nro_Autorizacao_7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gerenciadora_Cliente_5
+		dataType: string
+		lineageTag: 2e1f5fa3-e992-441e-af26-baa55f2e8a47
+		summarizeBy: none
+		sourceColumn: Gerenciadora_Cliente_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade_8
+		dataType: string
+		lineageTag: 3d3fedc5-5608-4380-a2f2-7a1b826738b5
+		summarizeBy: none
+		sourceColumn: Validade_8
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validade_Exame_Toxicologico
+		dataType: string
+		lineageTag: 59522cf8-076e-4aaa-a2a1-80eae9abc460
+		summarizeBy: none
+		sourceColumn: Validade_Exame_Toxicologico
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dMotoristas = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Bases BI"),
+				    #"Linhas Filtradas" = Table.SelectRows(Fonte, each ([Name] = "motoristastki100132.csv")),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(#"Linhas Filtradas", each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo", each #"Transformar Arquivo"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo", Table.ColumnNames(#"Transformar Arquivo"(#"Arquivo de Amostra"))),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Coluna de Tabela Expandida1",{{"Nome da Origem", type text}, {"Column1", Int64.Type}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}, {"Column25", type text}, {"Column26", type text}, {"Column27", type text}, {"Column28", type text}, {"Column29", type text}, {"Column30", type text}, {"Column31", type text}, {"Column32", type text}, {"Column33", type text}, {"Column34", type text}, {"Column35", type text}, {"Column36", type text}, {"Column37", type text}, {"Column38", type text}, {"Column39", type text}, {"Column40", type text}, {"Column41", type text}, {"Column42", type text}, {"Column43", type text}, {"Column44", type text}, {"Column45", type text}, {"Column46", type text}, {"Column47", type text}, {"Column48", type text}, {"Column49", type text}, {"Column50", type text}, {"Column51", type text}, {"Column52", type text}, {"Column53", type text}, {"Column54", type text}, {"Column55", type text}, {"Column56", type text}, {"Column57", type text}, {"Column58", type text}, {"Column59", type text}, {"Column60", type text}, {"Column61", type text}, {"Column62", type text}, {"Column63", type text}, {"Column64", type text}, {"Column65", type text}, {"Column66", type text}, {"Column67", type text}, {"Column68", type text}, {"Column69", type text}, {"Column70", type text}, {"Column71", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Nome da Origem", "Column1"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Colunas Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CPF", Int64.Type}, {"Nome", type text}, {"Endereco", type text}, {"Numero", type text}, {"Complemento", type text}, {"Bairro", type text}, {"CEP", Int64.Type}, {"Cidade", type text}, {"UF", type text}, {"DDD_Fone_Residencial", Int64.Type}, {"Fone_Residencial", Int64.Type}, {"DDD_Celular", Int64.Type}, {"Celular", Int64.Type}, {"DDD_Fone_Pessoal_1", Int64.Type}, {"Fone_Pessoal_1", Int64.Type}, {"RG", type text}, {"Orgao_Expedidor_Rg", type text}, {"Data_Emissao_Rg", type date}, {"Cidade_Expedidora_Rg", type text}, {"UF_Expedidora_Rg", type text}, {"Data_Nascimento", type date}, {"Cidade_Nascimento", type text}, {"UF_Nascimento", type text}, {"Nome_Pai", type text}, {"Nome_Mae", type text}, {"Numero_CNH", Int64.Type}, {"Categoria", type text}, {"Numero_Registro", Int64.Type}, {"Validade_CNH", type date}, {"Cidade_Expedidora_CNH", type text}, {"UF_Expedidora_CNH", type text}, {"Data_Emissao_CNH", type date}, {"Data_1a_CNH", type date}, {"Bloqueado", type text}, {"Validade MOPP", type date}, {"Gerenciadora de Risco", type text}, {"Validade", type date}, {"Nro Autorizacao", Int64.Type}, {"Observacao", type text}, {"Ultimo movimento", type text}, {"Tipo_Residencia", type text}, {"Tipo_Imovel", type text}, {"DDD_Fone_Comercial_1", Int64.Type}, {"Fone_Comercial_1", Int64.Type}, {"DDD_Fone_Comercial_2", Int64.Type}, {"Fone_Comercial_2", Int64.Type}, {"DDD_Fone_Pessoal_2", Int64.Type}, {"Fone_Pessoal_2", Int64.Type}, {"DDD_Fone_Pessoal_3", Int64.Type}, {"Fone_Pessoal_3", Int64.Type}, {"Sexo", type text}, {"Estado_Civil", type text}, {"Cod_Seguranca_CNH", type text}, {"Data_Admissao", type date}, {"Relacao_com_Transportadora", type text}, {"Gerenciadora_Cliente_1", Int64.Type}, {"Validade_1", type date}, {"Nro_Autorizacao", Int64.Type}, {"Gerenciadora_Cliente_2", type text}, {"Validade_2", type text}, {"Nro_Autorizacao_3", type text}, {"Gerenciadora_Cliente_3", type text}, {"Validade_4", type text}, {"Nro_Autorizacao_5", type text}, {"Gerenciadora_Cliente_4", type text}, {"Validade_6", type text}, {"Nro_Autorizacao_7", type text}, {"Gerenciadora_Cliente_5", type text}, {"Validade_8", type text}})
+				in
+				    #"Tipo Alterado1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

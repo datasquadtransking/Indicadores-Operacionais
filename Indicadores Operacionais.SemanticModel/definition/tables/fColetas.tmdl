@@ -1,0 +1,1048 @@
+table fColetas
+	lineageTag: 7de17072-f722-4549-9ef0-77bd5008e5f3
+
+	measure 'SLA ANDAMENTO' = [Em Andamento Rodolfo Dentro do Prazo]
+		lineageTag: 70d30ab4-fe2b-41bf-8132-a8f359d57224
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '%NOPRAZO_COLETA Pedro' = ```
+			
+			VAR DataHoraAtual = NOW()
+			
+			-- Conta quantas coletas têm previsão maior que a data/hora atual
+			VAR ContagemFuturas = 
+			    CALCULATE(
+			        COUNTROWS('fColetas'),
+			        'fColetas'[PREVISAO_DE_COLETA] + 'fColetas'[PREVISAO_DE_COLETA_HORA] > DataHoraAtual
+			    )
+			
+			-- Se existir alguma coleta no futuro, retorna BLANK()
+			RETURN IF(
+			    ContagemFuturas > 0, 
+			    BLANK(), 
+			    VAR TotalItens = DISTINCTCOUNT('fColetas'[COTACAO])
+			    VAR TotalOTC = 
+			        CALCULATE(
+			            DISTINCTCOUNT('fColetas'[COTACAO]), 
+			            'fColetas'[PERFORMANCE_DE_COLETA] = "Coleta no Prazo"
+			        )
+			  
+			    VAR SumOTC = TotalOTC
+			    VAR PERCENTOTC = DIVIDE(SumOTC, TotalItens)
+			    VAR TotalColetas = DISTINCTCOUNT('fColetas'[COTACAO]) 
+			
+			    RETURN IF(
+			        TotalColetas = 0,  
+			        BLANK(),            
+			        IF(
+			            ISBLANK(PERCENTOTC),  
+			            0,                    
+			            PERCENTOTC            
+			                         )
+			    )
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a9d08f7b-4237-429a-8a2b-864fa00b6640
+
+	measure QtdTotalD- = [NoPrazoEntregaPeriodo] + [EntregaAtrasoD-]
+		formatString: 0
+		lineageTag: 55d5a045-e6a5-4ee3-9e8c-792d9f7e6f5f
+
+	measure QtdComTempo = CALCULATE(COUNTROWS(fColetas),fColetas[Inc]="Com Tempo")
+		formatString: 0
+		lineageTag: d93340b9-6417-4021-9b0b-8b1edfe3c896
+
+	measure QtdsEMTempo = CALCULATE(COUNTrows(fColetas),fColetas[Inc]="Sem Tempo")
+		formatString: 0
+		lineageTag: 951c0f19-de31-4d6e-aa12-86e1c7046dd1
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: bfb95f70-7b00-413d-94a2-6eb3084d5d36
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_INCLUSAO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 59aa34e9-52bd-4eca-9092-9add6aff088f
+		summarizeBy: none
+		sourceColumn: DATA_INCLUSAO
+
+		variation Variation
+			isDefault
+			relationship: d9ff83aa-8573-46ea-82bd-236865166432
+			defaultHierarchy: LocalDateTable_039e8c08-00cb-4006-901c-26e4b6acf03b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_INCLUSAO
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 6cb2882f-61ae-4518-a115-11dcbab42efd
+		summarizeBy: none
+		sourceColumn: HORA_INCLUSAO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column USUARIO
+		dataType: string
+		lineageTag: 4b19fb1b-a09c-41b0-8271-d5dd91ee1141
+		summarizeBy: none
+		sourceColumn: USUARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLICITANTE
+		dataType: string
+		lineageTag: 0786ca8a-ad19-416b-b58b-b13ece5fc42c
+		summarizeBy: none
+		sourceColumn: SOLICITANTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJ_REMETENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: cad96da0-6b25-4288-acbd-1b95a16af49f
+		summarizeBy: sum
+		sourceColumn: CNPJ_REMETENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIDADE_REMETENTE
+		dataType: string
+		lineageTag: 66eaca82-2fc3-406b-b3d3-54a21c2b8fb5
+		summarizeBy: none
+		sourceColumn: CIDADE_REMETENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF_REMETENTE
+		dataType: string
+		lineageTag: 571147d3-da09-4a3e-96bf-cefff8bc3dc7
+		summarizeBy: none
+		sourceColumn: UF_REMETENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTRC
+		dataType: string
+		lineageTag: 3efbc943-8096-451f-8973-90f6a34eb3fd
+		summarizeBy: none
+		sourceColumn: CTRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIDADE_DESTINO
+		dataType: string
+		lineageTag: 54ef0b17-277c-4c6f-81c0-fde146746016
+		summarizeBy: none
+		sourceColumn: CIDADE_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF_DESTINO
+		dataType: string
+		lineageTag: 0f770818-8af6-44e5-a8b7-9a9640d4e13f
+		summarizeBy: none
+		sourceColumn: UF_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGADOR
+		dataType: string
+		lineageTag: d05b95c2-d6e1-45b0-b2ba-4af881f56b84
+		summarizeBy: none
+		sourceColumn: PAGADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJ_PAGADOR
+		dataType: int64
+		formatString: 0
+		lineageTag: a91a2c73-8937-449e-9416-a90d5f6cba0b
+		summarizeBy: none
+		sourceColumn: CNPJ_PAGADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALOR_MERCADORIA
+		dataType: double
+		lineageTag: 92f4ffc9-03c1-4098-852d-0f41280e07e6
+		summarizeBy: sum
+		sourceColumn: VALOR_MERCADORIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SITUACAO
+		dataType: string
+		lineageTag: 94509744-9437-4d9d-90d6-53161d9d65c6
+		summarizeBy: none
+		sourceColumn: SITUACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column INSTRUCAO_SITUACAO
+		dataType: string
+		lineageTag: e0c1627b-054d-4ff5-b34f-f99429476e70
+		summarizeBy: none
+		sourceColumn: INSTRUCAO_SITUACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CPF_MOTORISTA
+		dataType: int64
+		formatString: 0
+		lineageTag: ba6f07c8-4a08-49f0-9a80-3ffa78929a87
+		summarizeBy: sum
+		sourceColumn: CPF_MOTORISTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOTORISTA
+		dataType: string
+		lineageTag: ba4b0faf-e04b-4fae-b632-b7c6d0f57faa
+		summarizeBy: none
+		sourceColumn: MOTORISTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 154b306c-8982-4104-8ff8-046c3059725d
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 4cf3e32a-daa2-42b4-9dfe-ceecf7d856cd
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 64f2fa78-aa59-40bd-b46f-8b7b82e1aadb
+		summarizeBy: none
+		sourceColumn: COTACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column REMETENTE
+		dataType: string
+		lineageTag: f12ad525-3b7f-4903-8aba-cfd1ebe26b88
+		summarizeBy: none
+		sourceColumn: REMETENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDERECO_REMETENTE
+		dataType: string
+		lineageTag: c44b85a9-67f6-44bb-9ee9-5da53e556f22
+		summarizeBy: none
+		sourceColumn: ENDERECO_REMETENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column BAIRRO_REMETENTE
+		dataType: string
+		lineageTag: ace066d7-3e62-493a-962d-bcb5a88c0c24
+		summarizeBy: none
+		sourceColumn: BAIRRO_REMETENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREVISAO_DE_COLETA
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: 9208502a-fc3c-42ed-bd17-b142434adee3
+		summarizeBy: none
+		sourceColumn: PREVISAO_DE_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column PREVISAO_DE_COLETA_HORA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 3fb29460-a5e9-4c19-a45f-88437b8d1752
+		summarizeBy: none
+		sourceColumn: PREVISAO_DE_COLETA_HORA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column DATA_DA_COLETA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: cc40c2bf-60fe-4bbb-96a9-82082d434834
+		summarizeBy: none
+		sourceColumn: DATA_DA_COLETA
+
+		variation Variation
+			isDefault
+			relationship: 10a0807d-2d81-47e6-a022-5ec26c91dbe4
+			defaultHierarchy: LocalDateTable_c787c1bf-e4e6-4db7-bc6c-c7998f2ffe8c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DATA_DA_COLETA_HORA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 58741eaa-8645-4d60-ad2c-25f787ebc908
+		summarizeBy: none
+		sourceColumn: DATA_DA_COLETA_HORA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column PLACA_CAVALO
+		dataType: string
+		lineageTag: ddfa65b8-206b-430c-a53e-93b85ff297a0
+		summarizeBy: none
+		sourceColumn: PLACA_CAVALO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLACA_CARRETA
+		dataType: string
+		lineageTag: 1a491f9e-8d9b-4fd2-b85d-af3acc1dedc7
+		summarizeBy: none
+		sourceColumn: PLACA_CARRETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1b4e7ab1-a67d-4277-92a3-4757bf117c82
+		summarizeBy: none
+		sourceColumn: DATA_ULTIMA_OCORRENCIA
+
+		variation Variation
+			isDefault
+			relationship: e6ec9096-0ede-4927-a90c-2f3864b4bd13
+			defaultHierarchy: LocalDateTable_51679197-ff8d-4b53-bf7f-5333f891d441.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 935e20eb-61d0-4264-8b19-c9194dbb00fd
+		summarizeBy: none
+		sourceColumn: HORA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column DADOS_ATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6e741823-1eb2-4424-889c-e523671cbbc3
+		summarizeBy: none
+		sourceColumn: DADOS_ATE
+
+		variation Variation
+			isDefault
+			relationship: 66b35516-5c47-4f1c-a5d9-f512042bd89c
+			defaultHierarchy: LocalDateTable_0173a924-1a25-40a0-a910-6969ab4c88cc.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ABONAR_COLETA
+		dataType: string
+		lineageTag: f794ddac-5c27-43bb-9456-30e56d904a93
+		summarizeBy: none
+		sourceColumn: ABONAR_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERFORMANCE_DE_COLETA
+		dataType: string
+		lineageTag: 5b6d8f84-e476-46f0-9cd3-3e4caaad0ba4
+		summarizeBy: none
+		sourceColumn: PERFORMANCE_DE_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ABONAR_ENTREGA
+		dataType: string
+		lineageTag: c97d4c76-4706-4801-ad16-8b1ff56b2ec2
+		summarizeBy: none
+		sourceColumn: ABONAR_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MERCADORIA
+		dataType: int64
+		formatString: 0
+		lineageTag: f0e8000b-3b6a-4883-9626-a3fd7439ee41
+		summarizeBy: sum
+		sourceColumn: MERCADORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRICAO
+		dataType: string
+		lineageTag: 7d42a3ea-0097-4534-b3d2-57c3923ecbb8
+		summarizeBy: none
+		sourceColumn: DESCRICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NUMERO_COLETA PESQUISAR'
+		dataType: string
+		lineageTag: 1bbbba0e-d1cc-429f-b605-92a73923821e
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA PESQUISAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO_PESQUISAR
+		dataType: string
+		lineageTag: 9bf5b4b5-d38c-4fe2-9491-1d144fbf2884
+		summarizeBy: none
+		sourceColumn: COTACAO_PESQUISAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_E_HORA_DE_ENTREGA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a17f0c4b-aad6-4a23-bde9-2ebcce0fa723
+		summarizeBy: none
+		sourceColumn: DATA_E_HORA_DE_ENTREGA
+
+		variation Variation
+			isDefault
+			relationship: 4efd805b-9326-4c7c-871a-a49330577b67
+			defaultHierarchy: LocalDateTable_d63f89d4-6f44-4f72-a660-71574eba691c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERFORMANCE_DE_ENTREGA
+		dataType: string
+		lineageTag: 48ed94a4-c3e5-44c4-a857-656b7a2b360a
+		summarizeBy: none
+		sourceColumn: PERFORMANCE_DE_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENTE_PRINCIPAL
+		dataType: string
+		lineageTag: 513da1e2-1f49-46d2-8258-c2555de4b8b5
+		summarizeBy: none
+		sourceColumn: CLIENTE_PRINCIPAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column OPERACAO
+		dataType: string
+		lineageTag: 59c8ff1d-a9a1-4894-a8ee-8b126c2f4194
+		summarizeBy: none
+		sourceColumn: OPERACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREVISAO_DE_ENTREGA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: ec8ab92d-3518-4772-9a8d-c9bfd94e12d4
+		summarizeBy: none
+		sourceColumn: PREVISAO_DE_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PREVISAO_DE_ENTREGA_HORA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 5b24afdd-01a5-48f1-bf84-a97f070d2873
+		summarizeBy: none
+		sourceColumn: PREVISAO_DE_ENTREGA_HORA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column CURVA
+		dataType: string
+		lineageTag: be18ac46-43f2-4a99-a983-6029de7f648b
+		summarizeBy: none
+		sourceColumn: CURVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		lineageTag: 92460c11-2702-4756-8f8b-3c176ddca8e9
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ANALISTA MONITORAMENTO'
+		dataType: string
+		lineageTag: 9c21925c-6aa5-42f5-8b41-895e90fe6c86
+		summarizeBy: none
+		sourceColumn: ANALISTA MONITORAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGIAO_REMETENTE
+		dataType: string
+		lineageTag: c0b11c41-7293-4dc1-b3ff-04a0d2e4eb3b
+		summarizeBy: none
+		sourceColumn: REGIAO_REMETENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGIAO_DESTINO
+		dataType: string
+		lineageTag: 0a4b3681-0666-4153-bb5b-bd64e57b5264
+		summarizeBy: none
+		sourceColumn: REGIAO_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column VÍNCULO
+		dataType: string
+		lineageTag: e75dccaa-8085-47aa-b142-2fa39e38f3e0
+		summarizeBy: none
+		sourceColumn: VÍNCULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PREV COLETA DT HR' = fColetas[PREVISAO_DE_COLETA]+fColetas[PREVISAO_DE_COLETA_HORA]
+		formatString: General Date
+		lineageTag: 2c41b20d-a9c2-4cd5-9655-de06348ceab7
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: e945781f-9ddd-47df-95e5-f0a418551218
+			defaultHierarchy: LocalDateTable_1bf702eb-0a17-418e-8975-c9a8989069cb.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PREV ENTREGA DT HR' = fColetas[PREVISAO_DE_ENTREGA]+fColetas[PREVISAO_DE_ENTREGA_HORA]
+		formatString: General Date
+		lineageTag: 99f9631b-ece7-4ccc-a8e7-1d15ed52f6f6
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 91bdf62a-da26-4068-bc91-066935410da9
+			defaultHierarchy: LocalDateTable_47c35e16-33b3-48e8-b34e-8df704fc659b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Qtd Dentro do Prazo Rodolfo' = ```
+			IF(fColetas[PERFORMANCE_DE_COLETA]="Dentro do prazo para coletar",1,0) 
+			```
+		formatString: 0
+		lineageTag: 48dbcae2-fd27-4eb2-aa9a-95fd6ce125d4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Considerar? = IF(fColetas[PREVISAO_DE_COLETA] = TODAY(),1,0)
+		formatString: 0
+		lineageTag: 4e448f69-2384-46c3-bb87-8fc9d409a789
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS_ATUAL
+		dataType: string
+		lineageTag: efcc68a9-3f9e-48f1-bc07-db483131a2f6
+		summarizeBy: none
+		sourceColumn: STATUS_ATUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Codigo Ultima Ocorrencia'
+		dataType: int64
+		formatString: 0
+		lineageTag: e0e6b55a-08a5-485f-9a17-a077eff7df84
+		summarizeBy: sum
+		sourceColumn: Codigo Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'fOcorrencias_ChegNaColeta.DATA_ULTIMA_OCORRENCIA'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7c5a0081-ee37-4e1f-82b1-82bb08e8a1db
+		summarizeBy: none
+		sourceColumn: fOcorrencias_ChegNaColeta.DATA_ULTIMA_OCORRENCIA
+
+		variation Variation
+			isDefault
+			relationship: ef0a58f2-bafa-4213-aa3c-25ab21a2e32a
+			defaultHierarchy: LocalDateTable_4dc428dc-cd80-4e26-b9af-1fc42e9dec7a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'fOcorrencias_ChegNaColeta.HORA_ULTIMA_OCORRENCIA'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 6ce5a6a9-6a6a-4223-9cb4-8bf6373b47fa
+		summarizeBy: none
+		sourceColumn: fOcorrencias_ChegNaColeta.HORA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column FiltroEntrega = ```
+			
+			VAR DataAtual = TODAY()
+			VAR AnoAtual = YEAR(DataAtual)
+			VAR DiaAnterior = DataAtual - 1
+			
+			RETURN 
+			IF(
+			    YEAR(fcoletas[PREVISAO_DE_ENTREGA]) = AnoAtual &&
+			    fcoletas[PREVISAO_DE_ENTREGA] <= DiaAnterior,
+			    "SIM",
+			    "NÃO"
+			)
+			
+			```
+		lineageTag: 3bea4b0a-9f0e-4d55-8737-1d746ccf764d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiltroColeta = ```
+			
+			VAR DataAtual = TODAY()
+			VAR AnoAtual = YEAR(DataAtual)
+			VAR DiaAnterior = DataAtual - 1
+			
+			RETURN 
+			IF(
+			    YEAR(fColetas[PREVISAO_DE_COLETA]) = AnoAtual &&
+			    fColetas[PREVISAO_DE_COLETA] <= DiaAnterior,
+			    "SIM",
+			    "NÃO"
+			)
+			
+			```
+		lineageTag: ce9b1428-f5eb-4dfe-8a0c-ecf5f23f0ad3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Justificativas de Entrega.Área'
+		dataType: string
+		lineageTag: c2c4a4ed-84a3-40ac-9d00-a9b135152d6d
+		summarizeBy: none
+		sourceColumn: Justificativas de Entrega.Área
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Justificativas de Entrega.Responsável Atraso'
+		dataType: string
+		lineageTag: 90ae7a8a-e648-41c3-82b8-16ca3a293628
+		summarizeBy: none
+		sourceColumn: Justificativas de Entrega.Responsável Atraso
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Justificativas de Entrega.Abertura'
+		dataType: string
+		lineageTag: 42fd78f1-5f79-4baa-87a9-e21c259234bb
+		summarizeBy: none
+		sourceColumn: Justificativas de Entrega.Abertura
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Justificativas de Entrega.DESCRICAO DO OCORRIDO'
+		dataType: string
+		lineageTag: 50eb8d8a-a7fe-41d0-843c-f505f71ed454
+		summarizeBy: none
+		sourceColumn: Justificativas de Entrega.DESCRICAO DO OCORRIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Justificativas de Entrega.Abonar?'
+		dataType: string
+		lineageTag: 62e7565d-6dbd-4a22-aa00-a036ee9144d8
+		summarizeBy: none
+		sourceColumn: Justificativas de Entrega.Abonar?
+
+		annotation SummarizationSetBy = Automatic
+
+	column qtd = 1
+		formatString: 0
+		lineageTag: 30928652-eddc-48c4-81d9-7dd8499b9f4d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column JustificativasAberturaColeta = ```
+			UPPER(LOOKUPVALUE('Justificativas Coleta'[Abertura],'Justificativas Coleta'[NUMERO_COLETA],fColetas[NUMERO_COLETA]))
+			
+			
+			```
+		lineageTag: b7245025-6c55-4ff0-8271-822d12ae5bb6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column JustificativasAreaColeta = ```
+			UPPER(LOOKUPVALUE('Justificativas Coleta'[Área],'Justificativas Coleta'[NUMERO_COLETA],fColetas[NUMERO_COLETA]))
+			
+			
+			```
+		lineageTag: ea0dc96d-1d26-4c4b-a9fe-eb662a7150a1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column JustificativasResponsavelColeta = UPPER(LOOKUPVALUE('Justificativas Coleta'[Responsável Atraso],'Justificativas Coleta'[NUMERO_COLETA],fColetas[NUMERO_COLETA]))
+		lineageTag: 6dfc0654-ba9a-4cd9-8e5e-12f33b3c398f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column JustificativasdescricaoColeta = ```
+			UPPER(LOOKUPVALUE('Justificativas Coleta'[DESCRICAO DO OCORRIDO],'Justificativas Coleta'[NUMERO_COLETA],fColetas[NUMERO_COLETA]))
+			
+			
+			```
+		lineageTag: 83e3e235-75be-423a-a715-1f3b927fc82e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column JustificativasAbonarColeta = ```
+			LOOKUPVALUE('Justificativas Coleta'[Abonar?],'Justificativas Coleta'[NUMERO_COLETA],fColetas[NUMERO_COLETA])
+			
+			
+			```
+		lineageTag: 79efc14f-34fb-45df-bccd-22cd2e0a8cdb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column justificativasentregaarea = LOOKUPVALUE('Justificativas de Entrega'[Área],'Justificativas de Entrega'[NÚMERO COLETA],fColetas[NUMERO_COLETA])
+		lineageTag: 13dc3f38-adba-4349-89bb-12fc4c91f0c2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsiderarD-?Coleta = IF(fColetas[PREVISAO_DE_COLETA] >=TODAY(),0,1)
+		formatString: 0
+		lineageTag: ba857ad0-8b71-40de-aef5-0d174e3b7248
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsiderarD-?Entrega = IF(fColetas[PREVISAO_DE_ENTREGA] >=TODAY(),0,1)
+		formatString: 0
+		lineageTag: 180b8fc4-d520-431c-8fd3-835802a53e10
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Magazine? = IF(fColetas[CLIENTE_PRINCIPAL]="MAGAZINE LUIZA S/A","MAGAZINE LUIZA","OUTROS")
+		lineageTag: 5b2b8dc5-bf8b-4b5e-931b-8f622675ee9c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_MERCADORIA
+		dataType: string
+		lineageTag: 0831015c-0c1e-4f86-b3ce-bc558eb6984a
+		summarizeBy: none
+		sourceColumn: TIPO_MERCADORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inc =
+			IF(DATEDIFF(
+			    fColetas[PREV COLETA DT HR],
+			    fColetas[DATA_INCLUSAO] + fColetas[HORA_INCLUSAO],MINUTE)*-1<=1440,"Sem Tempo","Com Tempo")
+		lineageTag: c0aa0016-fcc0-43a3-bdb6-b78274721d6c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiferençaLançamento =
+			
+			VAR MinutosTotais =
+			    ABS(DATEDIFF ( fColetas[DataHoraInclusao], fColetas[PREV COLETA DT HR], MINUTE ))
+			VAR Horas = INT ( MinutosTotais / 60 )
+			VAR Minutos = MOD ( MinutosTotais, 60 )
+			RETURN
+			    FORMAT ( Horas, "00" ) & ":" & FORMAT ( Minutos, "00" )
+		lineageTag: e5d412a7-53fb-4b56-bd70-780fb9222e4f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataHoraInclusao
+		dataType: string
+		lineageTag: f6d56551-22cf-462f-adf4-d2866a37dbb5
+		summarizeBy: none
+		sourceColumn: DataHoraInclusao
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_LIMITE_INICIAL
+		dataType: string
+		lineageTag: 157a8a7f-e468-4ab1-877d-422fa4de3d79
+		summarizeBy: none
+		sourceColumn: DATA_LIMITE_INICIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fColetas = m
+		mode: import
+		queryGroup: TABELAS
+		source = ```
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\BI"),
+				    #"Arquivos Ocultos Filtrados2" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada2" = Table.AddColumn(#"Arquivos Ocultos Filtrados2", "Transformar Arquivo (4)", each #"Transformar Arquivo (4)"([Content])),
+				    #"Colunas Renomeadas11" = Table.RenameColumns(#"Invocar Função Personalizada2", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas2" = Table.SelectColumns(#"Colunas Renomeadas11", {"Nome da Origem", "Transformar Arquivo (4)"}),
+				    #"Coluna de Tabela Expandida2" = Table.ExpandTableColumn(#"Outras Colunas Removidas2", "Transformar Arquivo (4)", Table.ColumnNames(#"Transformar Arquivo (4)"(#"Arquivo de Amostra (5)"))),
+				    #"Tipo Alterado5" = Table.TransformColumnTypes(#"Coluna de Tabela Expandida2",{{"Nome da Origem", type text}, {"NUMERO_COLETA", Int64.Type}, {"DATA_INCLUSAO", type date}, {"HORA_INCLUSAO", type time}, {"USUARIO", type text}, {"SOLICITANTE", type text}, {"REMETENTE", type text}, {"CNPJ_REMETENTE", Int64.Type}, {"ENDERECO_REMETENTE", type text}, {"BAIRRO_REMETENTE", type text}, {"CIDADE_REMETENTE", type text}, {"UF_REMETENTE", type text}, {"SETOR", type any}, {"CEP_REMETENTE", Int64.Type}, {"NOTAS_FISCAIS", type any}, {"COTACAO", Int64.Type}, {"CTRC", type text}, {"DESTINATARIO", type text}, {"CNPJ_DESTINATARIO", Int64.Type}, {"CIDADE_DESTINO", type text}, {"UF_DESTINO", type text}, {"PAGADOR", type text}, {"CNPJ_PAGADOR", Int64.Type}, {"PESO_CALCULO(KG)", type number},  {"M3", Int64.Type}, {"QUANT_VOL", Int64.Type}, {"VALOR_MERCADORIA", type number}, {"COLETAR_DATA", type date}, {"COLETAR_HORA", type time}, {"COLETADO_DATA", type date}, {"COLETADO_HORA", type time}, {"SITUACAO", type text}, {"INSTRUCAO_SITUACAO", type text}, {"PLACA_CAVALO", type text}, {"PLACA_CARRETA", type text}, {"CPF_MOTORISTA", Int64.Type}, {"MOTORISTA", type text}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"OBSERVACAO_1", type text}, {"OBSERVACAO_2", type text}, {"OBSERVACAO_3", type any}, {"DOC COLETA", type any}, {"KG", type any}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado5",{"Nome da Origem"}),
+				    #"Erros Substituídos" = Table.ReplaceErrorValues(#"Colunas Removidas", {{"COTACAO", 1}}),
+				    #"Coluna Duplicada2" = Table.DuplicateColumn(#"Erros Substituídos", "DATA_ULTIMA_OCORRENCIA", "DATA_ULTIMA_OCORRENCIA - Copiar"),
+				    #"Coluna Duplicada3" = Table.DuplicateColumn(#"Coluna Duplicada2", "HORA_ULTIMA_OCORRENCIA", "HORA_ULTIMA_OCORRENCIA - Copiar"),
+				    #"Colunas Mescladas4" = Table.CombineColumns(Table.TransformColumnTypes(#"Coluna Duplicada3", {{"DATA_ULTIMA_OCORRENCIA - Copiar", type text}, {"HORA_ULTIMA_OCORRENCIA - Copiar", type text}}, "pt-BR"),{"DATA_ULTIMA_OCORRENCIA - Copiar", "HORA_ULTIMA_OCORRENCIA - Copiar"},Combiner.CombineTextByDelimiter(" ", QuoteStyle.None),"DADOS_ATE"),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Mescladas4",{{"DADOS_ATE", type datetime}}),
+				    #"Linhas Classificadas" = Table.Sort(#"Tipo Alterado",{{"DADOS_ATE", Order.Descending}}),
+				    #"Valor Substituído73" = Table.ReplaceValue(#"Linhas Classificadas"," ","",Replacer.ReplaceText,{"CTRC"}),
+				    #"Dividir Coluna por Delimitador" = Table.SplitColumn(#"Valor Substituído73", "OBSERVACAO_2", Splitter.SplitTextByDelimiter("-", QuoteStyle.None), {"OBSERVACAO_2.1", "OBSERVACAO_2.2", "OBSERVACAO_2.3", "OBSERVACAO_2.4", "OBSERVACAO_2.5", "OBSERVACAO_2.6"}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador",{{"OBSERVACAO_2.1", type text}, {"OBSERVACAO_2.2", type text}, {"OBSERVACAO_2.3", type text}, {"OBSERVACAO_2.4", Int64.Type}, {"OBSERVACAO_2.5", Int64.Type}, {"OBSERVACAO_2.6", type text}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado2",{{"OBSERVACAO_2.2", "PREVISAO_DE_ENTREGA_TEMP"}}),
+				    #"Colunas Renomeadas8" = Table.RenameColumns(#"Colunas Renomeadas",{{"COLETAR_DATA", "PREVISAO_DE_COLETA"}, {"COLETAR_HORA", "PREVISAO_DE_COLETA_HORA"}, {"COLETADO_DATA", "DATA_DA_COLETA"}, {"COLETADO_HORA", "DATA_DA_COLETA_HORA"}}),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Colunas Renomeadas8",{{"PREVISAO_DE_ENTREGA_TEMP", type datetime}}),
+				    #"Erros Substituídos1" = Table.ReplaceErrorValues(#"Tipo Alterado3", {{"PREVISAO_DE_ENTREGA_TEMP", #datetime(1900, 1, 1, 0, 0, 0)}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Erros Substituídos1",null,#datetime(1900, 1, 1, 0, 0, 0),Replacer.ReplaceValue,{"PREVISAO_DE_ENTREGA_TEMP"}),
+				    #"PREVISAO DE ENTREGA" = Table.AddColumn(#"Valor Substituído", "PREVISAO_DE_ENTREGA", each Text.TrimStart(DateTime.ToText([PREVISAO_DE_ENTREGA_TEMP], "dd/MM/yyyy HH:mm:ss"))),
+				    #"Tipo Alterado7" = Table.TransformColumnTypes(#"PREVISAO DE ENTREGA",{{"PREVISAO_DE_ENTREGA", type datetime}}),
+				    #"Dividir Coluna por Delimitador1" = Table.SplitColumn(Table.TransformColumnTypes(#"Tipo Alterado7", {{"PREVISAO_DE_ENTREGA", type text}}, "pt-BR"), "PREVISAO_DE_ENTREGA", Splitter.SplitTextByDelimiter(" ", QuoteStyle.Csv), {"PREVISAO_DE_ENTREGA", "PREVISAO_DE_ENTREGA_HORA"}),
+				    #"Tipo Alterado8" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador1",{{"PREVISAO_DE_ENTREGA", type date}, {"PREVISAO_DE_ENTREGA_HORA", type time}}),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Tipo Alterado8",{"PREVISAO_DE_ENTREGA_TEMP"}),
+				    #"Erros Substituídos2" = Table.ReplaceErrorValues(#"Colunas Removidas2", {{"NUMERO_COLETA", 1}}),
+				    #"Consultas Mescladas2" = Table.NestedJoin(#"Erros Substituídos2", {"COTACAO"}, #"Justificativas Coleta", {"COTACAO"}, "Justificativa_Coleta", JoinKind.LeftOuter),
+				    #"Justificativa_Coleta Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas2", "Justificativa_Coleta", {"Abonar?"}, {"ABONAR_COLETA"}),
+				    #"Tipo Alterado9" = Table.TransformColumnTypes(#"Justificativa_Coleta Expandido",{{"ABONAR_COLETA", type text}}),
+				    #"Valor Substituído71" = Table.ReplaceValue(#"Tipo Alterado9",null,"Não",Replacer.ReplaceValue,{"ABONAR_COLETA"}),
+				    #"Consultas Mescladas10" = Table.NestedJoin(#"Valor Substituído71", {"COTACAO"}, fOcorrencias_ChegNaColeta, {"COTACAO"}, "fOcorrencias_ChegNaColeta", JoinKind.LeftOuter),
+				    #"fOcorrencias_ChegNaColeta Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas10", "fOcorrencias_ChegNaColeta", {"DATA_ULTIMA_OCORRENCIA", "HORA_ULTIMA_OCORRENCIA"}, {"fOcorrencias_ChegNaColeta.DATA_ULTIMA_OCORRENCIA", "fOcorrencias_ChegNaColeta.HORA_ULTIMA_OCORRENCIA"}),
+				    #"PERFORMANCE DE COLETA" = Table.AddColumn(#"fOcorrencias_ChegNaColeta Expandido", "PERFORMANCE_DE_COLETA", each let
+				
+				    // Lista de exceções
+				    ColetasEmAtrasoManual = {68319,69408,71183,71529,71549,71766},  // Adicione mais números conforme necessário Justificativas Atraso Manual
+				
+				    // Criação das datas e horas combinadas
+				    DataColetaHora = if [DATA_DA_COLETA] <> null and [DATA_DA_COLETA_HORA] <> null 
+				                     then DateTime.FromText(Text.From([DATA_DA_COLETA]) & " " & Text.From([DATA_DA_COLETA_HORA]))
+				                     else null,
+				 
+				    PrevisaoColetaHora = if [PREVISAO_DE_COLETA] <> null and [PREVISAO_DE_COLETA_HORA] <> null 
+				                         then DateTime.FromText(Text.From([PREVISAO_DE_COLETA]) & " " & Text.From([PREVISAO_DE_COLETA_HORA]))
+				                         else null,
+				 
+				    DataOcorrenciaHora = if [fOcorrencias_ChegNaColeta.DATA_ULTIMA_OCORRENCIA] <> null and 
+				                            [fOcorrencias_ChegNaColeta.HORA_ULTIMA_OCORRENCIA] <> null 
+				                         then DateTime.FromText(Text.From([fOcorrencias_ChegNaColeta.DATA_ULTIMA_OCORRENCIA]) & " " & Text.From([fOcorrencias_ChegNaColeta.HORA_ULTIMA_OCORRENCIA]))
+				                         else null,
+				 
+				    Now = DateTime.LocalNow(),
+				 
+				    // Lógica de Performance com exceções
+				    Performance = 
+				        if List.Contains(ColetasEmAtrasoManual, [NUMERO_COLETA]) then
+				            "COLETA COM ATRASO"
+				        else if DataOcorrenciaHora <> null then
+				            if DataOcorrenciaHora > PrevisaoColetaHora then "COLETA COM ATRASO" else "COLETA NO PRAZO"
+				        else if DataColetaHora <> null then
+				            if DataColetaHora > PrevisaoColetaHora then "COLETA COM ATRASO" else "COLETA NO PRAZO"
+				        else
+				            if Now > PrevisaoColetaHora then "NÃO COLETADA E EM ATRASO" else "DENTRO DO PRAZO PARA COLETAR",
+				 
+				    // Verifica se a coleta foi abonada
+				    StatusFinal = if [ABONAR_COLETA] = "Sim" then "COLETA NO PRAZO" else Performance
+				
+				in
+				    StatusFinal),
+				    #"Consultas Mescladas3" = Table.NestedJoin(#"PERFORMANCE DE COLETA", {"NUMERO_COLETA"}, #"Justificativas de Entrega", {"NÚMERO COLETA"}, "Justificativa_Entrega", JoinKind.LeftOuter),
+				    #"Justificativa_Entrega Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas3", "Justificativa_Entrega", {"Abonar?"}, {"ABONAR_ENTREGA"}),
+				    #"Valor Substituído72" = Table.ReplaceValue(#"Justificativa_Entrega Expandido",null,"Não",Replacer.ReplaceValue,{"ABONAR_ENTREGA"}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Valor Substituído72", {"COTACAO"}, fCotação, {"COTACAO"}, "Cotação.1", JoinKind.LeftOuter),
+				    #"Cotação Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "Cotação.1", {"MERCADORIA"}, {"MERCADORIA"}),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"Cotação Expandido", {"MERCADORIA"}, dVeiculos, {"COD"}, "dVeiculos", JoinKind.LeftOuter),
+				    #"dVeiculos Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas1", "dVeiculos", {"DESCRICAO"}, {"DESCRICAO"}),
+				    #"Coluna Duplicada4" = Table.DuplicateColumn(#"dVeiculos Expandido", "NUMERO_COLETA", "NUMERO_COLETA PESQUISAR"),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Duplicada4",{{"NUMERO_COLETA PESQUISAR", type text}}),
+				    #"Coluna Duplicada5" = Table.DuplicateColumn(#"Tipo Alterado1", "COTACAO", "COTACAO_PESQUISAR"),
+				    #"Tipo Alterado11" = Table.TransformColumnTypes(#"Coluna Duplicada5",{{"COTACAO_PESQUISAR", type text}}),
+				    #"Consultas Mescladas4" = Table.NestedJoin(#"Tipo Alterado11", {"NUMERO_COLETA"}, fOcorrencias_AgDescarga, {"NUMERO_COLETA"}, "Ocorrências - AGUARDANDO DESCARGA", JoinKind.LeftOuter),
+				    #"Ocorrências - AGUARDANDO DESCARGA Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas4", "Ocorrências - AGUARDANDO DESCARGA", {"Data e hora de entrega"}, {"Data e hora de entrega"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Ocorrências - AGUARDANDO DESCARGA Expandido",{{"Data e hora de entrega", "DATA_E_HORA_DE_ENTREGA"}}),
+				    #"PERFORMANCE DE ENTREGA" = Table.AddColumn(#"Colunas Renomeadas1", "PERFORMANCE_DE_ENTREGA", each let
+				    Now = DateTime.LocalNow(),
+				    PrevisaoEntregaHora = if [PREVISAO_DE_ENTREGA] <> null and [PREVISAO_DE_ENTREGA_HORA] <> null 
+				                           then DateTime.FromText(Text.From([PREVISAO_DE_ENTREGA]) & " " & Text.From([PREVISAO_DE_ENTREGA_HORA]))
+				                           else null,
+				    DataHoraEntrega = if [DATA_E_HORA_DE_ENTREGA] <> null 
+				                      then [DATA_E_HORA_DE_ENTREGA] 
+				                      else null,
+				    DataHoraUltimaOcorrencia = if [ULTIMA_OCORRENCIA] = "11 - ENTREGA REALIZADA" or [ULTIMA_OCORRENCIA] = "17 - AGUARDANDO DESCARGA" 
+				                               then DateTime.FromText(Date.ToText([DATA_ULTIMA_OCORRENCIA], "yyyy-MM-dd") & " " & Time.ToText([HORA_ULTIMA_OCORRENCIA]))
+				                               else null,
+				    PerformanceEntrega = 
+				        if [PREVISAO_DE_ENTREGA] = #date(1900, 1, 1) then 
+				            "ERRO DE LANCAMENTO"
+				        else if [ABONAR_ENTREGA] = "Sim" then 
+				            "ENTREGA NO PRAZO"
+				        else if DataHoraEntrega <> null then
+				            if DataHoraEntrega <= PrevisaoEntregaHora then 
+				                "ENTREGA NO PRAZO"
+				            else 
+				                "ENTREGA COM ATRASO"
+				        else if DataHoraUltimaOcorrencia <> null then
+				            if DataHoraUltimaOcorrencia <= PrevisaoEntregaHora then 
+				                "ENTREGA NO PRAZO"
+				            else 
+				                "ENTREGA COM ATRASO"
+				        else if Now > PrevisaoEntregaHora then 
+				            "NAO ENTREGUE E EM ATRASO"
+				        else 
+				            "DENTRO DO PRAZO PARA ENTREGAR"
+				in
+				    PerformanceEntrega),
+				    #"Tipo Alterado4" = Table.TransformColumnTypes(#"PERFORMANCE DE ENTREGA",{{"PERFORMANCE_DE_ENTREGA", type text}}),
+				    #"Consultas Mescladas5" = Table.NestedJoin(#"Tipo Alterado4", {"CNPJ_PAGADOR"}, dClientes, {"CNPJ CLIENTE"}, "dClientes", JoinKind.LeftOuter),
+				    #"dClientes Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas5", "dClientes", {"NOME CLIENTE PRINCIPAL"}, {"NOME_CLIENTE_PRINCIPAL"}),
+				    #"Consultas Mescladas6" = Table.NestedJoin(#"dClientes Expandido", {"CNPJ_PAGADOR"}, dClientes, {"CNPJ PRINCIPAL"}, "dClientes", JoinKind.LeftOuter),
+				    #"dClientes Expandido1" = Table.ExpandTableColumn(#"Consultas Mescladas6", "dClientes", {"NOME CLIENTE PRINCIPAL"}, {"NOME_CLIENTE_PRINCIPAL1"}),
+				    #"CLIENTE PRINCIPAL" = Table.AddColumn(#"dClientes Expandido1", "CLIENTE_PRINCIPAL", each if [NOME_CLIENTE_PRINCIPAL] <> null then 
+				    [NOME_CLIENTE_PRINCIPAL] 
+				else 
+				    if [NOME_CLIENTE_PRINCIPAL1] <> null then 
+				        [NOME_CLIENTE_PRINCIPAL1] 
+				    else 
+				        "SEM AGRUPAR"),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"CLIENTE PRINCIPAL",{"NOME_CLIENTE_PRINCIPAL", "NOME_CLIENTE_PRINCIPAL1"}),
+				    OPERACAO = Table.AddColumn(#"Colunas Removidas1", "OPERACAO", each 
+				    if [DESCRICAO] <> null and Text.Contains([DESCRICAO], "DEVOLUCAO") then "LOGÍSTICA REVERSA" 
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "L4B") then "SPOT"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "JADLOG") then "SPOT"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "JT EXPRESS") then "FLUXO DEDICADO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "UPS") then "FLUXO DEDICADO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "EBAZAR") then "FLUXO DEDICADO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "MAGALU") then "FLUXO DEDICADO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "EMPRESA BRASILEIRA DE BEBIDAS") then "FLUXO DEDICADO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "SPOT") then "SPOT"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "PANDURATA") then "OP. BAUDUCCO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "WEST ROCK") then "OP. WESTROCK"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "PINHOPO") then "SPOT"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "DHL LOGISTICS") then "SPOT"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "TGL TRANSPORTE") then "SPOT"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "AMAZON") then "FLUXO DEDICADO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "SHPX") then "FLUXO DEDICADO"
+				    else if [CLIENTE_PRINCIPAL] <> null and Text.Contains([CLIENTE_PRINCIPAL], "SEM AGRUPAR") then "NÃO AGRUPADO"
+				    else "CARGA LOTAÇÃO"
+				),
+				    #"Tipo Alterado6" = Table.TransformColumnTypes(OPERACAO,{{"OPERACAO", type text}}),
+				    #"Consultas Mescladas7" = Table.NestedJoin(#"Tipo Alterado6", {"CLIENTE_PRINCIPAL"}, dCurva, {"CLIENTE PRINCIPAL"}, "dCurva", JoinKind.LeftOuter),
+				    CURVA = Table.ExpandTableColumn(#"Consultas Mescladas7", "dCurva", {"CURVA"}, {"CURVA"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(
+				    CURVA,
+				    null,
+				    each if [OPERACAO] <> "CARGA LOTAÇÃO" then "N/A" else "CURVA NAO DEFINIDA",
+				    Replacer.ReplaceValue,
+				    {"CURVA"}
+				),
+				    ANALISTAS_MONITORAMENTO = Table.AddColumn(#"Valor Substituído1", "ANALISTA MONITORAMENTO", each if [CURVA] = "A" then "JADERSON" else if [CURVA] = "B" then "AMERICO" else if [CURVA] = "C" then "GABRIEL" else if [CURVA] = "D" then "FELIPE" else [CURVA]),
+				    #"Tipo Alterado10" = Table.TransformColumnTypes(ANALISTAS_MONITORAMENTO,{{"CURVA", type text}, {"ANALISTA MONITORAMENTO", type text}}),
+				    #"Consultas Mescladas8" = Table.NestedJoin(#"Tipo Alterado10", {"COTACAO"}, fCotação, {"COTACAO"}, "fCotação", JoinKind.LeftOuter),
+				    ID = Table.ExpandTableColumn(#"Consultas Mescladas8", "fCotação", {"ID"}, {"ID"}),
+				    REGIAO_REMETENTE = Table.AddColumn(ID, "REGIAO_REMETENTE", each if [UF_REMETENTE] = "SP" or [UF_REMETENTE] = "RJ" or [UF_REMETENTE] = "MG" or [UF_REMETENTE] = "ES" then "Sudeste"
+				else if [UF_REMETENTE] = "PR" or [UF_REMETENTE] = "SC" or [UF_REMETENTE] = "RS" then "Sul"
+				else if [UF_REMETENTE] = "DF" or [UF_REMETENTE] = "GO" or [UF_REMETENTE] = "MT" or [UF_REMETENTE] = "MS" then "Centro-Oeste"
+				else if [UF_REMETENTE] = "BA" or [UF_REMETENTE] = "SE" or [UF_REMETENTE] = "AL" or [UF_REMETENTE] = "PE" or [UF_REMETENTE] = "PB" or [UF_REMETENTE] = "RN" or [UF_REMETENTE] = "CE" or [UF_REMETENTE] = "PI" or [UF_REMETENTE] = "MA" then "Nordeste"
+				else if [UF_REMETENTE] = "AM" or [UF_REMETENTE] = "RR" or [UF_REMETENTE] = "AP" or [UF_REMETENTE] = "PA" or [UF_REMETENTE] = "TO" or [UF_REMETENTE] = "RO" or [UF_REMETENTE] = "AC" then "Norte"
+				else "Outro"),
+				    #"Tipo Alterado12" = Table.TransformColumnTypes(REGIAO_REMETENTE,{{"REGIAO_REMETENTE", type text}}),
+				    REGIAO_DESTINO = Table.AddColumn(#"Tipo Alterado12", "REGIAO_DESTINO", each if [UF_DESTINO] = "SP" or [UF_DESTINO] = "RJ" or [UF_DESTINO] = "MG" or [UF_DESTINO] = "ES" then "Sudeste"
+				else if [UF_DESTINO] = "PR" or [UF_DESTINO] = "SC" or [UF_DESTINO] = "RS" then "Sul"
+				else if [UF_DESTINO] = "DF" or [UF_DESTINO] = "GO" or [UF_DESTINO] = "MT" or [UF_DESTINO] = "MS" then "Centro-Oeste"
+				else if [UF_DESTINO] = "BA" or [UF_DESTINO] = "SE" or [UF_DESTINO] = "AL" or [UF_DESTINO] = "PE" or [UF_DESTINO] = "PB" or [UF_DESTINO] = "RN" or [UF_DESTINO] = "CE" or [UF_DESTINO] = "PI" or [UF_DESTINO] = "MA" then "Nordeste"
+				else if [UF_DESTINO] = "AM" or [UF_DESTINO] = "RR" or [UF_DESTINO] = "AP" or [UF_DESTINO] = "PA" or [UF_DESTINO] = "TO" or [UF_DESTINO] = "RO" or [UF_DESTINO] = "AC" then "Norte"
+				else "Outro"),
+				    #"Consultas Mescladas9" = Table.NestedJoin(REGIAO_DESTINO, {"CTRC"}, dCTEs, {"Serie/Numero CTRC"}, "CTRC.1", JoinKind.LeftOuter),
+				    VÍNCULO = Table.ExpandTableColumn(#"Consultas Mescladas9", "CTRC.1", {"RELACIONAMENTO"}, {"VÍNCULO"}),
+				    #"Colunas Removidas3" = Table.RemoveColumns(VÍNCULO,{"OBSERVACAO_1", "OBSERVACAO_2.1", "OBSERVACAO_2.3", "OBSERVACAO_2.4", "OBSERVACAO_2.5", "OBSERVACAO_2.6", "OBSERVACAO_3", "DOC COLETA",  "SETOR", "CEP_REMETENTE", "NOTAS_FISCAIS", "DESTINATARIO", "CNPJ_DESTINATARIO", "PESO_CALCULO(KG)", "KG", "M3", "QUANT_VOL"}),
+				    #"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Colunas Removidas3", "Codigo Ultima Ocorrencia", each Text.BeforeDelimiter([ULTIMA_OCORRENCIA], " -"), type text),
+				    #"Tipo Alterado13" = Table.TransformColumnTypes(#"Texto Inserido Antes do Delimitador",{{"Codigo Ultima Ocorrencia", Int64.Type}}),
+				    #"Texto Extraído Após o Delimitador" = Table.TransformColumns(#"Tipo Alterado13", {{"ULTIMA_OCORRENCIA", each Text.AfterDelimiter(_, "- "), type text}}),
+				    Personalizar1 = Table.AddColumn(#"Texto Extraído Após o Delimitador", "STATUS_ATUAL", each if Text.Contains([OPERACAO], "FLUXO DEDICADO") and Text.Contains([INSTRUCAO_SITUACAO], "CTRC GERADO") then "ENTREGUE FLUXO DEDICADO"
+				else if [Codigo Ultima Ocorrencia] = 97 or [Codigo Ultima Ocorrencia] = 98 then "1. AG. CONTRATAÇÃO"
+				else if [Codigo Ultima Ocorrencia] = 81 then "2. EM GR"
+				else if [Codigo Ultima Ocorrencia] = 50 or [Codigo Ultima Ocorrencia] = 82 or [Codigo Ultima Ocorrencia] = 2 then "3. AG. COLETA"
+				else if [Codigo Ultima Ocorrencia] = 1 then "5. AG. A.E"
+				else if [Codigo Ultima Ocorrencia] = 34 then "6. EM ROTA"
+				else if [Codigo Ultima Ocorrencia] = 18 or [Codigo Ultima Ocorrencia] = 18 then "4. AG. EMISSÃO"
+				else if [Codigo Ultima Ocorrencia] = 10 then "6. EM ROTA"
+				else if [Codigo Ultima Ocorrencia] = 17 then "7. AG. DESCARGA"
+				else if [Codigo Ultima Ocorrencia] = 25 then "8. AG. COMPROVANTES"
+				else if [Codigo Ultima Ocorrencia] = 11 then "ENTREGUE"
+				else if [Codigo Ultima Ocorrencia] = 99 then "CANCELADA"
+				else if [Codigo Ultima Ocorrencia] = 8 then "DESISTÊNCIA"
+				else if [Codigo Ultima Ocorrencia] = 30 then "VALIDAÇÃO FINAL"
+				else [ULTIMA_OCORRENCIA]),
+				    #"Consultas Mescladas12" = Table.NestedJoin(#"Personalizar1", {"NUMERO_COLETA"}, #"Justificativas de Entrega", {"NÚMERO COLETA"}, "Justificativas de Entrega", JoinKind.LeftOuter),
+				    #"Justificativas de Entrega Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas12", "Justificativas de Entrega", {"Área", "Responsável Atraso", "Abertura", "DESCRICAO DO OCORRIDO", "Abonar?"}, {"Justificativas de Entrega.Área", "Justificativas de Entrega.Responsável Atraso", "Justificativas de Entrega.Abertura", "Justificativas de Entrega.DESCRICAO DO OCORRIDO", "Justificativas de Entrega.Abonar?"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Justificativas de Entrega Expandido", {"NUMERO_COLETA"}),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Duplicatas Removidas", each ([PAGADOR] <> "AMAZON LOGISTICA DO BRASIL LTD" and [PAGADOR] <> "AMAZON SERV DE VAREJO DO BRASI" and [PAGADOR] <> "AMAZON SERVICOS DE VAREJO DO B" and [PAGADOR] <> "EBAZAR" and [PAGADOR] <> "EBAZAR.COM.BR LTDA" and [PAGADOR] <> "EBAZAR.COM.BR. LTDA" and [PAGADOR] <> "EBAZAR.COM.BR.LTDA"  and [PAGADOR] <> "MERCADO ENVIOS SERV DE LOG LTD" and [PAGADOR] <> "MERCADO ENVIOS SERVICOS DE LOG" and [PAGADOR] <> "SHPX LOG LTDA" and [PAGADOR] <> "SHPX LOGISTICA LTDA.")),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Linhas Filtradas1", "DataHoraInclusao", each Text.Combine({Text.From([DATA_INCLUSAO], "pt-BR"), Text.From([HORA_INCLUSAO], "pt-BR")}, " "), type text)
+				in
+				    #"Coluna Mesclada Inserida"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

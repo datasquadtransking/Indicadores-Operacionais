@@ -1,0 +1,129 @@
+table 'dCalendário Coletas'
+	lineageTag: 67b04347-ac4e-411b-8875-d269cac0e9a7
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: Short Date
+		lineageTag: 4b9b100a-dea2-433b-bd8f-f48a2f749748
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ANO
+		formatString: 0
+		lineageTag: 1980b5db-bbd4-4a06-815c-33800edc6004
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ANO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MÊS
+		formatString: 0
+		lineageTag: f4c9d826-4436-45f3-92be-4abf4dd847fc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MÊS]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIA
+		formatString: 0
+		lineageTag: 645f9e76-1ab7-418e-8346-14d4bb1ef851
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DIA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO-MÊS
+		lineageTag: 198ca08f-70d8-4503-8ebd-231b35afe02f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ANO-MÊS]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ANO-NOME MÊS'
+		lineageTag: 86c9fde5-f53d-4cfc-932d-0edb432bbadd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ANO-NOME MÊS]
+		sortByColumn: ANO-MÊS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME DIA DA SEMANA'
+		lineageTag: 7a078550-d000-44e7-b208-2503cf68075e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NOME DIA DA SEMANA]
+		sortByColumn: 'DIA DA SEMANA'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIA DA SEMANA'
+		formatString: 0
+		lineageTag: 8bf952a9-4173-466f-8072-91bd1a45ea94
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DIA DA SEMANA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME DO MÊS'
+		lineageTag: f7607d06-b6a3-4776-9b62-215515b869f6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NOME DO MÊS]
+		sortByColumn: MÊS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRIMESTRE
+		lineageTag: 3a080bbd-df4d-416a-85e7-28921644dee9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [TRIMESTRE]
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO
+		lineageTag: e95b1f62-edca-46a6-a8b6-0246a293f146
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CICLO]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dCalendário Coletas' = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(
+				        MIN('fColetas'[PREVISAO_DE_COLETA]),
+				        EOMONTH(MAX('fColetas'[PREVISAO_DE_COLETA]), 0)),
+				        "ANO",YEAR([Date]),
+				        "MÊS", MONTH([Date]),
+				        "DIA", DAY([Date]),
+				        "ANO-MÊS", FORMAT([Date],"YYYY-MM"),
+				        "ANO-NOME MÊS", UPPER(FORMAT([Date],"MMM-YY")),
+				        "NOME DIA DA SEMANA", UPPER(FORMAT([Date],"DDDD")),
+				        "DIA DA SEMANA", WEEKDAY([Date]),
+				        "NOME DO MÊS", FORMAT([Date], "MMMM"),
+				        "TRIMESTRE", FORMAT([Date],"Q") & " TRIMESTRE",
+				        "CICLO", SWITCH(TRUE(),
+				            DAY([Date]) <= 7, "1 SEMANA",
+				            DAY([Date]) <= 14, "2 SEMANA",
+				            DAY([Date]) <= 21, "3 SEMANA",
+				            DAY([Date]) >= 22, "4 SEMANA")
+				)
+
+	annotation PBI_Id = 6801e03bb120438cbe339153c7e96493
+

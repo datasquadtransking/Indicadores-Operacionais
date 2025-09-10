@@ -1,0 +1,132 @@
+table dClientes
+	lineageTag: ee53d998-dd0a-41e7-ac5d-37fdc6ad1a6c
+
+	column 'NOME CLIENTE PRINCIPAL'
+		dataType: string
+		lineageTag: 1aefab3d-d52c-465c-b9ad-f6ebe1388325
+		summarizeBy: none
+		sourceColumn: NOME CLIENTE PRINCIPAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME DO GRUPO'
+		dataType: string
+		lineageTag: 9f4115a6-184f-410b-ba7f-c5d1f0030459
+		summarizeBy: none
+		sourceColumn: NOME DO GRUPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ CLIENTE'
+		dataType: int64
+		formatString: 0
+		lineageTag: 12ef867c-115a-4540-bed4-7637c7a46b8a
+		summarizeBy: none
+		sourceColumn: CNPJ CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME CLIENTE'
+		dataType: string
+		lineageTag: 5659cb1b-520f-4957-a4a1-bcd0bfbc68f1
+		summarizeBy: none
+		sourceColumn: NOME CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDERECO
+		dataType: string
+		lineageTag: 966d93be-40fb-4839-bd97-564fc5769231
+		summarizeBy: none
+		sourceColumn: ENDERECO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CEP
+		dataType: int64
+		formatString: 0
+		lineageTag: 304840c9-991e-43e7-b5fd-c1524894eb91
+		summarizeBy: sum
+		sourceColumn: CEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column FONE
+		dataType: string
+		lineageTag: a299ce5c-19c8-4241-9d38-0b1cd44e7596
+		summarizeBy: none
+		sourceColumn: FONE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIDADE
+		dataType: string
+		lineageTag: a8387780-10b3-473f-aeea-442aafe2aa58
+		summarizeBy: none
+		sourceColumn: CIDADE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 6c07b60a-3fa9-450a-a76d-6aca3655e4d0
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIL
+		dataType: string
+		lineageTag: da2878e8-b529-450f-804c-25d7d42e6441
+		summarizeBy: none
+		sourceColumn: FIL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTMOVIM
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cc9cd556-3c04-4312-a44e-573f1db0ddb2
+		summarizeBy: none
+		sourceColumn: ULTMOVIM
+
+		variation Variation
+			isDefault
+			relationship: 7e07d0a0-bc8f-4808-ae5f-6dee23127749
+			defaultHierarchy: LocalDateTable_8142e128-1d75-41a7-866b-fef53315adba.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'CNPJ PRINCIPAL'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5958a61b-dc60-4dd1-95d4-02a3a51aefb2
+		summarizeBy: sum
+		sourceColumn: CNPJ PRINCIPAL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dClientes = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Bases BI"),
+				    #"Linhas Filtradas" = Table.SelectRows(Fonte, each ([Name] = "Clientes.csv")),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(#"Linhas Filtradas", each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (5)", each #"Transformar Arquivo (5)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo (5)"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (5)", Table.ColumnNames(#"Transformar Arquivo (5)"(#"Arquivo de Amostra (6)"))),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Coluna de Tabela Expandida1",{"Nome da Origem", "0"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Colunas Removidas1", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CNPJ PRINCIPAL", Int64.Type}, {"CNPJ CLIENTE", Int64.Type}, {"NOME CLIENTE", type text}, {"CEP", Int64.Type}, {"CIDADE", type text}, {"UF", type text}, {"FIL", type text}, {"ULTMOVIM", type date}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

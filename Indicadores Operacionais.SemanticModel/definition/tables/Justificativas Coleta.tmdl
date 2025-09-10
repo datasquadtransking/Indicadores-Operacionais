@@ -1,0 +1,144 @@
+table 'Justificativas Coleta'
+	lineageTag: fd1fd926-adfd-4a36-aa89-54c9dc2e4e5a
+
+	measure %ColetadoNoPrazo =
+			
+			VAR ResultadoDiv = DIVIDE([Coletado no prazo rodolfo], [TOTAL_COLETAS], 0)
+			RETURN IF(ISBLANK(ResultadoDiv), 0, ResultadoDiv)
+		formatString: 0%;-0%;0%
+		lineageTag: 3f29ea92-6af2-4b3d-be0c-ca3ac80a41b0
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 61b735df-1114-4868-91b3-9827bace250f
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: fd8227f2-280c-48f9-a14e-7d87fd2f2e6b
+		summarizeBy: sum
+		sourceColumn: COTACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: 89c81219-2d01-4c02-a0cd-3fb46098001d
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENTE
+		dataType: string
+		lineageTag: 96cb863b-6f8b-42cb-b33a-fa7a0c46ea94
+		summarizeBy: none
+		sourceColumn: CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURVA
+		dataType: string
+		lineageTag: 008ba2fe-844f-445d-9f0f-68a03385b708
+		summarizeBy: none
+		sourceColumn: CURVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev. Coleta Data e Hora'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 90e47829-fe89-45c3-aa93-a5c2756dbc40
+		summarizeBy: none
+		sourceColumn: Prev. Coleta Data e Hora
+
+		variation Variation
+			isDefault
+			relationship: a178205d-03a0-4a0d-a895-4053bd6942e9
+			defaultHierarchy: LocalDateTable_873214c8-1a9e-4341-bc40-9a8eea1581d2.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Área
+		dataType: string
+		lineageTag: b5699973-498f-4ec5-b746-1f05b612a2da
+		summarizeBy: none
+		sourceColumn: Área
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Responsável Atraso'
+		dataType: string
+		lineageTag: e08a8271-7603-4776-8f13-8a63976c184c
+		summarizeBy: none
+		sourceColumn: Responsável Atraso
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abertura
+		dataType: string
+		lineageTag: f064f72f-5e2b-43ec-af05-f5451326fdef
+		summarizeBy: none
+		sourceColumn: Abertura
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DESCRICAO DO OCORRIDO'
+		dataType: string
+		lineageTag: 01b7d83c-e698-4cfa-bb8f-f2dd8983f31b
+		summarizeBy: none
+		sourceColumn: DESCRICAO DO OCORRIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abonar?
+		dataType: string
+		lineageTag: 954666f1-238f-4712-8140-326989e624d4
+		summarizeBy: none
+		sourceColumn: Abonar?
+
+		annotation SummarizationSetBy = Automatic
+
+	column Justificada?
+		dataType: string
+		lineageTag: 1f119d7f-fcd3-4d2d-ba13-adf154516154
+		summarizeBy: none
+		sourceColumn: Justificada?
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column12
+		dataType: string
+		lineageTag: 128fe53d-dc32-4083-853a-4d2cc6138d8d
+		summarizeBy: none
+		sourceColumn: Column12
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Justificativas Coleta' = m
+		mode: import
+		queryGroup: TABELAS
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\Pedro_A\Perdas Coleta.xlsx"), null, true),
+				    Perdas_Sheet = Fonte{[Item="Perdas",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Perdas_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID", Int64.Type}, {"COTACAO", Int64.Type}, {"NUMERO_COLETA", Int64.Type}, {"CLIENTE", type text}, {"CURVA", type text}, {"Prev. Coleta Data e Hora", type datetime}, {"Área", type text}, {"Responsável Atraso", type text}, {"Abertura", type text}, {"DESCRICAO DO OCORRIDO", type text}, {"Abonar?", type text}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado","false","Não",Replacer.ReplaceText,{"Abonar?"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","true","Sim",Replacer.ReplaceText,{"Abonar?"}),
+				    Personalizar1 = Table.AddColumn(#"Valor Substituído1", "Justificada?", each if [Responsável Atraso] <> null and [Abertura] <> null and [DESCRICAO DO OCORRIDO] <> "" then "Sim" else "Não"),
+				    #"Duplicatas Removidas" = Table.Distinct(Personalizar1, {"COTACAO"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Duplicatas Removidas", each [COTACAO] <> null and [COTACAO] <> "")
+				in
+				    #"Linhas Filtradas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

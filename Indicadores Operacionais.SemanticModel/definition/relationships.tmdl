@@ -1,0 +1,196 @@
+relationship AutoDetected_56bed3a8-e9d7-45d5-99eb-8001069bf14c
+	fromColumn: fColetas.CNPJ_PAGADOR
+	toColumn: dClientes.'CNPJ CLIENTE'
+
+relationship 7e708ab3-19dc-4d8b-afc8-95537951ee7f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fCotação.VALIDADE
+	toColumn: LocalDateTable_66d1e3c3-1331-4734-afa7-d9a058a08a1b.Date
+
+relationship 97245eac-3693-4792-b141-ff360c8a1fe7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fCotação.'DATA EMISSAO CTRC'
+	toColumn: LocalDateTable_f15df0ed-9ee7-47e9-bbdd-fe55c9a67ad6.Date
+
+relationship 4679cde1-8103-42d4-9212-e87b747d35bf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fCotação.'DATA HORA INCLUSAO'
+	toColumn: LocalDateTable_c0a457d5-c820-4f0a-8d51-5aa0bf96afd6.Date
+
+relationship ff14ee3a-5b98-474c-b051-d4009fc48350
+	fromColumn: fColetas.COTACAO
+	toColumn: fCotação.COTACAO
+
+relationship a9feed70-84d6-4883-9614-b2292152d31f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fOcorrencias_AgDescarga.'Data e hora de entrega'
+	toColumn: LocalDateTable_b6e76ef4-2b58-4185-b111-31a31b4153de.Date
+
+relationship 6e53351a-5351-1f32-bccd-57a92900999e
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fColetas.NUMERO_COLETA
+	toColumn: fOcorrencias_AgDescarga.NUMERO_COLETA
+
+relationship 7e07d0a0-bc8f-4808-ae5f-6dee23127749
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dClientes.ULTMOVIM
+	toColumn: LocalDateTable_8142e128-1d75-41a7-866b-fef53315adba.Date
+
+relationship 10a0807d-2d81-47e6-a022-5ec26c91dbe4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.DATA_DA_COLETA
+	toColumn: LocalDateTable_c787c1bf-e4e6-4db7-bc6c-c7998f2ffe8c.Date
+
+relationship e6ec9096-0ede-4927-a90c-2f3864b4bd13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.DATA_ULTIMA_OCORRENCIA
+	toColumn: LocalDateTable_51679197-ff8d-4b53-bf7f-5333f891d441.Date
+
+relationship 66b35516-5c47-4f1c-a5d9-f512042bd89c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.DADOS_ATE
+	toColumn: LocalDateTable_0173a924-1a25-40a0-a910-6969ab4c88cc.Date
+
+relationship 4efd805b-9326-4c7c-871a-a49330577b67
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.DATA_E_HORA_DE_ENTREGA
+	toColumn: LocalDateTable_d63f89d4-6f44-4f72-a660-71574eba691c.Date
+
+relationship AutoDetected_13b231b1-48bd-41c0-b22d-57f3b774b8de
+	fromColumn: fColetas.DESCRICAO
+	toColumn: dVeiculos.DESCRICAO
+
+relationship d9ff83aa-8573-46ea-82bd-236865166432
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.DATA_INCLUSAO
+	toColumn: LocalDateTable_039e8c08-00cb-4006-901c-26e4b6acf03b.Date
+
+relationship 5edcaaf4-bdbe-4ad5-f7e1-bf15ff5d93e2
+	fromColumn: fColetas.PREVISAO_DE_COLETA
+	toColumn: 'dCalendário Coletas'.Date
+
+relationship e07a0fac-8a71-49fc-be63-33d81e636a19
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dCalendário Entregas'.Date
+	toColumn: LocalDateTable_ea13d445-7f3d-4b2e-a699-ac3e56debbbd.Date
+
+relationship 163957f1-e5e7-9502-3d27-260a265a056d
+	fromColumn: fColetas.PREVISAO_DE_ENTREGA
+	toColumn: 'dCalendário Entregas'.Date
+
+relationship 90f65f1c-e421-498f-b686-c9bcf77bc643
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Justificativas de Entrega'.'Prev. Entrega Data e Hora'
+	toColumn: LocalDateTable_21c2051f-cd5f-42ca-8eb6-5bd596d45d08.Date
+
+relationship feacf59f-42cb-43d2-82c6-cd4ad05e78b6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Data_Emissao_Rg
+	toColumn: LocalDateTable_053c9e2c-642f-42fe-ae28-ae03e01ef44a.Date
+
+relationship 40e55452-4774-4ad8-ad62-18637b065faa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Data_Nascimento
+	toColumn: LocalDateTable_6dabcec8-5d39-45f0-b7ca-09013a2a29e6.Date
+
+relationship 806baeca-bf39-497d-a4f9-c95ceb2c3f63
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Validade_CNH
+	toColumn: LocalDateTable_98f8f614-3b81-47dd-9de1-68f00980c944.Date
+
+relationship 3f84ad9c-fc82-4dbb-92d5-d802257e2ed1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Data_Emissao_CNH
+	toColumn: LocalDateTable_f7cd41c4-48df-42bf-84a7-eaa404a33976.Date
+
+relationship 73389bcc-d809-4d55-8b45-fedef0737c57
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Data_1a_CNH
+	toColumn: LocalDateTable_56703644-213d-4f53-885b-84fc725fc90c.Date
+
+relationship 2ba84168-9543-42dd-97f8-3a9444ee378a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.'Validade MOPP'
+	toColumn: LocalDateTable_9892d34b-1c3a-4625-9b3c-07e6a79a3569.Date
+
+relationship 362e8c62-c865-4052-8a43-e94e8c18a97a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Validade
+	toColumn: LocalDateTable_bb047262-a15a-4fe8-aaf0-333213662ed6.Date
+
+relationship 78864fb5-6a9d-44cf-a7b5-839fb405bd66
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Data_Admissao
+	toColumn: LocalDateTable_bfe1a7b7-bfa0-4b08-a292-b89bfa6a6ae7.Date
+
+relationship b68bb7b3-3b33-40a1-80ad-311ca83a739d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dMotoristas.Validade_1
+	toColumn: LocalDateTable_b9ce46ee-6b2b-4db3-a37b-227d2b0c256b.Date
+
+relationship e945781f-9ddd-47df-95e5-f0a418551218
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.'PREV COLETA DT HR'
+	toColumn: LocalDateTable_1bf702eb-0a17-418e-8975-c9a8989069cb.Date
+
+relationship 91bdf62a-da26-4068-bc91-066935410da9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.'PREV ENTREGA DT HR'
+	toColumn: LocalDateTable_47c35e16-33b3-48e8-b34e-8df704fc659b.Date
+
+relationship adb8d880-6d72-cb7f-6d1d-42542c4c671a
+	fromColumn: 'Justificativas de Entrega'.'NÚMERO COLETA'
+	toColumn: fColetas.NUMERO_COLETA
+
+relationship a178205d-03a0-4a0d-a895-4053bd6942e9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Justificativas Coleta'.'Prev. Coleta Data e Hora'
+	toColumn: LocalDateTable_873214c8-1a9e-4341-bc40-9a8eea1581d2.Date
+
+relationship AutoDetected_b41b951c-44e6-4ea5-adf5-39abbd926166
+	fromColumn: 'Justificativas Coleta'.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+relationship 9287d9f2-9cd0-4f21-b42f-08b82a8abaa6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Atalizado Em:'.'Atualizado em:'
+	toColumn: LocalDateTable_40c1aa09-57e7-4e09-a092-5bae3d4febb6.Date
+
+relationship 57c54351-7eee-4e53-9936-a77220bba2c1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fOcorrencias_ChegNaColeta.DATA_ULTIMA_OCORRENCIA
+	toColumn: LocalDateTable_9b4f3efb-cd09-4e4d-a0f9-80a86bdc4158.Date
+
+relationship ef0a58f2-bafa-4213-aa3c-25ab21a2e32a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fColetas.'fOcorrencias_ChegNaColeta.DATA_ULTIMA_OCORRENCIA'
+	toColumn: LocalDateTable_4dc428dc-cd80-4e26-b9af-1fc42e9dec7a.Date
+
+relationship AutoDetected_d27aaa42-e4aa-4307-a8ad-01b9b53f564d
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fOcorrencias_ChegNaColeta.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+relationship AutoDetected_c997907a-9c0e-4841-8696-55ed9ac08e04
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fOcorrencias_ChegNaColeta.COTACAO
+	toColumn: fCotação.COTACAO
+
+relationship AutoDetected_c7a1d180-e8bb-4b49-a83d-b0c00c9fef4e
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fOcorrencias_ChegNaColeta.COTACAO
+	toColumn: fOcorrencias_AgDescarga.COTACAO
+
+relationship AutoDetected_020cc028-aa6a-44da-b585-444fc4b6f058
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fOcorrencias_ChegNaColeta.COTACAO
+	toColumn: 'Justificativas Coleta'.COTACAO
+
