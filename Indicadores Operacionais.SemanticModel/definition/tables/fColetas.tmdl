@@ -830,6 +830,27 @@ table fColetas
 
 		annotation SummarizationSetBy = Automatic
 
+	column StatusData =
+			
+			VAR Hoje = TODAY()
+			VAR Coleta = 'fColetas'[PREVISAO_DE_COLETA]
+			VAR Entrega = 'fColetas'[PREVISAO_DE_ENTREGA]
+			VAR Datas = { Coleta, Entrega }
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        Hoje IN Datas, "Hoje",
+			        Hoje - 1 IN Datas, "Ontem",
+			        Hoje + 1 IN Datas, "Amanhã",
+			        Hoje + 2 IN Datas, "Depois de amanhã",
+			        "Outra data"
+			    )
+		lineageTag: 40233661-ba42-4c73-860d-357903687c99
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fColetas = m
 		mode: import
 		queryGroup: TABELAS
