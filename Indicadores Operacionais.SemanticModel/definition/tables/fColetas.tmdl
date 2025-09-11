@@ -851,6 +851,46 @@ table fColetas
 
 		annotation SummarizationSetBy = Automatic
 
+	column StatusColeta = ```
+			
+			VAR DataHoje = TODAY()
+			VAR DataPrevisao = 'fColetas'[PREVISAO_DE_COLETA]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        DataPrevisao = DataHoje, "Coleta hoje",
+			        DataPrevisao = DataHoje + 1, "Coletar amanhã",
+			        DataPrevisao = DataHoje + 2, "Coletar depois de amanhã",
+			        DataPrevisao = DataHoje - 1, "Coletar ontem",
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: ebef27ae-eb0a-4fe6-9b1e-73067f55aed6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusEntrega = ```
+			
+			VAR DataHoje = TODAY()
+			VAR DataPrevisao = 'fColetas'[PREVISAO_DE_ENTREGA]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        DataPrevisao = DataHoje, "Entrega hoje",
+			        DataPrevisao = DataHoje + 1, "Entregar amanhã",
+			        DataPrevisao = DataHoje + 2, "Entregar depois de amanhã",
+			        DataPrevisao = DataHoje - 1, "Entregar ontem",
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: 85756102-e0b2-476f-a488-403a404d35c5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fColetas = m
 		mode: import
 		queryGroup: TABELAS
