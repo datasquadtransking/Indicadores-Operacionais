@@ -891,6 +891,12 @@ table fColetas
 
 		annotation SummarizationSetBy = Automatic
 
+	column Rota = fColetas[CIDADE_REMETENTE] & "/" & fColetas[UF_REMETENTE] &" - " & fColetas[CIDADE_DESTINO] & "/" & fColetas[UF_DESTINO]
+		lineageTag: 13800332-148f-4e0f-bc87-226397a569a3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fColetas = m
 		mode: import
 		queryGroup: TABELAS
