@@ -1,0 +1,453 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "84b118a0c112bd4884d3",
+  "displayName": "EntregaD-",
+  "displayOption": "ActualSize",
+  "height": 2600,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "06f22d352ef7065167c7",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fColetas"
+              }
+            },
+            "Property": "ULTIMA_OCORRENCIA"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "fColetas",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "f"
+                              }
+                            },
+                            "Property": "ULTIMA_OCORRENCIA"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'CARGA DECLINADA PELO CLIENTE'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'COLETA CANCELADA'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'MERCADORIA SINISTRADA'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OPORTUNIDADE PERDIDA'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "a20e65929868028e20d7",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fColetas"
+              }
+            },
+            "Property": "OPERACAO"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "fColetas",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "OPERACAO"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'CARGA LOTAÇÃO'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "pageBinding": {
+    "name": "e0c2d27848ef6d03282d",
+    "type": "Default",
+    "parameters": [],
+    "referenceScope": "CrossReport"
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "385L"
+              }
+            }
+          },
+          "border": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "backgroundColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 1,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "inputBoxColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 1,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "foregroundColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 1,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "100D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Relatório Coleta.svg'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Relat_rio_Coleta13978956798327324.svg"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 1,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "7fc62d2969f39896c4e8",
+      "target": "5f7fbf2ce68b2ded3dd1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7fc62d2969f39896c4e8",
+      "target": "edc7f35736e5c36747bf",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5f7fbf2ce68b2ded3dd1",
+      "target": "edc7f35736e5c36747bf",
+      "type": "NoFilter"
+    },
+    {
+      "source": "edc7f35736e5c36747bf",
+      "target": "5f7fbf2ce68b2ded3dd1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "edc7f35736e5c36747bf",
+      "target": "3a18494096a41f9b3683",
+      "type": "DataFilter"
+    },
+    {
+      "source": "edc7f35736e5c36747bf",
+      "target": "7fc62d2969f39896c4e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3a18494096a41f9b3683",
+      "target": "edc7f35736e5c36747bf",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5f7fbf2ce68b2ded3dd1",
+      "target": "7fc62d2969f39896c4e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3a18494096a41f9b3683",
+      "target": "7fc62d2969f39896c4e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7fc62d2969f39896c4e8",
+      "target": "3a18494096a41f9b3683",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba99369fdd5c2e352381",
+      "target": "edc7f35736e5c36747bf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba99369fdd5c2e352381",
+      "target": "5fd1a9afd254d2909626",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba99369fdd5c2e352381",
+      "target": "361f77440642b4c63e09",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba99369fdd5c2e352381",
+      "target": "8e7f119f940de081ac95",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cfe81689a179631ea1e8",
+      "target": "8c0b44bb8ddad69620ee",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cfe81689a179631ea1e8",
+      "target": "f5ec87867812857d3e6e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cfe81689a179631ea1e8",
+      "target": "7fc62d2969f39896c4e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cfe81689a179631ea1e8",
+      "target": "3a18494096a41f9b3683",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cfe81689a179631ea1e8",
+      "target": "8e7f119f940de081ac95",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7fc62d2969f39896c4e8",
+      "target": "cfe81689a179631ea1e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7fc62d2969f39896c4e8",
+      "target": "8e7f119f940de081ac95",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3a18494096a41f9b3683",
+      "target": "cfe81689a179631ea1e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3a18494096a41f9b3683",
+      "target": "8e7f119f940de081ac95",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9800df11720014310924",
+      "target": "cfe81689a179631ea1e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9800df11720014310924",
+      "target": "7fc62d2969f39896c4e8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9800df11720014310924",
+      "target": "3a18494096a41f9b3683",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9800df11720014310924",
+      "target": "8e7f119f940de081ac95",
+      "type": "DataFilter"
+    }
+  ]
+}

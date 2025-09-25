@@ -1,0 +1,197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "9c9cbd6e6c03c961a92a",
+  "position": {
+    "x": 744.54545454545462,
+    "y": 1365,
+    "z": 21000,
+    "height": 486.81818181818187,
+    "width": 1204.0909090909092,
+    "tabOrder": 19000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justificativas de Coleta"
+                    }
+                  },
+                  "Property": "NUMERO_COLETA"
+                }
+              },
+              "queryRef": "Justificativas de Coleta.NUMERO_COLETA",
+              "nativeQueryRef": "NUMERO_COLETA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justificativas de Coleta"
+                    }
+                  },
+                  "Property": "Responsável Atraso"
+                }
+              },
+              "queryRef": "Justificativas de Coleta.Responsável Atraso",
+              "nativeQueryRef": "Responsável Atraso"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justificativas de Coleta"
+                    }
+                  },
+                  "Property": "DESCRICAO DO OCORRIDO"
+                }
+              },
+              "queryRef": "Justificativas de Coleta.DESCRICAO DO OCORRIDO",
+              "nativeQueryRef": "DESCRICAO DO OCORRIDO"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Justificativas de Coleta"
+                  }
+                },
+                "Property": "DESCRICAO DO OCORRIDO"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "954.4183691172806D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Justificativas de Coleta.DESCRICAO DO OCORRIDO"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9a51be3f877105bd50a9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Justificativas de Coleta"
+              }
+            },
+            "Property": "Responsável Atraso"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "j",
+              "Entity": "Justificativas de Coleta",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "j"
+                              }
+                            },
+                            "Property": "Responsável Atraso"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'SISTEMA'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "683ada1ac6eca611702b",
+  "position": {
+    "x": 0,
+    "y": 149.59349593495935,
+    "z": 0,
+    "height": 571.05691056910564,
+    "width": 1280
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "COTACAO"
+                }
+              },
+              "queryRef": "fColetas.COTACAO",
+              "nativeQueryRef": "COTACAO",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "NUMERO_COLETA"
+                }
+              },
+              "queryRef": "fColetas.NUMERO_COLETA",
+              "nativeQueryRef": "NUMERO_COLETA",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PERFORMANCE_DE_COLETA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PERFORMANCE_DE_COLETA)",
+              "nativeQueryRef": "PERFORMANCE_DE_COLETA",
+              "displayName": "PERFORMANCE_DE_COLETA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "COTACAO1"
+                }
+              },
+              "queryRef": "Medidas.COTACAO1",
+              "nativeQueryRef": "COTACAO1"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PAGADOR"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PAGADOR)",
+              "nativeQueryRef": "PAGADOR",
+              "displayName": "PAGADOR"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CURVA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.CURVA)",
+              "nativeQueryRef": "CURVA",
+              "displayName": "CURVA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "DATA_DA_COLETA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.DATA_DA_COLETA)",
+              "nativeQueryRef": "DATA_DA_COLETA",
+              "displayName": "DATA_DA_COLETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "DATA_DA_COLETA_HORA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.DATA_DA_COLETA_HORA)",
+              "nativeQueryRef": "DATA_DA_COLETA_HORA",
+              "displayName": "DATA_DA_COLETA_HORA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PREV COLETA DT HR"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PREV COLETA DT HR)",
+              "nativeQueryRef": "PREV COLETA DT HR ",
+              "displayName": "PREV COLETA DT HR "
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PREV ENTREGA DT HR"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PREV ENTREGA DT HR)",
+              "nativeQueryRef": "PREV ENTREGA DT HR",
+              "displayName": "PREV ENTREGA DT HR"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "DATA_E_HORA_DE_ENTREGA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.DATA_E_HORA_DE_ENTREGA)",
+              "nativeQueryRef": "DATA_E_HORA_DE_ENTREGA ",
+              "displayName": "DATA_E_HORA_DE_ENTREGA "
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fColetas"
+                  }
+                },
+                "Property": "COTACAO"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "fColetas.COTACAO"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "COTACAO"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "fColetas.NUMERO_COLETA"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.70915735676968D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.CLIENTE"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

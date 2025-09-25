@@ -1,0 +1,2042 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "a75aa0bdc439f462465e",
+  "position": {
+    "x": 0,
+    "y": 87.758846657929226,
+    "z": 0,
+    "height": 632.24115334207079,
+    "width": 1279.5806028833551
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "COTACAO"
+                }
+              },
+              "queryRef": "fColetas.COTAÇÃO",
+              "nativeQueryRef": "COTAÇÃO",
+              "active": true,
+              "displayName": "COTAÇÃO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "NUMERO_COLETA"
+                }
+              },
+              "queryRef": "fColetas.NÚMERO COLETA",
+              "nativeQueryRef": "COLETA",
+              "active": false,
+              "displayName": "COLETA"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "ID"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.ID)",
+              "nativeQueryRef": "ID",
+              "displayName": "ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CLIENTE_PRINCIPAL"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.CLIENTE_PRINCIPAL)",
+              "nativeQueryRef": "CLIENTE PRINCIPAL",
+              "displayName": "CLIENTE PRINCIPAL"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PAGADOR"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PAGADOR)",
+              "nativeQueryRef": "PAGADOR",
+              "displayName": "PAGADOR"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "OPERACAO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.OPERACAO)",
+              "nativeQueryRef": "OPERACAO",
+              "displayName": "OPERACAO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CURVA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.CURVA)",
+              "nativeQueryRef": "CURVA",
+              "displayName": "CURVA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "ANALISTA MONITORAMENTO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.ANALISTA MONITORAMENTO)",
+              "nativeQueryRef": "ANALISTA MONITORAMENTO",
+              "displayName": "ANALISTA MONITORAMENTO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PREVISAO_DE_COLETA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PREVISAO_DE_COLETA)",
+              "nativeQueryRef": "PREVISAO COLETA",
+              "displayName": "PREVISAO COLETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PREVISAO_DE_COLETA_HORA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PREVISAO_DE_COLETA_HORA)",
+              "nativeQueryRef": "PREVISAO COLETA HORA",
+              "displayName": "PREVISAO COLETA HORA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "DATA_DA_COLETA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.DATA_DA_COLETA)",
+              "nativeQueryRef": "DATA COLETA",
+              "displayName": "DATA COLETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "DATA_DA_COLETA_HORA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.DATA_DA_COLETA_HORA)",
+              "nativeQueryRef": "DATA COLETA HORA",
+              "displayName": "DATA COLETA HORA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PERFORMANCE_DE_COLETA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PERFORMANCE_DE_COLETA)",
+              "nativeQueryRef": "PERFORMANCE COLETA",
+              "displayName": "PERFORMANCE COLETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas Coleta"
+                        }
+                      },
+                      "Property": "Abonar?"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas Coleta.Abonar?)",
+              "nativeQueryRef": "Abonar Coleta?",
+              "displayName": "Abonar Coleta?"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas Coleta"
+                        }
+                      },
+                      "Property": "Responsável Atraso"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas Coleta.Responsável Atraso)",
+              "nativeQueryRef": "Responsável Atraso Coleta",
+              "displayName": "Responsável Atraso Coleta"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas Coleta"
+                        }
+                      },
+                      "Property": "Abertura"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas Coleta.Abertura)",
+              "nativeQueryRef": "Abertura Atraso Coleta",
+              "displayName": "Abertura Atraso Coleta"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas Coleta"
+                        }
+                      },
+                      "Property": "DESCRICAO DO OCORRIDO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas Coleta.DESCRICAO DO OCORRIDO)",
+              "nativeQueryRef": "DESCRICAO DO OCORRIDO",
+              "displayName": "DESCRICAO DO OCORRIDO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "SITUACAO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.SITUAÇÃO COLETA)",
+              "nativeQueryRef": "SITUAÇÃO COLETA",
+              "displayName": "SITUAÇÃO COLETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "INSTRUCAO_SITUACAO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.INSTRUCAO_SITUACAO)",
+              "nativeQueryRef": "SITUAÇÃO ENTREGA",
+              "displayName": "SITUAÇÃO ENTREGA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "USUARIO_ULTIMA_OCORRENCIA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.USUARIO_ULTIMA_OCORRENCIA)",
+              "nativeQueryRef": "USUARIO ULTIMA OCORRENCIA",
+              "displayName": "USUARIO ULTIMA OCORRENCIA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "ULTIMA_OCORRENCIA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.ULTIMA_OCORRENCIA)",
+              "nativeQueryRef": "ÚLTIMA OCORRÊNCIA",
+              "displayName": "ÚLTIMA OCORRÊNCIA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CTRC"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.CTRC)",
+              "nativeQueryRef": "CTRC",
+              "displayName": "CTRC"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "DESCRICAO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.DESCRICAO)",
+              "nativeQueryRef": "TIPOLOGIA",
+              "displayName": "TIPOLOGIA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "REGIAO_REMETENTE"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.Região Remetente)",
+              "nativeQueryRef": "Região Remetente",
+              "displayName": "Região Remetente"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "UF_REMETENTE"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.UF_REMETENTE)",
+              "nativeQueryRef": "UF REMETENTE",
+              "displayName": "UF REMETENTE"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CIDADE_REMETENTE"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.CIDADE_REMETENTE)",
+              "nativeQueryRef": "CIDADE REMETENTE",
+              "displayName": "CIDADE REMETENTE"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "REGIAO_DESTINO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.REGIAO_DESTINO)",
+              "nativeQueryRef": "REGIAO_DESTINO",
+              "displayName": "REGIAO_DESTINO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "UF_DESTINO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.UF_DESTINO)",
+              "nativeQueryRef": "UF_DESTINO",
+              "displayName": "UF_DESTINO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CIDADE_DESTINO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.CIDADE_DESTINO)",
+              "nativeQueryRef": "CIDADE_DESTINO",
+              "displayName": "CIDADE_DESTINO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "VÍNCULO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.VÍNCULO)",
+              "nativeQueryRef": "VÍNCULO",
+              "displayName": "VÍNCULO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "MOTORISTA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.MOTORISTA)",
+              "nativeQueryRef": "MOTORISTA",
+              "displayName": "MOTORISTA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PLACA_CARRETA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PLACA_CARRETA)",
+              "nativeQueryRef": "PLACA_CARRETA",
+              "displayName": "PLACA_CARRETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PLACA_CAVALO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PLACA_CAVALO)",
+              "nativeQueryRef": "PLACA_CAVALO",
+              "displayName": "PLACA_CAVALO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PREVISAO_DE_ENTREGA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PREVISAO_DE_ENTREGA)",
+              "nativeQueryRef": "PREVISAO_DE_ENTREGA",
+              "displayName": "PREVISAO_DE_ENTREGA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PREVISAO_DE_ENTREGA_HORA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PREVISAO_DE_ENTREGA_HORA)",
+              "nativeQueryRef": "PREVISAO_DE_ENTREGA_HORA",
+              "displayName": "PREVISAO_DE_ENTREGA_HORA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "DATA_E_HORA_DE_ENTREGA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.DATA_E_HORA_DE_ENTREGA)",
+              "nativeQueryRef": "DATA_E_HORA_DE_ENTREGA",
+              "displayName": "DATA_E_HORA_DE_ENTREGA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PERFORMANCE_DE_ENTREGA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(fColetas.PERFORMANCE_DE_ENTREGA)",
+              "nativeQueryRef": "PERFORMANCE_DE_ENTREGA",
+              "displayName": "PERFORMANCE_DE_ENTREGA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas de Entrega"
+                        }
+                      },
+                      "Property": "Abonar?"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas de Entrega.Abonar?)",
+              "nativeQueryRef": "Abonar Entrega?",
+              "displayName": "Abonar Entrega?"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas de Entrega"
+                        }
+                      },
+                      "Property": "Responsável Atraso"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas de Entrega.Responsável Atraso)",
+              "nativeQueryRef": "Responsável Atraso Entrega",
+              "displayName": "Responsável Atraso Entrega"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas de Entrega"
+                        }
+                      },
+                      "Property": "Abertura"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas de Entrega.Abertura)",
+              "nativeQueryRef": "Abertura Atraso Entrega",
+              "displayName": "Abertura Atraso Entrega"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Justificativas de Entrega"
+                        }
+                      },
+                      "Property": "DESCRICAO DO OCORRIDO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Justificativas de Entrega.DESCRICAO DO OCORRIDO)",
+              "nativeQueryRef": "DESCRICAO DO OCORRIDO1",
+              "displayName": "DESCRICAO DO OCORRIDO"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fColetas"
+                      }
+                    },
+                    "Property": "PREVISAO_DE_COLETA"
+                  }
+                },
+                "Function": 3
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "fColetas.COTAÇÃO"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "COTACAO"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "fColetas.NÚMERO COLETA"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "NUMERO_COLETA"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "fColetas.COTAÇÃO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "182.27273662747604D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ANALISTA MONITORAMENTO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.6284954912063D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CLIENTE_PRINCIPAL)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.58824017465767D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ID)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.27274716139053D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PREVISAO_DE_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.45453342600055D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PREVISAO_DE_COLETA_HORA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150.6363655487356D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.Responsável Atraso)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "214.48458373526793D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.Abertura)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "586.4799736803699D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.DESCRICAO DO OCORRIDO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "139.81817943775957D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.SITUAÇÃO COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "175.09088517586127D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ULTIMA_OCORRENCIA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "128.36362510210165D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.Região Remetente)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.81817829413173D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.UF_REMETENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "132.27272727272725D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CIDADE_REMETENTE)"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Min(fColetas.VÍNCULO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "163.41176079378707D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PAGADOR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.81822054328478D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.DATA_DA_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "131.7059094122003D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.DATA_DA_COLETA_HORA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "296.88235772919563D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.INSTRUCAO_SITUACAO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "172.4706062153478D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.USUARIO_ULTIMA_OCORRENCIA)"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CLIENTE_PRINCIPAL)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ID)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CURVA)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ANALISTA MONITORAMENTO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PREVISAO_DE_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PREVISAO_DE_COLETA_HORA)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.Responsável Atraso)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.Abertura)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.DESCRICAO DO OCORRIDO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.SITUAÇÃO COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ULTIMA_OCORRENCIA)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.DESCRICAO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.Região Remetente)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.UF_REMETENTE)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CIDADE_REMETENTE)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.VÍNCULO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.USUARIO_ULTIMA_OCORRENCIA)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.DATA_DA_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.DATA_DA_COLETA_HORA)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PAGADOR)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.REGIAO_DESTINO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.UF_DESTINO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CIDADE_DESTINO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CTRC)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.INSTRUCAO_SITUACAO)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PERFORMANCE_DE_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.dMotoristas.UF)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.dMotoristas.Cidade)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fColetas.dMotoristas.DDD_Celular)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fColetas.dMotoristas.Celular)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fColetas.dMotoristas.DDD_Fone_Pessoal_1)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fColetas.dMotoristas.Fone_Pessoal_1)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fColetas.dMotoristas.DDD_Fone_Residencial)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fColetas.dMotoristas.Fone_Residencial)"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "steppedLayoutIndentation": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "repeatRowHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tabular'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "blankRows": [
+        {
+          "properties": {
+            "showBlankRows": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3e4e88a7422067a6f611",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fColetas"
+              }
+            },
+            "Property": "PERFORMANCE_DE_COLETA"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "9caed9d115bc6b449ab1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fColetas"
+              }
+            },
+            "Property": "ULTIMA_OCORRENCIA"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

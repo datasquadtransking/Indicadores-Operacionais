@@ -1,0 +1,196 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "ad38772a7602561c6205",
+  "position": {
+    "x": 744.54545454545462,
+    "y": 1365,
+    "z": 21000,
+    "height": 486.81818181818187,
+    "width": 1204.0909090909092,
+    "tabOrder": 22000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justificativas de Entrega"
+                    }
+                  },
+                  "Property": "NÚMERO COLETA"
+                }
+              },
+              "queryRef": "Justificativas de Entrega.NÚMERO COLETA",
+              "nativeQueryRef": "NÚMERO COLETA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justificativas de Entrega"
+                    }
+                  },
+                  "Property": "Responsável Atraso"
+                }
+              },
+              "queryRef": "Justificativas de Entrega.Responsável Atraso",
+              "nativeQueryRef": "Responsável Atraso"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justificativas de Entrega"
+                    }
+                  },
+                  "Property": "DESCRICAO DO OCORRIDO"
+                }
+              },
+              "queryRef": "Justificativas de Entrega.DESCRICAO DO OCORRIDO",
+              "nativeQueryRef": "DESCRICAO DO OCORRIDO"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Justificativas de Entrega"
+                  }
+                },
+                "Property": "DESCRICAO DO OCORRIDO"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3f400ea6c7df07b4065a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Justificativas de Entrega"
+              }
+            },
+            "Property": "Abonar?"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "f23304df975220420e9c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Justificativas de Entrega"
+              }
+            },
+            "Property": "Responsável Atraso"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "j",
+              "Entity": "Justificativas de Entrega",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "j"
+                              }
+                            },
+                            "Property": "Responsável Atraso"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'SISTEMA'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

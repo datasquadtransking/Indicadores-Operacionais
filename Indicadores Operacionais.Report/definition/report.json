@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.0.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU05",
+      "reportVersionAtImport": {
+        "visual": "1.8.90",
+        "report": "2.0.90",
+        "page": "1.3.90"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "visible": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "ScrollingTextVisual1448795304508",
+    "textFilter25A4896A83E0487089E2B90C9AE57C8A",
+    "WordCloud1447959067750"
+  ],
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "5d6cfd9b-de16-4b1d-be0b-3fec924000687088147914.png",
+          "path": "5d6cfd9b-de16-4b1d-be0b-3fec924000687088147914.png",
+          "type": "Image"
+        },
+        {
+          "name": "Controller_Prev23757592439471464.png",
+          "path": "Controller_Prev23757592439471464.png",
+          "type": "Image"
+        },
+        {
+          "name": "Design_sem_nome06032090791919642.png",
+          "path": "Design_sem_nome06032090791919642.png",
+          "type": "Image"
+        },
+        {
+          "name": "Relat_rio_Coleta13978956798327324.svg",
+          "path": "Relat_rio_Coleta13978956798327324.svg",
+          "type": "Image"
+        },
+        {
+          "name": "filter1846265856383804.png",
+          "path": "filter1846265856383804.png",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24SU05",
+          "path": "BaseThemes/CY24SU05.json",
+          "type": "BaseTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": false,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": false
+  }
+}
