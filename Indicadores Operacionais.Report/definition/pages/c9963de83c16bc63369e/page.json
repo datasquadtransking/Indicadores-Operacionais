@@ -2,76 +2,14 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "c9963de83c16bc63369e",
   "displayName": "UnileverD0",
-  "displayOption": "ActualSize",
-  "height": 600,
+  "displayOption": "FitToPage",
+  "height": 930,
   "width": 1280,
   "filterConfig": {
     "filters": [
       {
-        "name": "c2e75106fe9ca015268b",
-        "ordinal": 0,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fColetas"
-              }
-            },
-            "Property": "CLIENTE_PRINCIPAL"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "f",
-              "Entity": "fColetas",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "f"
-                          }
-                        },
-                        "Property": "CLIENTE_PRINCIPAL"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'UNILEVER BRASIL LTDA.'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        }
-      },
-      {
         "name": "06f22d352ef7065167c7",
-        "ordinal": 1,
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
@@ -208,7 +146,7 @@
       },
       {
         "name": "a20e65929868028e20d7",
-        "ordinal": 2,
+        "ordinal": 1,
         "field": {
           "Column": {
             "Expression": {
@@ -267,6 +205,80 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "6618eff055ce79531387",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fColetas"
+              }
+            },
+            "Property": "CLIENTE_PRINCIPAL"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "fColetas",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "f"
+                              }
+                            },
+                            "Property": "CLIENTE_PRINCIPAL"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'TRANSKING'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
     "filterSortOrder": "Custom"
@@ -423,5 +435,92 @@
       }
     ]
   },
-  "visibility": "HiddenInViewMode"
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "65e210d9022444c33684",
+      "target": "a30b09bee799d2ade195",
+      "type": "DataFilter"
+    },
+    {
+      "source": "65e210d9022444c33684",
+      "target": "b592da614e34e90e8328",
+      "type": "NoFilter"
+    },
+    {
+      "source": "65e210d9022444c33684",
+      "target": "b0c54de55e05a04461c7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b0c54de55e05a04461c7",
+      "target": "65e210d9022444c33684",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b0c54de55e05a04461c7",
+      "target": "a30b09bee799d2ade195",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b0c54de55e05a04461c7",
+      "target": "b592da614e34e90e8328",
+      "type": "DataFilter"
+    },
+    {
+      "source": "b592da614e34e90e8328",
+      "target": "a30b09bee799d2ade195",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b592da614e34e90e8328",
+      "target": "65e210d9022444c33684",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b592da614e34e90e8328",
+      "target": "b0c54de55e05a04461c7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "a30b09bee799d2ade195",
+      "target": "b592da614e34e90e8328",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a30b09bee799d2ade195",
+      "target": "77fbf04e735268a0bb16",
+      "type": "DataFilter"
+    },
+    {
+      "source": "a30b09bee799d2ade195",
+      "target": "63deda90cc482b3b4868",
+      "type": "DataFilter"
+    },
+    {
+      "source": "174c44c3a6b9a00a1c80",
+      "target": "77fbf04e735268a0bb16",
+      "type": "DataFilter"
+    },
+    {
+      "source": "174c44c3a6b9a00a1c80",
+      "target": "b0c54de55e05a04461c7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "47ddf9910c464cc50092",
+      "target": "174c44c3a6b9a00a1c80",
+      "type": "NoFilter"
+    },
+    {
+      "source": "47ddf9910c464cc50092",
+      "target": "a30b09bee799d2ade195",
+      "type": "NoFilter"
+    },
+    {
+      "source": "47ddf9910c464cc50092",
+      "target": "65e210d9022444c33684",
+      "type": "NoFilter"
+    }
+  ]
 }

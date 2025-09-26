@@ -1,0 +1,219 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "b592da614e34e90e8328",
+  "position": {
+    "x": 650,
+    "y": 349.71428571428572,
+    "z": 2,
+    "height": 281.42857142857144,
+    "width": 617.14285714285722,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "PREVISAO_DE_ENTREGA"
+                }
+              },
+              "queryRef": "fColetas.PREVISAO_DE_ENTREGA",
+              "nativeQueryRef": "PREVISAO_DE_ENTREGA",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "CLIENTE_PRINCIPAL"
+                }
+              },
+              "queryRef": "fColetas.CLIENTE_PRINCIPAL",
+              "nativeQueryRef": "CLIENTE",
+              "active": true,
+              "displayName": "CLIENTE"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "PREVISAO_DE_ENTREGA"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(fColetas.PREVISAO_DE_ENTREGA)",
+              "nativeQueryRef": "Contagem de PREVISAO_DE_ENTREGA"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fColetas"
+                      }
+                    },
+                    "Property": "PREVISAO_DE_ENTREGA"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.9595081212251D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.CLIENTE_PRINCIPAL"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PREVISAO_DE_ENTREGA)"
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sparse'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

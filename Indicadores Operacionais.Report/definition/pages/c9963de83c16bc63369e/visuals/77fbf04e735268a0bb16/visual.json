@@ -1,0 +1,161 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "77fbf04e735268a0bb16",
+  "position": {
+    "x": 1074.0546134861875,
+    "y": 639.694291855744,
+    "z": 5,
+    "height": 281.14959000079614,
+    "width": 192.69803359605129,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "CLIENTE_PRINCIPAL"
+                }
+              },
+              "queryRef": "fColetas.CLIENTE_PRINCIPAL",
+              "nativeQueryRef": "CLIENTE",
+              "active": true,
+              "displayName": "CLIENTE"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CLIENTE_PRINCIPAL"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(fColetas.CLIENTE_PRINCIPAL)",
+              "nativeQueryRef": "QTD",
+              "displayName": "QTD"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fColetas"
+                      }
+                    },
+                    "Property": "CLIENTE_PRINCIPAL"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "fColetas.CLIENTE_PRINCIPAL"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "CLIENTE_PRINCIPAL"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'UNILEVER BRASIL LTDA.'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.23852681921053D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.CLIENTE_PRINCIPAL"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sparse'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

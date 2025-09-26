@@ -1,0 +1,269 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "a30b09bee799d2ade195",
+  "position": {
+    "x": 24,
+    "y": 350,
+    "z": 0,
+    "height": 280,
+    "width": 616
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "PREVISAO_DE_COLETA"
+                }
+              },
+              "queryRef": "fColetas.PREVISAO_DE_COLETA",
+              "nativeQueryRef": "PREVISAO_DE_COLETA",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "CLIENTE_PRINCIPAL"
+                }
+              },
+              "queryRef": "fColetas.CLIENTE_PRINCIPAL",
+              "nativeQueryRef": "CLIENTE",
+              "active": true,
+              "displayName": "CLIENTE"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fColetas"
+                        }
+                      },
+                      "Property": "CLIENTE_PRINCIPAL"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(fColetas.CLIENTE_PRINCIPAL)",
+              "nativeQueryRef": "Contagem de CLIENTE_PRINCIPAL"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fColetas"
+                      }
+                    },
+                    "Property": "CLIENTE_PRINCIPAL"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.42214060822596D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.CLIENTE_PRINCIPAL"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CLIENTE_PRINCIPAL)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sparse'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "01d42f8c914c33538d3c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fColetas"
+              }
+            },
+            "Property": "CLIENTE_PRINCIPAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ceb230133bc24ad2ba98",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fColetas"
+                  }
+                },
+                "Property": "CLIENTE_PRINCIPAL"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6f54d3920ab9b0789642",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fColetas"
+              }
+            },
+            "Property": "PREVISAO_DE_COLETA"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

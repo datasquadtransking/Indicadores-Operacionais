@@ -122,7 +122,95 @@ table dClientes
 				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (5)", Table.ColumnNames(#"Transformar Arquivo (5)"(#"Arquivo de Amostra (6)"))),
 				    #"Colunas Removidas1" = Table.RemoveColumns(#"Coluna de Tabela Expandida1",{"Nome da Origem", "0"}),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Colunas Removidas1", [PromoteAllScalars=true]),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CNPJ PRINCIPAL", Int64.Type}, {"CNPJ CLIENTE", Int64.Type}, {"NOME CLIENTE", type text}, {"CEP", Int64.Type}, {"CIDADE", type text}, {"UF", type text}, {"FIL", type text}, {"ULTMOVIM", type date}})
+				
+				    // Substituições encadeadas
+				    #"Valor Substituído" =
+				        Table.ReplaceValue(
+				            Table.ReplaceValue(
+				                Table.ReplaceValue(
+				                    Table.ReplaceValue(
+				                        Table.ReplaceValue(
+				                            Table.ReplaceValue(
+				                                Table.ReplaceValue(
+				                                    Table.ReplaceValue(
+				                                        Table.ReplaceValue(
+				                                            Table.ReplaceValue(
+				                                                Table.ReplaceValue(
+				                                                    Table.ReplaceValue(
+				                                                        Table.ReplaceValue(
+				                                                            Table.ReplaceValue(
+				                                                                Table.ReplaceValue(
+				                                                                    Table.ReplaceValue(
+				                                                                        Table.ReplaceValue(
+				                                                                            Table.ReplaceValue(
+				                                                                                Table.ReplaceValue(
+				                                                                                    Table.ReplaceValue(
+				                                                                                        #"Cabeçalhos Promovidos",
+				                                                                                        "LG ELECTRONICS DO BRASIL LTDA", "LG", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                                                    ),
+				                                                                                    "ETIC DISTRIBUIDORA HCP LTDA", "ETIC", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                                                ),
+				                                                                                "ANTILHAS EMBALAGENS EDITORA E GRAFICA LTDA", "ANTILHAS", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                                            ),
+				                                                                            "FINI COMERCIALIZADORA LTDA", "FINI", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                                        ),
+				                                                                        "HEALTH LOGISTICA HOSPITALAR SA", "VIVEO", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                                    ),
+				                                                                    "HISENSE GORENJE DO BRASIL IMP", "HISENSE", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                                ),
+				                                                                "INGLEZA INDUSTRIA DE PRODUTOS", "INGLEZA", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                            ),
+				                                                            "JV FRITAIS INDUSTRIA E COMERCI", "JV FRITAIS", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                        ),
+				                                                        "MAGAZINE LUIZA S/A", "MAGAZINE", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                    ),
+				                                                    "MARLUVAS EQUIPAMENTOS DE SEGUR", "MARLUVAS", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                                ),
+				                                                "MARY KAY DO BRASIL LTDA", "MARY KAY", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                            ),
+				                                            "MATTEL DO BRASIL LTDA", "MATTEL", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                        ),
+				                                        "MILI S/A", "MILI", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                    ),
+				                                    "MIMO IMPORTACAO E EXPORTACAO LTDA", "MIMO", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                                ),
+				                                "MK ELETRODOMESTICOS MONDIAL SA", "MK", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                            ),
+				                            "PEGAKI TECNOLOGIA DE ENTREGAS", "PEGAKI", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                        ),
+				                        "PROCTER   GAMBLE DO BRASIL S.A.", "P&G", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                    ),
+				                    "RECKITT BENCKISER ( BRASIL) COMERCIAL DE PROD.", "RECKITT", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				                ),
+				                "SAMSUNG SDS GLOBAL SCL LATIN AM LOG LTDA", "SAMSUNG", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				            ),
+				            "SUPORTE ARMAZENAGEM", "SUPORTE", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				        ),
+				
+				    #"Valor Substituído Final" =
+				        Table.ReplaceValue(
+				            Table.ReplaceValue(
+				                #"Valor Substituído",
+				                "UNILEVER BRASIL LTDA.", "UNILEVER", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				            ),
+				            "UNION MEDIC COMERCIO E REPRESE", "UNION", Replacer.ReplaceText, {"NOME CLIENTE PRINCIPAL"}
+				        ),
+				
+				    // Ajuste: aqui precisa apontar para o último passo válido (Valor Substituído Final)
+				    #"Tipo Alterado" =
+				        Table.TransformColumnTypes(
+				            #"Valor Substituído Final",
+				            {
+				                {"CNPJ PRINCIPAL", Int64.Type},
+				                {"CNPJ CLIENTE", Int64.Type},
+				                {"NOME CLIENTE", type text},
+				                {"CEP", Int64.Type},
+				                {"CIDADE", type text},
+				                {"UF", type text},
+				                {"FIL", type text},
+				                {"ULTMOVIM", type date}
+				            }
+				        )
 				in
 				    #"Tipo Alterado"
 

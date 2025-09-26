@@ -473,7 +473,7 @@ table fColetas
 
 	column PREVISAO_DE_ENTREGA
 		dataType: dateTime
-		formatString: Short Date
+		formatString: dd/mm/yy
 		lineageTag: ec8ab92d-3518-4772-9a8d-c9bfd94e12d4
 		summarizeBy: none
 		sourceColumn: PREVISAO_DE_ENTREGA
@@ -481,6 +481,8 @@ table fColetas
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column PREVISAO_DE_ENTREGA_HORA
 		dataType: dateTime
@@ -858,10 +860,12 @@ table fColetas
 			RETURN
 			    SWITCH(
 			        TRUE(),
-			        DataPrevisao = DataHoje, "Coleta hoje",
-			        DataPrevisao = DataHoje + 1, "Coletar amanhã",
-			        DataPrevisao = DataHoje + 2, "Coletar depois de amanhã",
-			        DataPrevisao = DataHoje - 1, "Coletar ontem",
+			        DataPrevisao = DataHoje, "2.Coletar hoje",
+			        DataPrevisao = DataHoje + 1, "3.Coletar amanhã",
+			        DataPrevisao = DataHoje + 2, "4.Coletar depois de amanhã",
+			        DataPrevisao = DataHoje - 1, " 1.Coletar ontem",
+			        DataPrevisao = DataHoje - 2, " 0.Coletar anteontem",
+			
 			        BLANK()
 			    )
 			
@@ -877,13 +881,16 @@ table fColetas
 			VAR DataPrevisao = 'fColetas'[PREVISAO_DE_ENTREGA]
 			RETURN
 			    SWITCH(
-			        TRUE(),
-			        DataPrevisao = DataHoje, "Entrega hoje",
-			        DataPrevisao = DataHoje + 1, "Entregar amanhã",
-			        DataPrevisao = DataHoje + 2, "Entregar depois de amanhã",
-			        DataPrevisao = DataHoje - 1, "Entregar ontem",
+			         TRUE(),
+			        DataPrevisao = DataHoje, "2.Entregar hoje",
+			        DataPrevisao = DataHoje + 1, "3.Entregar amanhã",
+			        DataPrevisao = DataHoje + 2, "4.Entregar depois de amanhã",
+			        DataPrevisao = DataHoje - 1, " 1.Entregar ontem",
+			        DataPrevisao = DataHoje - 2, " 0.Entregar anteontem",
+			
 			        BLANK()
 			    )
+			
 			
 			```
 		lineageTag: 85756102-e0b2-476f-a488-403a404d35c5
@@ -1103,7 +1110,7 @@ table fColetas
 				    #"Consultas Mescladas12" = Table.NestedJoin(#"Personalizar1", {"NUMERO_COLETA"}, #"Justificativas de Entrega", {"NÚMERO COLETA"}, "Justificativas de Entrega", JoinKind.LeftOuter),
 				    #"Justificativas de Entrega Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas12", "Justificativas de Entrega", {"Área", "Responsável Atraso", "Abertura", "DESCRICAO DO OCORRIDO", "Abonar?"}, {"Justificativas de Entrega.Área", "Justificativas de Entrega.Responsável Atraso", "Justificativas de Entrega.Abertura", "Justificativas de Entrega.DESCRICAO DO OCORRIDO", "Justificativas de Entrega.Abonar?"}),
 				    #"Duplicatas Removidas" = Table.Distinct(#"Justificativas de Entrega Expandido", {"NUMERO_COLETA"}),
-				    #"Linhas Filtradas1" = Table.SelectRows(#"Duplicatas Removidas", each ([PAGADOR] <> "AMAZON LOGISTICA DO BRASIL LTD" and [PAGADOR] <> "AMAZON SERV DE VAREJO DO BRASI" and [PAGADOR] <> "AMAZON SERVICOS DE VAREJO DO B" and [PAGADOR] <> "EBAZAR" and [PAGADOR] <> "EBAZAR.COM.BR LTDA" and [PAGADOR] <> "EBAZAR.COM.BR. LTDA" and [PAGADOR] <> "EBAZAR.COM.BR.LTDA"  and [PAGADOR] <> "MERCADO ENVIOS SERV DE LOG LTD" and [PAGADOR] <> "MERCADO ENVIOS SERVICOS DE LOG" and [PAGADOR] <> "SHPX LOG LTDA" and [PAGADOR] <> "SHPX LOGISTICA LTDA.")),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Duplicatas Removidas", each ([PAGADOR] <> "AMAZON LOGISTICA DO BRASIL LTD" and [PAGADOR] <> "AMAZON SERV DE VAREJO DO BRASI" and [PAGADOR] <> "AMAZON SERVICOS DE VAREJO DO B" and [PAGADOR] <> "EBAZAR" and [PAGADOR] <> "EBAZAR.COM.BR LTDA" and [PAGADOR] <> "EBAZAR.COM.BR. LTDA" and [PAGADOR] <> "EBAZAR.COM.BR.LTDA" and [PAGADOR] <> "MERCADO ENVIOS SERV DE LOG LTD" and [PAGADOR] <> "MERCADO ENVIOS SERVICOS DE LOG" and [PAGADOR] <> "SHPX LOG LTDA" and [PAGADOR] <> "SHPX LOGISTICA LTDA.") and ([USUARIO] <> "arthurb" and [USUARIO] <> "matheusc" and [USUARIO] <> "weslley")),
 				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Linhas Filtradas1", "DataHoraInclusao", each Text.Combine({Text.From([DATA_INCLUSAO], "pt-BR"), Text.From([HORA_INCLUSAO], "pt-BR")}, " "), type text)
 				in
 				    #"Coluna Mesclada Inserida"

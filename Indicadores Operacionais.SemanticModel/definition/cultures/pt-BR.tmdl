@@ -4516,7 +4516,8 @@ cultureInfo pt-BR
 			            "Weight": 0.714
 			          }
 			        }
-			      ]
+			      ],
+			      "NameType": "Identifier"
 			    },
 			    "f_coleta.NOPRAZO_COLETA_pedro": {
 			      "Definition": {
@@ -8350,16 +8351,6 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.9
 			          }
-			        },
-			        {
-			          "EntHora": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ],
 			      "SemanticType": "Time"
@@ -11321,16 +11312,6 @@ cultureInfo pt-BR
 			        },
 			        {
 			          "Programação de Entrega": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "PrevEntrega": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -23045,7 +23026,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "TimeInput": {
+			          "Dif": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -23639,42 +23620,25 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "f_coleta.rota": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fColetas",
+			          "ConceptualProperty": "Rota"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rota": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "f_ocorrencias_cheg_na_coleta_data_ultima_ocorrencia_hierarquia_de_data_has_f_ocorrencias_cheg_na_coleta_data_ultima_ocorrencia_dia": {
-			      "Binding": {
-			        "ConceptualEntity": "fOcorrencias_ChegNaColeta"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.hierarquia_de_data"
-			          }
-			        },
-			        "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.dia": {
-			          "Target": {
-			            "Entity": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.dia"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.hierarquia_de_data"
-			            },
-			            "Object": {
-			              "Role": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.dia"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias"
-			        }
-			      ]
-			    },
 			    "f_ocorrencias_cheg_na_coleta_data_ultima_ocorrencia_hierarquia_de_data_has_f_ocorrencias_cheg_na_coleta_data_ultima_ocorrencia_mê": {
 			      "Binding": {
 			        "ConceptualEntity": "fOcorrencias_ChegNaColeta"
@@ -24034,7 +23998,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias1"
+			          "ID": "hierarquia_de_data_have_dias"
 			        }
 			      ]
 			    },
@@ -24397,7 +24361,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias2"
+			          "ID": "hierarquia_de_data_have_dias1"
 			        }
 			      ]
 			    },
@@ -24760,7 +24724,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias3"
+			          "ID": "hierarquia_de_data_have_dias2"
 			        }
 			      ]
 			    },
@@ -25123,7 +25087,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias4"
+			          "ID": "hierarquia_de_data_have_dias3"
 			        }
 			      ]
 			    },
@@ -25486,7 +25450,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias5"
+			          "ID": "hierarquia_de_data_have_dias4"
 			        }
 			      ]
 			    },
@@ -25849,7 +25813,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias6"
+			          "ID": "hierarquia_de_data_have_dias5"
 			        }
 			      ]
 			    },
@@ -26212,7 +26176,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias7"
+			          "ID": "hierarquia_de_data_have_dias6"
 			        }
 			      ]
 			    },
@@ -26575,7 +26539,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias8"
+			          "ID": "hierarquia_de_data_have_dias7"
 			        }
 			      ]
 			    },
@@ -26938,7 +26902,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias9"
+			          "ID": "hierarquia_de_data_have_dias8"
 			        }
 			      ]
 			    },
@@ -27301,7 +27265,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias10"
+			          "ID": "hierarquia_de_data_have_dias9"
 			        }
 			      ]
 			    },
@@ -27664,7 +27628,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias11"
+			          "ID": "hierarquia_de_data_have_dias10"
 			        }
 			      ]
 			    },
@@ -28027,7 +27991,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias12"
+			          "ID": "hierarquia_de_data_have_dias11"
 			        }
 			      ]
 			    },
@@ -28390,7 +28354,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias13"
+			          "ID": "hierarquia_de_data_have_dias12"
 			        }
 			      ]
 			    },
@@ -28753,7 +28717,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias14"
+			          "ID": "hierarquia_de_data_have_dias13"
 			        }
 			      ]
 			    },
@@ -29116,7 +29080,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias15"
+			          "ID": "hierarquia_de_data_have_dias14"
 			        }
 			      ]
 			    },
@@ -29479,7 +29443,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias16"
+			          "ID": "hierarquia_de_data_have_dias15"
 			        }
 			      ]
 			    },
@@ -29842,7 +29806,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias17"
+			          "ID": "hierarquia_de_data_have_dias16"
 			        }
 			      ]
 			    },
@@ -30205,7 +30169,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias18"
+			          "ID": "hierarquia_de_data_have_dias17"
 			        }
 			      ]
 			    },
@@ -30568,7 +30532,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias19"
+			          "ID": "hierarquia_de_data_have_dias18"
 			        }
 			      ]
 			    },
@@ -30931,7 +30895,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias20"
+			          "ID": "hierarquia_de_data_have_dias19"
 			        }
 			      ]
 			    },
@@ -31294,7 +31258,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias21"
+			          "ID": "hierarquia_de_data_have_dias20"
 			        }
 			      ]
 			    },
@@ -31657,7 +31621,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias22"
+			          "ID": "hierarquia_de_data_have_dias21"
 			        }
 			      ]
 			    },
@@ -32020,7 +31984,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias23"
+			          "ID": "hierarquia_de_data_have_dias22"
 			        }
 			      ]
 			    },
@@ -32383,7 +32347,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias24"
+			          "ID": "hierarquia_de_data_have_dias23"
 			        }
 			      ]
 			    },
@@ -32746,7 +32710,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias25"
+			          "ID": "hierarquia_de_data_have_dias24"
 			        }
 			      ]
 			    },
@@ -33109,7 +33073,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias26"
+			          "ID": "hierarquia_de_data_have_dias25"
 			        }
 			      ]
 			    },
@@ -33696,6 +33660,39 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "d_clientes_have_f_coletas"
+			        }
+			      ]
+			    },
+			    "f_coleta_has_rota": {
+			      "Binding": {
+			        "ConceptualEntity": "fColetas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_coleta": {
+			          "Target": {
+			            "Entity": "f_coleta"
+			          }
+			        },
+			        "f_coleta.rota": {
+			          "Target": {
+			            "Entity": "f_coleta.rota"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_coleta"
+			            },
+			            "Object": {
+			              "Role": "f_coleta.rota"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_coletas_have_rotas"
 			        }
 			      ]
 			    },
@@ -45503,6 +45500,19 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "f_coletas_have_ID"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "f_coleta"
+			            },
+			            "Name": {
+			              "Role": "f_coleta.ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ID_are_names_IDs_of_f_coletas"
 			        }
 			      ]
 			    },
@@ -50623,6 +50633,39 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "some_justificativas_de_entregas_are_false_justificativas_de_entregas"
+			        }
+			      ]
+			    },
+			    "f_ocorrencias_cheg_na_coleta_data_ultima_ocorrencia_hierarquia_de_data_has_f_ocorrencias_cheg_na_coleta_data_ultima_ocorrencia_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "fOcorrencias_ChegNaColeta"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.hierarquia_de_data"
+			          }
+			        },
+			        "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.dia": {
+			          "Target": {
+			            "Entity": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "f_ocorrencias_cheg_na_coleta.data_ultima_ocorrencia.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_dias26"
 			        }
 			      ]
 			    },

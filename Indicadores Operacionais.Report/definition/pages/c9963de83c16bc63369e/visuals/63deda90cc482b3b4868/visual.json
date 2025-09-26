@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "f2fe4b44e09fa52f5e64",
+  "name": "63deda90cc482b3b4868",
   "position": {
-    "x": 16,
-    "y": 270,
-    "z": 4000,
-    "height": 314,
-    "width": 1172,
-    "tabOrder": 4000
+    "x": 23.692381179842371,
+    "y": 641.27378393440017,
+    "z": 4,
+    "height": 279.57009792214,
+    "width": 1037.7262956770958,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,21 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fColetas"
+                    }
+                  },
+                  "Property": "NUMERO_COLETA"
+                }
+              },
+              "queryRef": "fColetas.NUMERO_COLETA",
+              "nativeQueryRef": "COLETA",
+              "displayName": "COLETA"
+            },
             {
               "field": {
                 "Column": {
@@ -37,32 +52,26 @@
                       "Entity": "fColetas"
                     }
                   },
-                  "Property": "NUMERO_COLETA"
+                  "Property": "CLIENTE_PRINCIPAL"
                 }
               },
-              "queryRef": "fColetas.NUMERO_COLETA",
-              "nativeQueryRef": "Coleta",
-              "displayName": "Coleta"
+              "queryRef": "fColetas.CLIENTE_PRINCIPAL",
+              "nativeQueryRef": "CLIENTE",
+              "displayName": "CLIENTE"
             },
             {
               "field": {
-                "Aggregation": {
+                "Column": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fColetas"
-                        }
-                      },
-                      "Property": "NUMERO_COLETA"
+                    "SourceRef": {
+                      "Entity": "fColetas"
                     }
                   },
-                  "Function": 5
+                  "Property": "Inc"
                 }
               },
-              "queryRef": "CountNonNull(fColetas.NUMERO_COLETA)",
-              "nativeQueryRef": "Qtd1",
-              "displayName": "Qtd"
+              "queryRef": "fColetas.Inc",
+              "nativeQueryRef": "Inc"
             },
             {
               "field": {
@@ -86,27 +95,11 @@
                       "Entity": "fColetas"
                     }
                   },
-                  "Property": "PREVISAO_DE_COLETA"
+                  "Property": "PREV COLETA DT HR"
                 }
               },
-              "queryRef": "fColetas.PREVISAO_DE_COLETA",
-              "nativeQueryRef": "PrevColeta",
-              "displayName": "PrevColeta"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fColetas"
-                    }
-                  },
-                  "Property": "PREVISAO_DE_COLETA_HORA"
-                }
-              },
-              "queryRef": "fColetas.PREVISAO_DE_COLETA_HORA",
-              "nativeQueryRef": "HrPrevColeta",
-              "displayName": "HrPrevColeta"
+              "queryRef": "fColetas.PREV COLETA DT HR",
+              "nativeQueryRef": "PREV COLETA DT HR"
             },
             {
               "field": {
@@ -120,8 +113,8 @@
                 }
               },
               "queryRef": "fColetas.DiferençaLançamento",
-              "nativeQueryRef": "TimeInput",
-              "displayName": "TimeInput"
+              "nativeQueryRef": "Dif",
+              "displayName": "Dif"
             },
             {
               "field": {
@@ -131,12 +124,11 @@
                       "Entity": "fColetas"
                     }
                   },
-                  "Property": "DATA_DA_COLETA"
+                  "Property": "PREV ENTREGA DT HR"
                 }
               },
-              "queryRef": "fColetas.DATA_DA_COLETA",
-              "nativeQueryRef": "DtColetada",
-              "displayName": "DtColetada"
+              "queryRef": "fColetas.PREV ENTREGA DT HR",
+              "nativeQueryRef": "PREV ENTREGA DT HR"
             },
             {
               "field": {
@@ -146,107 +138,495 @@
                       "Entity": "fColetas"
                     }
                   },
-                  "Property": "DATA_DA_COLETA_HORA"
+                  "Property": "Rota"
                 }
               },
-              "queryRef": "fColetas.DATA_DA_COLETA_HORA",
-              "nativeQueryRef": "HrColetada",
-              "displayName": "HrColetada"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dCalendário Entregas"
-                    }
-                  },
-                  "Property": "Date"
-                }
-              },
-              "queryRef": "dCalendário Entregas.Date",
-              "nativeQueryRef": "PrevEntrega",
-              "displayName": "PrevEntrega"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fColetas"
-                    }
-                  },
-                  "Property": "PREVISAO_DE_ENTREGA_HORA"
-                }
-              },
-              "queryRef": "fColetas.PREVISAO_DE_ENTREGA_HORA",
-              "nativeQueryRef": "EntHora",
-              "displayName": "EntHora"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fColetas"
-                    }
-                  },
-                  "Property": "StatusColeta"
-                }
-              },
-              "queryRef": "fColetas.StatusColeta",
-              "nativeQueryRef": "StatusColeta"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fColetas"
-                    }
-                  },
-                  "Property": "StatusEntrega"
-                }
-              },
-              "queryRef": "fColetas.StatusEntrega",
-              "nativeQueryRef": "StatusEntrega"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fColetas"
-                    }
-                  },
-                  "Property": "STATUS_ATUAL"
-                }
-              },
-              "queryRef": "fColetas.STATUS_ATUAL",
-              "nativeQueryRef": "STATUS_ATUAL"
+              "queryRef": "fColetas.Rota",
+              "nativeQueryRef": "Rota"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dCalendário Entregas"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.55578785234368D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.CLIENTE_PRINCIPAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.4384809254351D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Consolidada_.IOD"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "253.14323274827572D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Consolidada_.NM. CLIE. ABRV."
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63.333333333333336D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Coletas SSW.NUMERO_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "121.01697686008526D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Coletas SSW.PAGADOR"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.56473701847666D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Coletas SSW.CURVA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.58415972361976D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Coletas SSW.ULTIMA_OCORRENCIA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Coletas SSW.SITUAÇÃO COLETA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "105.18122772166076D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.CIDADE_REMETENTE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.86770349469748D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.Região Remetente"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.15107103894752D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.PREVISAO_DE_COLETA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "128.24295892793742D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.PREVISAO_DE_COLETA_HORA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.43283131935775D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.DATA_DA_COLETA_HORA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.0194232510022D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.PERFORMANCE_DE_COLETA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.34628897893774D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.ABONAR_COLETA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.50813824111229D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fCotação.USUARIO INCLUSAO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.46153846153845D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PREVISAO_DE_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.09205200507346D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PREVISAO_DE_COLETA_HORA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.26348183254488D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.DATA_DA_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.72939641724227D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.DATA_DA_COLETA_HORA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67.4703680598877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ABONAR_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "206.1820178903618D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CLIENTE_PRINCIPAL)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "202.00143645116395D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PAGADOR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "126.97202797202797D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.PERFORMANCE_DE_COLETA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.36363636363636D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.SITUACAO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127.96503496503496D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ULTIMA_OCORRENCIA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.76923076923077D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.ANALISTA MONITORAMENTO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.0979020979021D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.REGIAO_REMETENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.25874125874125D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.UF_REMETENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.9663558845654D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(fColetas.CIDADE_REMETENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.87678709324112D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.Responsável Atraso)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.18881118881119D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.Abertura)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "162.6013986013986D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Justificativas de Coleta.DESCRICAO DO OCORRIDO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "575.8543187060695D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Justivicativas coletacerta.DESCRICAO DO OCORRIDO"
+          }
+        }
+      ],
       "grid": [
         {
           "properties": {
@@ -410,6 +790,189 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "icon": {
+              "kind": "Icon",
+              "layout": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Before'"
+                  }
+                }
+              },
+              "verticalAlignment": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Top'"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Conditional": {
+                    "Cases": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "fColetas"
+                                      }
+                                    },
+                                    "Property": "PERFORMANCE_DE_COLETA"
+                                  }
+                                },
+                                "Function": 3
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'DENTRO DO PRAZO PARA COLETAR'"
+                              }
+                            }
+                          },
+                          "Annotations": {
+                            "PowerBI.SQExprEvaluationKind": 1,
+                            "PowerBI.SQExprTextOperatorOption": 2
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'Circle75'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "fColetas"
+                                      }
+                                    },
+                                    "Property": "PERFORMANCE_DE_COLETA"
+                                  }
+                                },
+                                "Function": 3
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'NAO COLETADA E EM ATRASO'"
+                              }
+                            }
+                          },
+                          "Annotations": {
+                            "PowerBI.SQExprEvaluationKind": 1,
+                            "PowerBI.SQExprTextOperatorOption": 2
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolLow'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "fColetas"
+                                      }
+                                    },
+                                    "Property": "PERFORMANCE_DE_COLETA"
+                                  }
+                                },
+                                "Function": 3
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'COLETA COM ATRASO'"
+                              }
+                            }
+                          },
+                          "Annotations": {
+                            "PowerBI.SQExprEvaluationKind": 1,
+                            "PowerBI.SQExprTextOperatorOption": 2
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolLow'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "fColetas"
+                                      }
+                                    },
+                                    "Property": "PERFORMANCE_DE_COLETA"
+                                  }
+                                },
+                                "Function": 3
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'COLETA NO PRAZO'"
+                              }
+                            }
+                          },
+                          "Annotations": {
+                            "PowerBI.SQExprEvaluationKind": 1,
+                            "PowerBI.SQExprTextOperatorOption": 2
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolHigh'"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "fColetas.PERFORMANCE_DE_COLETA"
           }
         },
         {
@@ -869,6 +1432,27 @@
             }
           },
           "selector": {
+            "metadata": "fColetas.PERFORMANCE_DE_COLETA"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
             "metadata": "fColetas.ABONAR_COLETA"
           }
         },
@@ -954,6 +1538,20 @@
           },
           "selector": {
             "metadata": "fColetas.DESCRICAO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fColetas.CLIENTE_PRINCIPAL"
           }
         },
         {
@@ -1425,456 +2023,6 @@
             "metadata": "Min(Justificativas de Coleta.Responsável Atraso)"
           }
         }
-      ],
-      "columnWidth": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "129.4384809254351D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Consolidada_.IOD"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "253.14323274827572D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Consolidada_.NM. CLIE. ABRV."
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "63.333333333333336D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(Coletas SSW.NUMERO_COLETA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "121.01697686008526D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Coletas SSW.PAGADOR"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "83.56473701847666D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Coletas SSW.CURVA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "149.58415972361976D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Coletas SSW.ULTIMA_OCORRENCIA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "89D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Coletas SSW.SITUAÇÃO COLETA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "105.18122772166076D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fColetas.CIDADE_REMETENTE"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "129.86770349469748D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fColetas.Região Remetente"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "76.15107103894752D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fColetas.PREVISAO_DE_COLETA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "88.31606725010143D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fColetas.PREVISAO_DE_COLETA_HORA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "82.43283131935775D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fColetas.DATA_DA_COLETA_HORA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "68.34628897893774D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fColetas.ABONAR_COLETA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "82.50813824111229D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fCotação.USUARIO INCLUSAO"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "80.46153846153845D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.PREVISAO_DE_COLETA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "89.09205200507346D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.PREVISAO_DE_COLETA_HORA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "74.26348183254488D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.DATA_DA_COLETA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "83.72939641724227D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.DATA_DA_COLETA_HORA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "67.4703680598877D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.ABONAR_COLETA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "206.1820178903618D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.CLIENTE_PRINCIPAL)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "202.00143645116395D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.PAGADOR)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "126.97202797202797D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.PERFORMANCE_DE_COLETA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "100.36363636363636D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.SITUACAO)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "127.96503496503496D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.ULTIMA_OCORRENCIA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "120.76923076923077D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.ANALISTA MONITORAMENTO)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "102.0979020979021D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.REGIAO_REMETENTE)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "82.25874125874125D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.UF_REMETENTE)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "94.9663558845654D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(fColetas.CIDADE_REMETENTE)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "80.87678709324112D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(Justificativas de Coleta.Responsável Atraso)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "88.18881118881119D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(Justificativas de Coleta.Abertura)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "162.6013986013986D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(Justificativas de Coleta.DESCRICAO DO OCORRIDO)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "575.8543187060695D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Justivicativas coletacerta.DESCRICAO DO OCORRIDO"
-          }
-        }
       ]
     },
     "visualContainerObjects": {
@@ -1990,6 +2138,19 @@
               "expr": {
                 "Literal": {
                   "Value": "92D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AlternatingRowsNew'"
                 }
               }
             }
@@ -2164,19 +2325,6 @@
                       "Percent": 0
                     }
                   }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "stylePreset": [
-        {
-          "properties": {
-            "name": {
-              "expr": {
-                "Literal": {
-                  "Value": "'AlternatingRowsNew'"
                 }
               }
             }
